@@ -1,17 +1,21 @@
 <mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36" version="24.7.17" pages="4">
-  <diagram id="DU7FQu5Jn_OrPMdJMGdT" name="Contexto">
+  <diagram id="DU7FQu5Jn_OrPMdJMGdT" name="Contexto ">
     <mxGraphModel dx="989" dy="532" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
-        <mxCell id="daQghcfNnhDsqNIKZQIB-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=classic;startFill=1;dashed=1;dashPattern=12 12;" parent="1" source="daQghcfNnhDsqNIKZQIB-5" edge="1">
+        <mxCell id="daQghcfNnhDsqNIKZQIB-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=none;startFill=0;dashed=1;dashPattern=12 12;entryX=0;entryY=0.25;entryDx=0;entryDy=0;entryPerimeter=0;exitX=1;exitY=0.25;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" source="daQghcfNnhDsqNIKZQIB-5" edge="1" target="daQghcfNnhDsqNIKZQIB-9">
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="470" y="570" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="440" y="540" />
+              <mxPoint x="440" y="540" />
+            </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="cerlDyl4WJpTGeFAgzrB-4" value="Obtener y enviar cadena de&amp;nbsp;&lt;div&gt;datos y estado por TCP/IP&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="daQghcfNnhDsqNIKZQIB-4" vertex="1" connectable="0">
+        <mxCell id="cerlDyl4WJpTGeFAgzrB-4" value="1. Enviar cadena de&amp;nbsp;&lt;div&gt;datos y estado por TCP/IP&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="daQghcfNnhDsqNIKZQIB-4" vertex="1" connectable="0">
           <mxGeometry x="0.4434" y="2" relative="1" as="geometry">
-            <mxPoint x="-36" y="42" as="offset" />
+            <mxPoint x="-35" y="-18" as="offset" />
           </mxGeometry>
         </mxCell>
         <object placeholders="1" c4Name="Equipo de laboratorio" c4Type="Instrumento de diagnóstico" c4Description="Equipo encargado de enviar resultados médicos en estándar HL7" label="&lt;font style=&quot;font-size: 16px&quot;&gt;&lt;b&gt;%c4Name%&lt;/b&gt;&lt;/font&gt;&lt;div&gt;[%c4Type%]&lt;/div&gt;&lt;br&gt;&lt;div&gt;&lt;font style=&quot;font-size: 11px&quot;&gt;&lt;font color=&quot;#cccccc&quot;&gt;%c4Description%&lt;/font&gt;&lt;/div&gt;" id="daQghcfNnhDsqNIKZQIB-5">
@@ -19,12 +23,7 @@
             <mxGeometry x="70" y="510" width="240" height="120" as="geometry" />
           </mxCell>
         </object>
-        <object placeholders="1" c4Name="Sistema de comunicación e interpretación de mensajes" c4Application="Software System" label="&lt;font style=&quot;font-size: 16px&quot;&gt;&lt;b&gt;&lt;div style=&quot;text-align: left&quot;&gt;%c4Name%&lt;/div&gt;&lt;/b&gt;&lt;/font&gt;&lt;div style=&quot;text-align: left&quot;&gt;[%c4Application%]&lt;/div&gt;" id="daQghcfNnhDsqNIKZQIB-6">
-          <mxCell style="rounded=1;fontSize=11;whiteSpace=wrap;html=1;dashed=1;arcSize=20;fillColor=none;strokeColor=#666666;fontColor=#333333;labelBackgroundColor=none;align=left;verticalAlign=bottom;labelBorderColor=none;spacingTop=0;spacing=10;dashPattern=8 4;metaEdit=1;rotatable=0;perimeter=rectanglePerimeter;noLabel=0;labelPadding=0;allowArrows=0;connectable=0;expand=0;recursiveResize=0;editable=1;pointerEvents=0;absoluteArcSize=1;points=[[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0.25,0],[1,0.5,0],[1,0.75,0],[0.75,1,0],[0.5,1,0],[0.25,1,0],[0,0.75,0],[0,0.5,0],[0,0.25,0]];" parent="1" vertex="1">
-            <mxGeometry x="410" y="480" width="380" height="230" as="geometry" />
-          </mxCell>
-        </object>
-        <object placeholders="1" c4Name="Orión" c4Type="Sistema de software en la nube" c4Description="SaaS" label="&lt;font style=&quot;font-size: 16px&quot;&gt;&lt;b&gt;%c4Name%&lt;/b&gt;&lt;/font&gt;&lt;div&gt;[%c4Type%]&lt;/div&gt;&lt;br&gt;&lt;div&gt;&lt;font style=&quot;font-size: 11px&quot;&gt;&lt;font color=&quot;#cccccc&quot;&gt;%c4Description%&lt;/font&gt;&lt;/div&gt;" id="daQghcfNnhDsqNIKZQIB-7">
+        <object placeholders="1" c4Name="Orión" c4Type="Sistema de software en la nube" c4Description="Servicio en la nube encargado de almacenar los resultados médicos" label="&lt;font style=&quot;font-size: 16px&quot;&gt;&lt;b&gt;%c4Name%&lt;/b&gt;&lt;/font&gt;&lt;div&gt;[%c4Type%]&lt;/div&gt;&lt;br&gt;&lt;div&gt;&lt;font style=&quot;font-size: 11px&quot;&gt;&lt;font color=&quot;#cccccc&quot;&gt;%c4Description%&lt;/font&gt;&lt;/div&gt;" id="daQghcfNnhDsqNIKZQIB-7">
           <mxCell style="rounded=1;whiteSpace=wrap;html=1;labelBackgroundColor=none;fillColor=#8C8496;fontColor=#ffffff;align=center;arcSize=10;strokeColor=#736782;metaEdit=1;resizable=0;points=[[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0.25,0],[1,0.5,0],[1,0.75,0],[0.75,1,0],[0.5,1,0],[0.25,1,0],[0,0.75,0],[0,0.5,0],[0,0.25,0]];" parent="1" vertex="1">
             <mxGeometry x="480" y="280" width="240" height="120" as="geometry" />
           </mxCell>
@@ -34,325 +33,327 @@
             <mxPoint x="600" y="520" as="sourcePoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="cerlDyl4WJpTGeFAgzrB-3" value="Enviar resultados médicos en formato JSON" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="daQghcfNnhDsqNIKZQIB-8" vertex="1" connectable="0">
+        <mxCell id="cerlDyl4WJpTGeFAgzrB-3" value="3. Enviar resultados médicos en&amp;nbsp;&lt;div&gt;formato JSON&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="daQghcfNnhDsqNIKZQIB-8" vertex="1" connectable="0">
           <mxGeometry x="-0.1934" y="-4" relative="1" as="geometry">
-            <mxPoint x="-124" y="-25" as="offset" />
+            <mxPoint x="-4" y="-15" as="offset" />
           </mxGeometry>
         </mxCell>
-        <object placeholders="1" c4Name="Sistema de gestión de mensajes" c4Description="Sistema encargado de interpretar mensajes HL7" label="&lt;font style=&quot;font-size: 16px&quot;&gt;&lt;b&gt;%c4Name%&lt;/b&gt;&lt;/font&gt;&lt;div&gt;[%c4Type%]&lt;/div&gt;&lt;br&gt;&lt;div&gt;&lt;font style=&quot;font-size: 11px&quot;&gt;&lt;font color=&quot;#cccccc&quot;&gt;%c4Description%&lt;/font&gt;&lt;/div&gt;" c4Type="Sistema de software de comunicación" id="daQghcfNnhDsqNIKZQIB-9">
+        <object placeholders="1" c4Name="Sistema de comunicación y interpretación de mensajes" c4Description="Sistema encargado de gestionar e interpretar mensajes HL7" label="&lt;font style=&quot;font-size: 16px&quot;&gt;&lt;b&gt;%c4Name%&lt;/b&gt;&lt;/font&gt;&lt;div&gt;[%c4Type%]&lt;/div&gt;&lt;br&gt;&lt;div&gt;&lt;font style=&quot;font-size: 11px&quot;&gt;&lt;font color=&quot;#cccccc&quot;&gt;%c4Description%&lt;/font&gt;&lt;/div&gt;" c4Type="Sistema de software de comunicación" id="daQghcfNnhDsqNIKZQIB-9">
           <mxCell style="rounded=1;whiteSpace=wrap;html=1;labelBackgroundColor=none;fillColor=#1061B0;fontColor=#ffffff;align=center;arcSize=10;strokeColor=#0D5091;metaEdit=1;resizable=0;points=[[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0.25,0],[1,0.5,0],[1,0.75,0],[0.75,1,0],[0.5,1,0],[0.25,1,0],[0,0.75,0],[0,0.5,0],[0,0.25,0]];" parent="1" vertex="1">
             <mxGeometry x="470" y="510" width="240" height="120" as="geometry" />
           </mxCell>
         </object>
+        <object placeholders="1" c4Name="Diagrama de contexto para un sistema de laboratorios clínicos" c4Type="ContainerScopeBoundary" c4Description="Diagrama de contexto para el sistema de intercambio de resultados médicos entre equipos de laboratorio con estándar HL7  y la base de datos integrada en el sistema de software en la nube denominado como &quot;Orión&quot;." label="&lt;font style=&quot;font-size: 16px&quot;&gt;&lt;b&gt;&lt;div style=&quot;text-align: left&quot;&gt;%c4Name%&lt;/div&gt;&lt;/b&gt;&lt;/font&gt;&lt;div style=&quot;text-align: left&quot;&gt;%c4Description%&lt;/div&gt;" id="pThDEdb6hqvBeR8HCiHa-1">
+          <mxCell style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;metaEdit=1;allowArrows=0;resizable=1;rotatable=0;connectable=0;recursiveResize=0;expand=0;pointerEvents=0;points=[[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0.25,0],[1,0.5,0],[1,0.75,0],[0.75,1,0],[0.5,1,0],[0.25,1,0],[0,0.75,0],[0,0.5,0],[0,0.25,0]];" parent="1" vertex="1">
+            <mxGeometry x="70" y="670" width="740" height="40" as="geometry" />
+          </mxCell>
+        </object>
+        <mxCell id="BIwhpZUUVbuh9qSimilW-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.75;entryDx=0;entryDy=0;entryPerimeter=0;dashed=1;dashPattern=12 12;exitX=0;exitY=0.75;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="daQghcfNnhDsqNIKZQIB-9" target="daQghcfNnhDsqNIKZQIB-5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="5NbI_XsNFj9QL7GUOG4r-1" value="&lt;span style=&quot;color: rgb(0, 0, 0); font-family: Helvetica; font-size: 11px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: center; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: nowrap; background-color: rgb(255, 255, 255); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; display: inline !important; float: none;&quot;&gt;2. Obtener cadena de&amp;nbsp;&lt;/span&gt;&lt;div style=&quot;forced-color-adjust: none; color: rgb(0, 0, 0); font-family: Helvetica; font-size: 11px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: center; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: nowrap; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;&quot;&gt;datos y estado por TCP/IP&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="BIwhpZUUVbuh9qSimilW-1">
+          <mxGeometry x="0.0125" y="1" relative="1" as="geometry">
+            <mxPoint y="-16" as="offset" />
+          </mxGeometry>
+        </mxCell>
       </root>
     </mxGraphModel>
   </diagram>
   <diagram name="Contenedores" id="s0Avh7lSTaXMmb1lb0Ua">
-    <mxGraphModel dx="1195" dy="643" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="989" dy="532" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
-        <mxCell id="mgGEogPoKbZdLvfx2Rlv-12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;startArrow=classic;startFill=1;dashed=1;dashPattern=12 12;" parent="1" source="mgGEogPoKbZdLvfx2Rlv-2" target="mgGEogPoKbZdLvfx2Rlv-3" edge="1">
+        <mxCell id="mgGEogPoKbZdLvfx2Rlv-12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.25;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.25;entryDx=0;entryDy=0;entryPerimeter=0;startArrow=none;startFill=0;dashed=1;dashPattern=12 12;" parent="1" source="mgGEogPoKbZdLvfx2Rlv-2" target="mgGEogPoKbZdLvfx2Rlv-3" edge="1">
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="930" y="470" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="rV4aafG7k77me7kOjVG8-1" value="Obtener y enviar cadena de&amp;nbsp;&lt;div&gt;datos y estado por sockets TCP&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="mgGEogPoKbZdLvfx2Rlv-12">
+        <mxCell id="rV4aafG7k77me7kOjVG8-1" value="2. Enviar cadena de&amp;nbsp;&lt;div&gt;datos y estado por sockets TCP&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="mgGEogPoKbZdLvfx2Rlv-12" vertex="1" connectable="0">
           <mxGeometry x="-0.2059" y="1" relative="1" as="geometry">
-            <mxPoint x="13" y="26" as="offset" />
+            <mxPoint x="20" y="-19" as="offset" />
           </mxGeometry>
         </mxCell>
-        <object placeholders="1" c4Name="Interfaz Middleware" c4Type="Aplicación de escritorio " c4Description="Interfaz encargada de gestionar la comunicación entre equipos de laboratorio y el servicio TCP" label="&lt;font style=&quot;font-size: 16px&quot;&gt;&lt;b&gt;%c4Name%&lt;/b&gt;&lt;/font&gt;&lt;div&gt;[%c4Type%]&lt;/div&gt;&lt;br&gt;&lt;div&gt;&lt;font style=&quot;font-size: 11px&quot;&gt;&lt;font color=&quot;#cccccc&quot;&gt;%c4Description%&lt;/font&gt;&lt;/div&gt;" id="mgGEogPoKbZdLvfx2Rlv-2">
+        <object placeholders="1" c4Name="Interfaz Middleware" c4Type="Aplicación de escritorio " c4Description="Interfaz encargada de gestionar la comunicación entre equipos de laboratorio y el Procesador de resultados clínicos" label="&lt;font style=&quot;font-size: 16px&quot;&gt;&lt;b&gt;%c4Name%&lt;/b&gt;&lt;/font&gt;&lt;div&gt;[%c4Type%]&lt;/div&gt;&lt;br&gt;&lt;div&gt;&lt;font style=&quot;font-size: 11px&quot;&gt;&lt;font color=&quot;#cccccc&quot;&gt;%c4Description%&lt;/font&gt;&lt;/div&gt;" id="mgGEogPoKbZdLvfx2Rlv-2">
           <mxCell style="rounded=1;whiteSpace=wrap;html=1;labelBackgroundColor=none;fillColor=#1061B0;fontColor=#ffffff;align=center;arcSize=10;strokeColor=#0D5091;metaEdit=1;resizable=0;points=[[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0.25,0],[1,0.5,0],[1,0.75,0],[0.75,1,0],[0.5,1,0],[0.25,1,0],[0,0.75,0],[0,0.5,0],[0,0.25,0]];" parent="1" vertex="1">
             <mxGeometry x="640" y="350" width="240" height="120" as="geometry" />
           </mxCell>
         </object>
-        <object placeholders="1" c4Name="Servicio en la nube" c4Type="Servidor TCP" c4Description="Servicio encargado de interpretar mensajes HL7" label="&lt;font style=&quot;font-size: 16px&quot;&gt;&lt;b&gt;%c4Name%&lt;/b&gt;&lt;/font&gt;&lt;div&gt;[%c4Type%]&lt;/div&gt;&lt;br&gt;&lt;div&gt;&lt;font style=&quot;font-size: 11px&quot;&gt;&lt;font color=&quot;#cccccc&quot;&gt;%c4Description%&lt;/font&gt;&lt;/div&gt;" id="mgGEogPoKbZdLvfx2Rlv-3">
+        <object placeholders="1" c4Name="Procesador de resultados clínicos" c4Type="Servidor TCP" c4Description="Servicio encargado de interpretar mensajes HL7" label="&lt;font style=&quot;font-size: 16px&quot;&gt;&lt;b&gt;%c4Name%&lt;/b&gt;&lt;/font&gt;&lt;div&gt;[%c4Type%]&lt;/div&gt;&lt;br&gt;&lt;div&gt;&lt;font style=&quot;font-size: 11px&quot;&gt;&lt;font color=&quot;#cccccc&quot;&gt;%c4Description%&lt;/font&gt;&lt;/div&gt;" id="mgGEogPoKbZdLvfx2Rlv-3">
           <mxCell style="rounded=1;whiteSpace=wrap;html=1;labelBackgroundColor=none;fillColor=#1061B0;fontColor=#ffffff;align=center;arcSize=10;strokeColor=#0D5091;metaEdit=1;resizable=0;points=[[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0.25,0],[1,0.5,0],[1,0.75,0],[0.75,1,0],[0.5,1,0],[0.25,1,0],[0,0.75,0],[0,0.5,0],[0,0.25,0]];" parent="1" vertex="1">
             <mxGeometry x="1070" y="350" width="240" height="120" as="geometry" />
           </mxCell>
         </object>
-        <mxCell id="mgGEogPoKbZdLvfx2Rlv-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;startArrow=classic;startFill=1;dashed=1;dashPattern=12 12;" parent="1" source="mgGEogPoKbZdLvfx2Rlv-5" target="mgGEogPoKbZdLvfx2Rlv-2" edge="1">
+        <mxCell id="mgGEogPoKbZdLvfx2Rlv-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.25;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;startArrow=none;startFill=0;dashed=1;dashPattern=12 12;exitX=0.25;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" source="mgGEogPoKbZdLvfx2Rlv-5" target="mgGEogPoKbZdLvfx2Rlv-2" edge="1">
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="640" y="410" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="94bNvG0TxRYRt9077Jqe-1" value="Obtener y enviar cadena de&amp;nbsp;&lt;div&gt;datos y estado por TCP/IP&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="mgGEogPoKbZdLvfx2Rlv-10">
+        <mxCell id="94bNvG0TxRYRt9077Jqe-1" value="1. Enviar cadena de&amp;nbsp;&lt;div&gt;datos y estado por&amp;nbsp;&lt;/div&gt;&lt;div&gt;TCP/IP&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="mgGEogPoKbZdLvfx2Rlv-10" vertex="1" connectable="0">
           <mxGeometry x="-0.2549" y="-1" relative="1" as="geometry">
-            <mxPoint x="9" y="24" as="offset" />
+            <mxPoint x="1" y="6" as="offset" />
           </mxGeometry>
         </mxCell>
         <object placeholders="1" c4Name="Equipo de laboratorio" c4Type="Instrumento de diagnóstico" c4Description="Equipo encargado de enviar resultados médicos en estándar HL7" label="&lt;font style=&quot;font-size: 16px&quot;&gt;&lt;b&gt;%c4Name%&lt;/b&gt;&lt;/font&gt;&lt;div&gt;[%c4Type%]&lt;/div&gt;&lt;br&gt;&lt;div&gt;&lt;font style=&quot;font-size: 11px&quot;&gt;&lt;font color=&quot;#cccccc&quot;&gt;%c4Description%&lt;/font&gt;&lt;/div&gt;" id="mgGEogPoKbZdLvfx2Rlv-5">
           <mxCell style="rounded=1;whiteSpace=wrap;html=1;labelBackgroundColor=none;fillColor=#8C8496;fontColor=#ffffff;align=center;arcSize=10;strokeColor=#736782;metaEdit=1;resizable=0;points=[[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0.25,0],[1,0.5,0],[1,0.75,0],[0.75,1,0],[0.5,1,0],[0.25,1,0],[0,0.75,0],[0,0.5,0],[0,0.25,0]];" parent="1" vertex="1">
-            <mxGeometry x="210" y="350" width="240" height="120" as="geometry" />
+            <mxGeometry x="640" y="120" width="240" height="120" as="geometry" />
           </mxCell>
         </object>
-        <object placeholders="1" c4Name="Sistema de gestión de mensajes" c4Application="Sistema de software de comunicación" label="&lt;font style=&quot;font-size: 16px&quot;&gt;&lt;b&gt;&lt;div style=&quot;text-align: left&quot;&gt;%c4Name%&lt;/div&gt;&lt;/b&gt;&lt;/font&gt;&lt;div style=&quot;text-align: left&quot;&gt;[%c4Application%]&lt;/div&gt;" id="mgGEogPoKbZdLvfx2Rlv-8">
+        <object placeholders="1" c4Name="Sistema de comunicación e interpretación de mensajes" c4Application="Sistema encargado de gestionar e interpretar mensajes HL7" label="&lt;font style=&quot;font-size: 16px&quot;&gt;&lt;b&gt;&lt;div style=&quot;text-align: left&quot;&gt;%c4Name%&lt;/div&gt;&lt;/b&gt;&lt;/font&gt;&lt;div style=&quot;text-align: left&quot;&gt;[%c4Application%]&lt;/div&gt;" id="mgGEogPoKbZdLvfx2Rlv-8">
           <mxCell style="rounded=1;fontSize=11;whiteSpace=wrap;html=1;dashed=1;arcSize=20;fillColor=none;strokeColor=#666666;fontColor=#333333;labelBackgroundColor=none;align=left;verticalAlign=bottom;labelBorderColor=none;spacingTop=0;spacing=10;dashPattern=8 4;metaEdit=1;rotatable=0;perimeter=rectanglePerimeter;noLabel=0;labelPadding=0;allowArrows=0;connectable=0;expand=0;recursiveResize=0;editable=1;pointerEvents=0;absoluteArcSize=1;points=[[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0.25,0],[1,0.5,0],[1,0.75,0],[0.75,1,0],[0.5,1,0],[0.25,1,0],[0,0.75,0],[0,0.5,0],[0,0.25,0]];" parent="1" vertex="1">
             <mxGeometry x="610" y="320" width="730" height="220" as="geometry" />
           </mxCell>
         </object>
-        <object placeholders="1" c4Name="Orión" c4Type="Cloud Software System" c4Description="SaaS" label="&lt;font style=&quot;font-size: 16px&quot;&gt;&lt;b&gt;%c4Name%&lt;/b&gt;&lt;/font&gt;&lt;div&gt;[%c4Type%]&lt;/div&gt;&lt;br&gt;&lt;div&gt;&lt;font style=&quot;font-size: 11px&quot;&gt;&lt;font color=&quot;#cccccc&quot;&gt;%c4Description%&lt;/font&gt;&lt;/div&gt;" id="mgGEogPoKbZdLvfx2Rlv-13">
+        <object placeholders="1" c4Name="Orión" c4Type="Cloud Software System" c4Description="Servicio en la nube encargado de almacenar los resultados médicos" label="&lt;font style=&quot;font-size: 16px&quot;&gt;&lt;b&gt;%c4Name%&lt;/b&gt;&lt;/font&gt;&lt;div&gt;[%c4Type%]&lt;/div&gt;&lt;br&gt;&lt;div&gt;&lt;font style=&quot;font-size: 11px&quot;&gt;&lt;font color=&quot;#cccccc&quot;&gt;%c4Description%&lt;/font&gt;&lt;/div&gt;" id="mgGEogPoKbZdLvfx2Rlv-13">
           <mxCell style="rounded=1;whiteSpace=wrap;html=1;labelBackgroundColor=none;fillColor=#8C8496;fontColor=#ffffff;align=center;arcSize=10;strokeColor=#736782;metaEdit=1;resizable=0;points=[[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0.25,0],[1,0.5,0],[1,0.75,0],[0.75,1,0],[0.5,1,0],[0.25,1,0],[0,0.75,0],[0,0.5,0],[0,0.25,0]];" parent="1" vertex="1">
-            <mxGeometry x="1070" y="140" width="240" height="120" as="geometry" />
+            <mxGeometry x="1070" y="120" width="240" height="120" as="geometry" />
           </mxCell>
         </object>
         <mxCell id="mgGEogPoKbZdLvfx2Rlv-14" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;entryPerimeter=0;startArrow=none;startFill=0;dashed=1;dashPattern=12 12;" parent="1" source="mgGEogPoKbZdLvfx2Rlv-3" target="mgGEogPoKbZdLvfx2Rlv-13" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="Xd_kJGR4jOe3okQHGOqQ-1" value="Enviar resultados médicos en formato JSON" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="mgGEogPoKbZdLvfx2Rlv-14">
+        <mxCell id="Xd_kJGR4jOe3okQHGOqQ-1" value="5. Enviar resultados médicos en&amp;nbsp;&lt;div&gt;formato JSON&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="mgGEogPoKbZdLvfx2Rlv-14" vertex="1" connectable="0">
           <mxGeometry x="0.2519" y="-1" relative="1" as="geometry">
-            <mxPoint x="19" y="7" as="offset" />
+            <mxPoint x="-1" y="7" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <object placeholders="1" c4Name="Diagrama de contenedor para un sistema de laboratorios clínicos" c4Type="ContainerDiagramTitle" c4Description="Diagrama de contenedor del sistema para el sistema de intercambio de resultados médicos entre equipos de laboratorio y el sistema de software en la nube (Orión)" label="&lt;font style=&quot;font-size: 16px&quot;&gt;&lt;b&gt;&lt;div style=&quot;text-align: left&quot;&gt;%c4Name%&lt;/div&gt;&lt;/b&gt;&lt;/font&gt;&lt;div style=&quot;text-align: left&quot;&gt;%c4Description%&lt;/div&gt;" id="8LInGMu46fI9CBJpxA2J-1">
+          <mxCell style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;metaEdit=1;allowArrows=0;resizable=1;rotatable=0;connectable=0;recursiveResize=0;expand=0;pointerEvents=0;points=[[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0.25,0],[1,0.5,0],[1,0.75,0],[0.75,1,0],[0.5,1,0],[0.25,1,0],[0,0.75,0],[0,0.5,0],[0,0.25,0]];" parent="1" vertex="1">
+            <mxGeometry x="610" y="570" width="720" height="40" as="geometry" />
+          </mxCell>
+        </object>
+        <mxCell id="Fjg_f82uAThRvFtGNkfA-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.75;exitY=0;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.75;entryY=1;entryDx=0;entryDy=0;entryPerimeter=0;dashed=1;dashPattern=12 12;" edge="1" parent="1" source="mgGEogPoKbZdLvfx2Rlv-2" target="mgGEogPoKbZdLvfx2Rlv-5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Fjg_f82uAThRvFtGNkfA-2" value="4. Obtener cadena de&amp;nbsp;&lt;div&gt;datos y estado por&amp;nbsp;&lt;/div&gt;&lt;div&gt;TCP/IP&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="Fjg_f82uAThRvFtGNkfA-1">
+          <mxGeometry x="-0.1455" y="1" relative="1" as="geometry">
+            <mxPoint y="-13" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Fjg_f82uAThRvFtGNkfA-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.75;exitDx=0;exitDy=0;exitPerimeter=0;entryX=1;entryY=0.75;entryDx=0;entryDy=0;entryPerimeter=0;dashed=1;dashPattern=12 12;" edge="1" parent="1" source="mgGEogPoKbZdLvfx2Rlv-3" target="mgGEogPoKbZdLvfx2Rlv-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Fjg_f82uAThRvFtGNkfA-4" value="3. Obtener cadena&amp;nbsp;&lt;div&gt;de&amp;nbsp;datos y estado por sockets TCP&amp;nbsp;&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="Fjg_f82uAThRvFtGNkfA-3">
+          <mxGeometry x="-0.2842" y="1" relative="1" as="geometry">
+            <mxPoint x="-27" y="-21" as="offset" />
           </mxGeometry>
         </mxCell>
       </root>
     </mxGraphModel>
   </diagram>
   <diagram id="RnoH3vGUYC0A0alNQLkn" name="Componente-INTERFAZ">
-    <mxGraphModel dx="1434" dy="1941" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="1195" dy="1812" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
-        <object placeholders="1" c4Name="Servicio en la nube" c4Type="Servidor TCP" c4Description="Servicio encargado de interpretar mensajes HL7" label="&lt;font style=&quot;font-size: 16px&quot;&gt;&lt;b&gt;%c4Name%&lt;/b&gt;&lt;/font&gt;&lt;div&gt;[%c4Type%]&lt;/div&gt;&lt;br&gt;&lt;div&gt;&lt;font style=&quot;font-size: 11px&quot;&gt;&lt;font color=&quot;#cccccc&quot;&gt;%c4Description%&lt;/font&gt;&lt;/div&gt;" id="2z3kxjdY-DA2MFZdqpgI-3">
+        <object placeholders="1" c4Name="Procesador de resultados clínicos" c4Type="Servidor TCP" c4Description="Servicio encargado de interpretar mensajes HL7" label="&lt;font style=&quot;font-size: 16px&quot;&gt;&lt;b&gt;%c4Name%&lt;/b&gt;&lt;/font&gt;&lt;div&gt;[%c4Type%]&lt;/div&gt;&lt;br&gt;&lt;div&gt;&lt;font style=&quot;font-size: 11px&quot;&gt;&lt;font color=&quot;#cccccc&quot;&gt;%c4Description%&lt;/font&gt;&lt;/div&gt;" id="2z3kxjdY-DA2MFZdqpgI-3">
           <mxCell style="rounded=1;whiteSpace=wrap;html=1;labelBackgroundColor=none;fillColor=#1061B0;fontColor=#ffffff;align=center;arcSize=10;strokeColor=#0D5091;metaEdit=1;resizable=0;points=[[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0.25,0],[1,0.5,0],[1,0.75,0],[0.75,1,0],[0.5,1,0],[0.25,1,0],[0,0.75,0],[0,0.5,0],[0,0.25,0]];" parent="1" vertex="1">
-            <mxGeometry x="810" y="180" width="240" height="120" as="geometry" />
+            <mxGeometry x="840" y="180" width="240" height="120" as="geometry" />
           </mxCell>
         </object>
-        <mxCell id="D8CeDZOH6zJJOGhT-8ZT-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;startArrow=classic;startFill=1;dashed=1;dashPattern=12 12;" edge="1" parent="1" source="2z3kxjdY-DA2MFZdqpgI-5" target="1rq3c2WoQSt8GzpMHaN0-8">
+        <mxCell id="D8CeDZOH6zJJOGhT-8ZT-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=none;startFill=0;dashed=1;dashPattern=12 12;exitX=0.25;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.25;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="2z3kxjdY-DA2MFZdqpgI-5" target="1rq3c2WoQSt8GzpMHaN0-8" edge="1">
           <mxGeometry relative="1" as="geometry">
-            <mxPoint x="420" y="170" as="targetPoint" />
+            <mxPoint x="450" y="180" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="q3D9u--vL-kbFKdaR4oE-1" value="Enviar y obtener cadenas de datos y estado por TCP/IP" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="D8CeDZOH6zJJOGhT-8ZT-3">
+        <mxCell id="q3D9u--vL-kbFKdaR4oE-1" value="1. Enviar cadenas&lt;div&gt;de datos y estado por&amp;nbsp;&lt;div&gt;TCP/IP&lt;/div&gt;&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="D8CeDZOH6zJJOGhT-8ZT-3" vertex="1" connectable="0">
           <mxGeometry x="-0.3778" y="1" relative="1" as="geometry">
-            <mxPoint as="offset" />
+            <mxPoint x="-1" y="16" as="offset" />
           </mxGeometry>
         </mxCell>
         <object placeholders="1" c4Name="Equipo de laboratorio" c4Type="Instrumento de diagnóstico" c4Description="Equipo encargado de enviar resultados médicos en estándar HL7" label="&lt;font style=&quot;font-size: 16px&quot;&gt;&lt;b&gt;%c4Name%&lt;/b&gt;&lt;/font&gt;&lt;div&gt;[%c4Type%]&lt;/div&gt;&lt;br&gt;&lt;div&gt;&lt;font style=&quot;font-size: 11px&quot;&gt;&lt;font color=&quot;#cccccc&quot;&gt;%c4Description%&lt;/font&gt;&lt;/div&gt;" id="2z3kxjdY-DA2MFZdqpgI-5">
           <mxCell style="rounded=1;whiteSpace=wrap;html=1;labelBackgroundColor=none;fillColor=#8C8496;fontColor=#ffffff;align=center;arcSize=10;strokeColor=#736782;metaEdit=1;resizable=0;points=[[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0.25,0],[1,0.5,0],[1,0.75,0],[0.75,1,0],[0.5,1,0],[0.25,1,0],[0,0.75,0],[0,0.5,0],[0,0.25,0]];" parent="1" vertex="1">
-            <mxGeometry x="390" y="-30" width="240" height="120" as="geometry" />
+            <mxGeometry x="390" y="-50" width="240" height="120" as="geometry" />
           </mxCell>
         </object>
-        <object placeholders="1" c4Name="Orión" c4Type="Cloud Software System" c4Description="SaaS" label="&lt;font style=&quot;font-size: 16px&quot;&gt;&lt;b&gt;%c4Name%&lt;/b&gt;&lt;/font&gt;&lt;div&gt;[%c4Type%]&lt;/div&gt;&lt;br&gt;&lt;div&gt;&lt;font style=&quot;font-size: 11px&quot;&gt;&lt;font color=&quot;#cccccc&quot;&gt;%c4Description%&lt;/font&gt;&lt;/div&gt;" id="2z3kxjdY-DA2MFZdqpgI-7">
+        <object placeholders="1" c4Name="Orión" c4Type="Cloud Software System" c4Description="Servicio en la nube encargado de almacenar los resultados médicos" label="&lt;font style=&quot;font-size: 16px&quot;&gt;&lt;b&gt;%c4Name%&lt;/b&gt;&lt;/font&gt;&lt;div&gt;[%c4Type%]&lt;/div&gt;&lt;br&gt;&lt;div&gt;&lt;font style=&quot;font-size: 11px&quot;&gt;&lt;font color=&quot;#cccccc&quot;&gt;%c4Description%&lt;/font&gt;&lt;/div&gt;" id="2z3kxjdY-DA2MFZdqpgI-7">
           <mxCell style="rounded=1;whiteSpace=wrap;html=1;labelBackgroundColor=none;fillColor=#8C8496;fontColor=#ffffff;align=center;arcSize=10;strokeColor=#736782;metaEdit=1;resizable=0;points=[[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0.25,0],[1,0.5,0],[1,0.75,0],[0.75,1,0],[0.5,1,0],[0.25,1,0],[0,0.75,0],[0,0.5,0],[0,0.25,0]];" parent="1" vertex="1">
-            <mxGeometry x="810" y="355" width="240" height="120" as="geometry" />
+            <mxGeometry x="840" y="380" width="240" height="120" as="geometry" />
           </mxCell>
         </object>
         <object placeholders="1" c4Name="Interfaz Middleware" c4Type="ContainerScopeBoundary" c4Application="Container" label="&lt;font style=&quot;font-size: 16px&quot;&gt;&lt;b&gt;&lt;div style=&quot;text-align: left&quot;&gt;%c4Name%&lt;/div&gt;&lt;/b&gt;&lt;/font&gt;&lt;div style=&quot;text-align: left&quot;&gt;[%c4Application%]&lt;/div&gt;" id="6zjqX4FDazhAxULEDO-d-1">
           <mxCell style="rounded=1;fontSize=11;whiteSpace=wrap;html=1;dashed=1;arcSize=20;fillColor=none;strokeColor=#666666;fontColor=#333333;labelBackgroundColor=none;align=left;verticalAlign=bottom;labelBorderColor=none;spacingTop=0;spacing=10;dashPattern=8 4;metaEdit=1;rotatable=0;perimeter=rectanglePerimeter;noLabel=0;labelPadding=0;allowArrows=0;connectable=0;expand=0;recursiveResize=0;editable=1;pointerEvents=0;absoluteArcSize=1;points=[[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0.25,0],[1,0.5,0],[1,0.75,0],[0.75,1,0],[0.5,1,0],[0.25,1,0],[0,0.75,0],[0,0.5,0],[0,0.25,0]];" parent="1" vertex="1">
-            <mxGeometry x="80" y="140" width="590" height="570" as="geometry" />
+            <mxGeometry x="340" y="160" width="350" height="390" as="geometry" />
           </mxCell>
         </object>
-        <object placeholders="1" c4Name="Enrutador de mensajes" c4Type="Component" c4Technology="Apache Camel, Spring Integration" c4Description="Enrutar los mensajes entre el equipo de laboratorio y el servicio en la nube" label="&lt;font style=&quot;font-size: 16px&quot;&gt;&lt;b&gt;%c4Name%&lt;/b&gt;&lt;/font&gt;&lt;div&gt;[%c4Type%: %c4Technology%]&lt;/div&gt;&lt;br&gt;&lt;div&gt;&lt;font style=&quot;font-size: 11px&quot;&gt;%c4Description%&lt;/font&gt;&lt;/div&gt;" id="1rq3c2WoQSt8GzpMHaN0-4">
-          <mxCell style="rounded=1;whiteSpace=wrap;html=1;labelBackgroundColor=none;fillColor=#63BEF2;fontColor=#ffffff;align=center;arcSize=6;strokeColor=#2086C9;metaEdit=1;resizable=0;points=[[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0.25,0],[1,0.5,0],[1,0.75,0],[0.75,1,0],[0.5,1,0],[0.25,1,0],[0,0.75,0],[0,0.5,0],[0,0.25,0]];" vertex="1" parent="1">
-            <mxGeometry x="300" y="380" width="240" height="120" as="geometry" />
+        <object placeholders="1" c4Name="Controlador de auditoría de estados y errores" c4Type="Component" c4Technology="log4j2, Spring Boot + Actuator" c4Description="Monitorear y registrar el estado de la comunicación y errores" label="&lt;font style=&quot;font-size: 16px&quot;&gt;&lt;b&gt;%c4Name%&lt;/b&gt;&lt;/font&gt;&lt;div&gt;[%c4Type%: %c4Technology%]&lt;/div&gt;&lt;br&gt;&lt;div&gt;&lt;font style=&quot;font-size: 11px&quot;&gt;%c4Description%&lt;/font&gt;&lt;/div&gt;" id="1rq3c2WoQSt8GzpMHaN0-6">
+          <mxCell style="rounded=1;whiteSpace=wrap;html=1;labelBackgroundColor=none;fillColor=#63BEF2;fontColor=#ffffff;align=center;arcSize=6;strokeColor=#2086C9;metaEdit=1;resizable=0;points=[[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0.25,0],[1,0.5,0],[1,0.75,0],[0.75,1,0],[0.5,1,0],[0.25,1,0],[0,0.75,0],[0,0.5,0],[0,0.25,0]];" parent="1" vertex="1">
+            <mxGeometry x="390" y="370" width="240" height="120" as="geometry" />
           </mxCell>
         </object>
-        <object placeholders="1" c4Name="Administrador de estados y errores" c4Type="Component" c4Technology="log4j2, Spring Boot + Actuator" c4Description="Monitorear y registrar el estado de la comunicación y errores" label="&lt;font style=&quot;font-size: 16px&quot;&gt;&lt;b&gt;%c4Name%&lt;/b&gt;&lt;/font&gt;&lt;div&gt;[%c4Type%: %c4Technology%]&lt;/div&gt;&lt;br&gt;&lt;div&gt;&lt;font style=&quot;font-size: 11px&quot;&gt;%c4Description%&lt;/font&gt;&lt;/div&gt;" id="1rq3c2WoQSt8GzpMHaN0-6">
-          <mxCell style="rounded=1;whiteSpace=wrap;html=1;labelBackgroundColor=none;fillColor=#63BEF2;fontColor=#ffffff;align=center;arcSize=6;strokeColor=#2086C9;metaEdit=1;resizable=0;points=[[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0.25,0],[1,0.5,0],[1,0.75,0],[0.75,1,0],[0.5,1,0],[0.25,1,0],[0,0.75,0],[0,0.5,0],[0,0.25,0]];" vertex="1" parent="1">
-            <mxGeometry x="110" y="525" width="240" height="120" as="geometry" />
-          </mxCell>
-        </object>
-        <mxCell id="D8CeDZOH6zJJOGhT-8ZT-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=classic;startFill=1;dashed=1;dashPattern=12 12;" edge="1" parent="1" source="1rq3c2WoQSt8GzpMHaN0-8" target="1rq3c2WoQSt8GzpMHaN0-4">
-          <mxGeometry relative="1" as="geometry">
-            <Array as="points">
-              <mxPoint x="510" y="390" />
-              <mxPoint x="510" y="390" />
-            </Array>
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="2lrCgzho1vqfKaaDowpf-2" value="Obtener y enviar cadena de datos" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="D8CeDZOH6zJJOGhT-8ZT-4">
-          <mxGeometry x="0.0154" y="2" relative="1" as="geometry">
-            <mxPoint as="offset" />
-          </mxGeometry>
-        </mxCell>
-        <object placeholders="1" c4Name="Administrador de conexión TCP" c4Type="Component" c4Technology="Java Sockets" c4Description="Gestionar la conexión TCP/IP bidireccional con el equipo de laboratorio y con el servicio en la nube" label="&lt;font style=&quot;font-size: 16px&quot;&gt;&lt;b&gt;%c4Name%&lt;/b&gt;&lt;/font&gt;&lt;div&gt;[%c4Type%: %c4Technology%]&lt;/div&gt;&lt;br&gt;&lt;div&gt;&lt;font style=&quot;font-size: 11px&quot;&gt;%c4Description%&lt;/font&gt;&lt;/div&gt;" id="1rq3c2WoQSt8GzpMHaN0-8">
-          <mxCell style="rounded=1;whiteSpace=wrap;html=1;labelBackgroundColor=none;fillColor=#63BEF2;fontColor=#ffffff;align=center;arcSize=6;strokeColor=#2086C9;metaEdit=1;resizable=0;points=[[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0.25,0],[1,0.5,0],[1,0.75,0],[0.75,1,0],[0.5,1,0],[0.25,1,0],[0,0.75,0],[0,0.5,0],[0,0.25,0]];" vertex="1" parent="1">
+        <object placeholders="1" c4Name="Controlador de comunicación de resultados clínicos" c4Type="Component" c4Technology="Java Sockets" c4Description="Gestionar la conexión TCP/IP bidireccional con el equipo de laboratorio y con el procesador de resultados clínicos" label="&lt;font style=&quot;font-size: 16px&quot;&gt;&lt;b&gt;%c4Name%&lt;/b&gt;&lt;/font&gt;&lt;div&gt;[%c4Type%: %c4Technology%]&lt;/div&gt;&lt;br&gt;&lt;div&gt;&lt;font style=&quot;font-size: 11px&quot;&gt;%c4Description%&lt;/font&gt;&lt;/div&gt;" id="1rq3c2WoQSt8GzpMHaN0-8">
+          <mxCell style="rounded=1;whiteSpace=wrap;html=1;labelBackgroundColor=none;fillColor=#63BEF2;fontColor=#ffffff;align=center;arcSize=6;strokeColor=#2086C9;metaEdit=1;resizable=0;points=[[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0.25,0],[1,0.5,0],[1,0.75,0],[0.75,1,0],[0.5,1,0],[0.25,1,0],[0,0.75,0],[0,0.5,0],[0,0.25,0]];" parent="1" vertex="1">
             <mxGeometry x="390" y="180" width="240" height="120" as="geometry" />
           </mxCell>
         </object>
-        <object placeholders="1" c4Name="Manejador ACK/NACK" c4Type="Component" c4Technology="HAPI HL7" c4Description="Gestiona el envío y recepción de ACKs (Acknowledgment) y NACKs (Negative Acknowledgment)" label="&lt;font style=&quot;font-size: 16px&quot;&gt;&lt;b&gt;%c4Name%&lt;/b&gt;&lt;/font&gt;&lt;div&gt;[%c4Type%: %c4Technology%]&lt;/div&gt;&lt;br&gt;&lt;div&gt;&lt;font style=&quot;font-size: 11px&quot;&gt;%c4Description%&lt;/font&gt;&lt;/div&gt;" id="D8CeDZOH6zJJOGhT-8ZT-1">
-          <mxCell style="rounded=1;whiteSpace=wrap;html=1;labelBackgroundColor=none;fillColor=#63BEF2;fontColor=#ffffff;align=center;arcSize=6;strokeColor=#2086C9;metaEdit=1;resizable=0;points=[[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0.25,0],[1,0.5,0],[1,0.75,0],[0.75,1,0],[0.5,1,0],[0.25,1,0],[0,0.75,0],[0,0.5,0],[0,0.25,0]];" vertex="1" parent="1">
-            <mxGeometry x="110" y="180" width="240" height="120" as="geometry" />
+        <mxCell id="D8CeDZOH6zJJOGhT-8ZT-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.25;entryDx=0;entryDy=0;entryPerimeter=0;startArrow=none;startFill=0;dashed=1;dashPattern=12 12;exitX=1;exitY=0.25;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" source="1rq3c2WoQSt8GzpMHaN0-8" target="2z3kxjdY-DA2MFZdqpgI-3" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="2lrCgzho1vqfKaaDowpf-1" value="3. Enviar cadena de&amp;nbsp;&lt;div&gt;datos y estado por&amp;nbsp;&lt;div&gt;sockets TCP&lt;/div&gt;&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="D8CeDZOH6zJJOGhT-8ZT-5" vertex="1" connectable="0">
+          <mxGeometry x="0.131" relative="1" as="geometry">
+            <mxPoint x="-12" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="1VAD4PBMSxHe5Ubuc04G-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;dashed=1;dashPattern=12 12;" parent="1" source="2z3kxjdY-DA2MFZdqpgI-3" target="2z3kxjdY-DA2MFZdqpgI-7" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="NLGs6U5txF_ZZK6mEr4M-1" value="Enviar resultados médicos en&lt;div&gt;formato JSON&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="1VAD4PBMSxHe5Ubuc04G-4" vertex="1" connectable="0">
+          <mxGeometry x="-0.1636" y="-2" relative="1" as="geometry">
+            <mxPoint x="2" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="RO5awx6EZKi4bgBRTRWD-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;dashed=1;dashPattern=12 12;" parent="1" source="1rq3c2WoQSt8GzpMHaN0-8" target="1rq3c2WoQSt8GzpMHaN0-6" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="RO5awx6EZKi4bgBRTRWD-3" value="2. Enviar estado o errores&lt;div&gt;de comunicación&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="RO5awx6EZKi4bgBRTRWD-2" vertex="1" connectable="0">
+          <mxGeometry x="-0.1667" y="2" relative="1" as="geometry">
+            <mxPoint x="-2" y="1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <object placeholders="1" c4Name="Diagrama de componente para un sistema de laboratorios clínicos - Interfaz Middleware" c4Type="ContainerDiagramTitle" c4Description="Diagrama de componente del sistema para el sistema de intercambio de resultados médicos entre equipos de laboratorio y el sistema de software en la nube (Orión)" label="&lt;font style=&quot;font-size: 16px&quot;&gt;&lt;b&gt;&lt;div style=&quot;text-align: left&quot;&gt;%c4Name%&lt;/div&gt;&lt;/b&gt;&lt;/font&gt;&lt;div style=&quot;text-align: left&quot;&gt;%c4Description%&lt;/div&gt;" id="HaV0bFh5_Q0eGtaihZBn-1">
+          <mxCell style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;metaEdit=1;allowArrows=0;resizable=1;rotatable=0;connectable=0;recursiveResize=0;expand=0;pointerEvents=0;points=[[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0.25,0],[1,0.5,0],[1,0.75,0],[0.75,1,0],[0.5,1,0],[0.25,1,0],[0,0.75,0],[0,0.5,0],[0,0.25,0]];" parent="1" vertex="1">
+            <mxGeometry x="340" y="570" width="710" height="40" as="geometry" />
           </mxCell>
         </object>
-        <mxCell id="D8CeDZOH6zJJOGhT-8ZT-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;startArrow=classic;startFill=1;dashed=1;dashPattern=12 12;" edge="1" parent="1" source="1rq3c2WoQSt8GzpMHaN0-8" target="2z3kxjdY-DA2MFZdqpgI-3">
+        <mxCell id="OKIYjdujD2oYIHeD4HwM-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.75;exitY=0;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.75;entryY=1;entryDx=0;entryDy=0;entryPerimeter=0;dashed=1;dashPattern=12 12;" edge="1" parent="1" source="1rq3c2WoQSt8GzpMHaN0-8" target="2z3kxjdY-DA2MFZdqpgI-5">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="2lrCgzho1vqfKaaDowpf-1" value="Obtener y enviar cadena&lt;div&gt;de&amp;nbsp; datos y estado por&amp;nbsp;&lt;/div&gt;&lt;div&gt;sockets TCP&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="D8CeDZOH6zJJOGhT-8ZT-5">
-          <mxGeometry x="0.131" relative="1" as="geometry">
-            <mxPoint y="30" as="offset" />
+        <mxCell id="OKIYjdujD2oYIHeD4HwM-2" value="5. Obtener cadenas&lt;div&gt;de datos y estado por&amp;nbsp;&lt;div&gt;TCP/IP&lt;/div&gt;&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="OKIYjdujD2oYIHeD4HwM-1">
+          <mxGeometry x="-0.0288" y="-2" relative="1" as="geometry">
+            <mxPoint x="8" y="-7" as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="D8CeDZOH6zJJOGhT-8ZT-11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.542;entryY=1;entryDx=0;entryDy=0;entryPerimeter=0;startArrow=classic;startFill=1;dashed=1;dashPattern=12 12;" edge="1" parent="1" source="1rq3c2WoQSt8GzpMHaN0-4" target="D8CeDZOH6zJJOGhT-8ZT-1">
-          <mxGeometry relative="1" as="geometry">
-            <Array as="points">
-              <mxPoint x="320" y="330" />
-              <mxPoint x="240" y="330" />
-            </Array>
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="2lrCgzho1vqfKaaDowpf-3" value="Obtener y enviar mensajes&amp;nbsp;&lt;div&gt;ACK/NACK&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];imageWidth=24;" vertex="1" connectable="0" parent="D8CeDZOH6zJJOGhT-8ZT-11">
-          <mxGeometry x="-0.16" relative="1" as="geometry">
-            <mxPoint x="18" y="10" as="offset" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="D8CeDZOH6zJJOGhT-8ZT-12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;dashed=1;dashPattern=12 12;" edge="1" parent="1" source="1rq3c2WoQSt8GzpMHaN0-4" target="1rq3c2WoQSt8GzpMHaN0-6">
+        <mxCell id="xhUgPIKM6fF_75mk34NS-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.75;exitDx=0;exitDy=0;exitPerimeter=0;entryX=1;entryY=0.75;entryDx=0;entryDy=0;entryPerimeter=0;dashed=1;dashPattern=12 12;" edge="1" parent="1" source="2z3kxjdY-DA2MFZdqpgI-3" target="1rq3c2WoQSt8GzpMHaN0-8">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="2lrCgzho1vqfKaaDowpf-7" value="Enviar estado o errores de&amp;nbsp;&lt;div&gt;comunicación&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="D8CeDZOH6zJJOGhT-8ZT-12">
-          <mxGeometry x="-0.5405" y="2" relative="1" as="geometry">
-            <mxPoint x="8" as="offset" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="D8CeDZOH6zJJOGhT-8ZT-13" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.433;entryY=0.025;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.433;exitY=1.025;exitDx=0;exitDy=0;exitPerimeter=0;dashed=1;dashPattern=12 12;" edge="1" parent="1" source="D8CeDZOH6zJJOGhT-8ZT-1" target="1rq3c2WoQSt8GzpMHaN0-6">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="2lrCgzho1vqfKaaDowpf-4" value="Enviar estado o errores&amp;nbsp;&lt;div&gt;ACK/NACK&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="D8CeDZOH6zJJOGhT-8ZT-13">
-          <mxGeometry x="-0.0952" relative="1" as="geometry">
-            <mxPoint as="offset" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="1VAD4PBMSxHe5Ubuc04G-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;dashed=1;dashPattern=12 12;" edge="1" parent="1" source="2z3kxjdY-DA2MFZdqpgI-3" target="2z3kxjdY-DA2MFZdqpgI-7">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="NLGs6U5txF_ZZK6mEr4M-1" value="Enviar resultados médicos en formato JSON" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="1VAD4PBMSxHe5Ubuc04G-4">
-          <mxGeometry x="-0.1636" y="-2" relative="1" as="geometry">
-            <mxPoint as="offset" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="1VAD4PBMSxHe5Ubuc04G-6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.75;entryDx=0;entryDy=0;entryPerimeter=0;dashed=1;dashPattern=12 12;" edge="1" parent="1" source="1rq3c2WoQSt8GzpMHaN0-8" target="1rq3c2WoQSt8GzpMHaN0-6">
-          <mxGeometry relative="1" as="geometry">
-            <Array as="points">
-              <mxPoint x="600" y="600" />
-            </Array>
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="2lrCgzho1vqfKaaDowpf-5" value="Text" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="1VAD4PBMSxHe5Ubuc04G-6">
-          <mxGeometry x="-0.4345" y="-1" relative="1" as="geometry">
-            <mxPoint as="offset" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="2lrCgzho1vqfKaaDowpf-6" value="Enviar estado o errores&lt;div&gt;&amp;nbsp;de conexión&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="1VAD4PBMSxHe5Ubuc04G-6">
-          <mxGeometry x="-0.4436" y="-3" relative="1" as="geometry">
-            <mxPoint x="13" as="offset" />
+        <mxCell id="xhUgPIKM6fF_75mk34NS-2" value="4. Obtener cadena de&lt;div&gt;datos y estado por&amp;nbsp;&lt;div&gt;sockets TCP&lt;/div&gt;&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="xhUgPIKM6fF_75mk34NS-1">
+          <mxGeometry x="0.0317" y="1" relative="1" as="geometry">
+            <mxPoint x="8" y="9" as="offset" />
           </mxGeometry>
         </mxCell>
       </root>
     </mxGraphModel>
   </diagram>
-  <diagram id="MjKsBK6J4xgj3g577UpY" name="Componente-SERVICIO">
-    <mxGraphModel dx="1434" dy="772" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+  <diagram id="MjKsBK6J4xgj3g577UpY" name="Componente-PROCESADOR">
+    <mxGraphModel dx="1195" dy="643" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
         <object placeholders="1" c4Name="Interfaz Middleware" c4Type="Aplicación de escritorio " c4Description="Interfaz encargada de gestionar la comunicación entre equipos de laboratorio y el servicio API" label="&lt;font style=&quot;font-size: 16px&quot;&gt;&lt;b&gt;%c4Name%&lt;/b&gt;&lt;/font&gt;&lt;div&gt;[%c4Type%]&lt;/div&gt;&lt;br&gt;&lt;div&gt;&lt;font style=&quot;font-size: 11px&quot;&gt;&lt;font color=&quot;#cccccc&quot;&gt;%c4Description%&lt;/font&gt;&lt;/div&gt;" id="dlr7MGta9VEdRYM8hy64-3">
-          <mxCell style="rounded=1;whiteSpace=wrap;html=1;labelBackgroundColor=none;fillColor=#1061B0;fontColor=#ffffff;align=center;arcSize=10;strokeColor=#0D5091;metaEdit=1;resizable=0;points=[[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0.25,0],[1,0.5,0],[1,0.75,0],[0.75,1,0],[0.5,1,0],[0.25,1,0],[0,0.75,0],[0,0.5,0],[0,0.25,0]];" vertex="1" parent="1">
-            <mxGeometry x="380" y="590" width="240" height="120" as="geometry" />
+          <mxCell style="rounded=1;whiteSpace=wrap;html=1;labelBackgroundColor=none;fillColor=#1061B0;fontColor=#ffffff;align=center;arcSize=10;strokeColor=#0D5091;metaEdit=1;resizable=0;points=[[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0.25,0],[1,0.5,0],[1,0.75,0],[0.75,1,0],[0.5,1,0],[0.25,1,0],[0,0.75,0],[0,0.5,0],[0,0.25,0]];" parent="1" vertex="1">
+            <mxGeometry x="280" y="630" width="240" height="120" as="geometry" />
           </mxCell>
         </object>
-        <mxCell id="dlr7MGta9VEdRYM8hy64-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.458;entryY=0.025;entryDx=0;entryDy=0;entryPerimeter=0;startArrow=classic;startFill=1;dashed=1;dashPattern=12 12;" edge="1" parent="1" source="dlr7MGta9VEdRYM8hy64-7" target="dlr7MGta9VEdRYM8hy64-3">
+        <mxCell id="dlr7MGta9VEdRYM8hy64-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.25;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;startArrow=none;startFill=0;dashed=1;dashPattern=12 12;exitX=0.25;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" source="dlr7MGta9VEdRYM8hy64-7" target="dlr7MGta9VEdRYM8hy64-3" edge="1">
           <mxGeometry relative="1" as="geometry">
-            <mxPoint x="490" y="690" as="targetPoint" />
+            <mxPoint x="400" y="685" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="dlr7MGta9VEdRYM8hy64-6" value="Obtener y enviar cadena de&amp;nbsp;&lt;div&gt;datos y estado por TCP/IP&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="dlr7MGta9VEdRYM8hy64-5">
+        <mxCell id="dlr7MGta9VEdRYM8hy64-6" value="Enviar cadena de&amp;nbsp;&lt;div&gt;datos y estado por&amp;nbsp;&lt;/div&gt;&lt;div&gt;TCP/IP&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="dlr7MGta9VEdRYM8hy64-5" vertex="1" connectable="0">
           <mxGeometry x="-0.2549" y="-1" relative="1" as="geometry">
-            <mxPoint x="9" y="24" as="offset" />
+            <mxPoint x="1" y="3" as="offset" />
           </mxGeometry>
         </mxCell>
         <object placeholders="1" c4Name="Equipo de laboratorio" c4Type="Instrumento de diagnóstico" c4Description="Equipo encargado de enviar resultados médicos en estándar HL7" label="&lt;font style=&quot;font-size: 16px&quot;&gt;&lt;b&gt;%c4Name%&lt;/b&gt;&lt;/font&gt;&lt;div&gt;[%c4Type%]&lt;/div&gt;&lt;br&gt;&lt;div&gt;&lt;font style=&quot;font-size: 11px&quot;&gt;&lt;font color=&quot;#cccccc&quot;&gt;%c4Description%&lt;/font&gt;&lt;/div&gt;" id="dlr7MGta9VEdRYM8hy64-7">
-          <mxCell style="rounded=1;whiteSpace=wrap;html=1;labelBackgroundColor=none;fillColor=#8C8496;fontColor=#ffffff;align=center;arcSize=10;strokeColor=#736782;metaEdit=1;resizable=0;points=[[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0.25,0],[1,0.5,0],[1,0.75,0],[0.75,1,0],[0.5,1,0],[0.25,1,0],[0,0.75,0],[0,0.5,0],[0,0.25,0]];" vertex="1" parent="1">
-            <mxGeometry x="370" y="330" width="240" height="120" as="geometry" />
+          <mxCell style="rounded=1;whiteSpace=wrap;html=1;labelBackgroundColor=none;fillColor=#8C8496;fontColor=#ffffff;align=center;arcSize=10;strokeColor=#736782;metaEdit=1;resizable=0;points=[[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0.25,0],[1,0.5,0],[1,0.75,0],[0.75,1,0],[0.5,1,0],[0.25,1,0],[0,0.75,0],[0,0.5,0],[0,0.25,0]];" parent="1" vertex="1">
+            <mxGeometry x="280" y="410" width="240" height="120" as="geometry" />
           </mxCell>
         </object>
-        <object placeholders="1" c4Name="Orión" c4Type="Cloud Software System" c4Description="SaaS" label="&lt;font style=&quot;font-size: 16px&quot;&gt;&lt;b&gt;%c4Name%&lt;/b&gt;&lt;/font&gt;&lt;div&gt;[%c4Type%]&lt;/div&gt;&lt;br&gt;&lt;div&gt;&lt;font style=&quot;font-size: 11px&quot;&gt;&lt;font color=&quot;#cccccc&quot;&gt;%c4Description%&lt;/font&gt;&lt;/div&gt;" id="dlr7MGta9VEdRYM8hy64-9">
-          <mxCell style="rounded=1;whiteSpace=wrap;html=1;labelBackgroundColor=none;fillColor=#8C8496;fontColor=#ffffff;align=center;arcSize=10;strokeColor=#736782;metaEdit=1;resizable=0;points=[[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0.25,0],[1,0.5,0],[1,0.75,0],[0.75,1,0],[0.5,1,0],[0.25,1,0],[0,0.75,0],[0,0.5,0],[0,0.25,0]];" vertex="1" parent="1">
-            <mxGeometry x="1430" y="330" width="240" height="120" as="geometry" />
+        <object placeholders="1" c4Name="Orión" c4Type="Cloud Software System" c4Description="Servicio en la nube encargado de almacenar los resultados médicos" label="&lt;font style=&quot;font-size: 16px&quot;&gt;&lt;b&gt;%c4Name%&lt;/b&gt;&lt;/font&gt;&lt;div&gt;[%c4Type%]&lt;/div&gt;&lt;br&gt;&lt;div&gt;&lt;font style=&quot;font-size: 11px&quot;&gt;&lt;font color=&quot;#cccccc&quot;&gt;%c4Description%&lt;/font&gt;&lt;/div&gt;" id="dlr7MGta9VEdRYM8hy64-9">
+          <mxCell style="rounded=1;whiteSpace=wrap;html=1;labelBackgroundColor=none;fillColor=#8C8496;fontColor=#ffffff;align=center;arcSize=10;strokeColor=#736782;metaEdit=1;resizable=0;points=[[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0.25,0],[1,0.5,0],[1,0.75,0],[0.75,1,0],[0.5,1,0],[0.25,1,0],[0,0.75,0],[0,0.5,0],[0,0.25,0]];" parent="1" vertex="1">
+            <mxGeometry x="1110" y="470" width="240" height="120" as="geometry" />
           </mxCell>
         </object>
-        <object placeholders="1" c4Name="Servicio en la nube" c4Type="ContainerScopeBoundary" c4Application="Container" label="&lt;font style=&quot;font-size: 16px&quot;&gt;&lt;b&gt;&lt;div style=&quot;text-align: left&quot;&gt;%c4Name%&lt;/div&gt;&lt;/b&gt;&lt;/font&gt;&lt;div style=&quot;text-align: left&quot;&gt;[%c4Application%]&lt;/div&gt;" id="4T3mYAQme7TNwBuymAe3-1">
-          <mxCell style="rounded=1;fontSize=11;whiteSpace=wrap;html=1;dashed=1;arcSize=20;fillColor=none;strokeColor=#666666;fontColor=#333333;labelBackgroundColor=none;align=left;verticalAlign=bottom;labelBorderColor=none;spacingTop=0;spacing=10;dashPattern=8 4;metaEdit=1;rotatable=0;perimeter=rectanglePerimeter;noLabel=0;labelPadding=0;allowArrows=0;connectable=0;expand=0;recursiveResize=0;editable=1;pointerEvents=0;absoluteArcSize=1;points=[[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0.25,0],[1,0.5,0],[1,0.75,0],[0.75,1,0],[0.5,1,0],[0.25,1,0],[0,0.75,0],[0,0.5,0],[0,0.25,0]];" vertex="1" parent="1">
-            <mxGeometry x="680" y="290" width="730" height="650" as="geometry" />
+        <object placeholders="1" c4Name="Procesador de resultados clínicos" c4Type="ContainerScopeBoundary" c4Application="Container" label="&lt;font style=&quot;font-size: 16px&quot;&gt;&lt;b&gt;&lt;div style=&quot;text-align: left&quot;&gt;%c4Name%&lt;/div&gt;&lt;/b&gt;&lt;/font&gt;&lt;div style=&quot;text-align: left&quot;&gt;[%c4Application%]&lt;/div&gt;" id="4T3mYAQme7TNwBuymAe3-1">
+          <mxCell style="rounded=1;fontSize=11;whiteSpace=wrap;html=1;dashed=1;arcSize=20;fillColor=none;strokeColor=#666666;fontColor=#333333;labelBackgroundColor=none;align=left;verticalAlign=bottom;labelBorderColor=none;spacingTop=0;spacing=10;dashPattern=8 4;metaEdit=1;rotatable=0;perimeter=rectanglePerimeter;noLabel=0;labelPadding=0;allowArrows=0;connectable=0;expand=0;recursiveResize=0;editable=1;pointerEvents=0;absoluteArcSize=1;points=[[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0.25,0],[1,0.5,0],[1,0.75,0],[0.75,1,0],[0.5,1,0],[0.25,1,0],[0,0.75,0],[0,0.5,0],[0,0.25,0]];" parent="1" vertex="1">
+            <mxGeometry x="570" y="410" width="440" height="610" as="geometry" />
           </mxCell>
         </object>
-        <object placeholders="1" c4Name="Administrador de conexión TCP" c4Type="Component" c4Technology="Java Sockets" c4Description="Gestionar la conexión TCP/IP bidireccional con la interfaz middleware" label="&lt;font style=&quot;font-size: 16px&quot;&gt;&lt;b&gt;%c4Name%&lt;/b&gt;&lt;/font&gt;&lt;div&gt;[%c4Type%: %c4Technology%]&lt;/div&gt;&lt;br&gt;&lt;div&gt;&lt;font style=&quot;font-size: 11px&quot;&gt;%c4Description%&lt;/font&gt;&lt;/div&gt;" id="FcEAXHNrOeXYZejaEh83-1">
-          <mxCell style="rounded=1;whiteSpace=wrap;html=1;labelBackgroundColor=none;fillColor=#63BEF2;fontColor=#ffffff;align=center;arcSize=6;strokeColor=#2086C9;metaEdit=1;resizable=0;points=[[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0.25,0],[1,0.5,0],[1,0.75,0],[0.75,1,0],[0.5,1,0],[0.25,1,0],[0,0.75,0],[0,0.5,0],[0,0.25,0]];" vertex="1" parent="1">
-            <mxGeometry x="790" y="330" width="240" height="120" as="geometry" />
-          </mxCell>
-        </object>
-        <object placeholders="1" c4Name="Interpretador de Mensajes HL7" c4Type="Component" c4Technology="HAPI HL7" c4Description="Interpreta los mensajes HL7 enviados por el equipo de laboratorio" label="&lt;font style=&quot;font-size: 16px&quot;&gt;&lt;b&gt;%c4Name%&lt;/b&gt;&lt;/font&gt;&lt;div&gt;[%c4Type%: %c4Technology%]&lt;/div&gt;&lt;br&gt;&lt;div&gt;&lt;font style=&quot;font-size: 11px&quot;&gt;%c4Description%&lt;/font&gt;&lt;/div&gt;" id="FcEAXHNrOeXYZejaEh83-2">
-          <mxCell style="rounded=1;whiteSpace=wrap;html=1;labelBackgroundColor=none;fillColor=#63BEF2;fontColor=#ffffff;align=center;arcSize=6;strokeColor=#2086C9;metaEdit=1;resizable=0;points=[[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0.25,0],[1,0.5,0],[1,0.75,0],[0.75,1,0],[0.5,1,0],[0.25,1,0],[0,0.75,0],[0,0.5,0],[0,0.25,0]];" vertex="1" parent="1">
-            <mxGeometry x="1080" y="690" width="240" height="120" as="geometry" />
-          </mxCell>
-        </object>
-        <object placeholders="1" c4Name="Manejador ACK/NACK" c4Type="Component" c4Technology="HAPI HL7" c4Description="Gestiona el envío y recepción de ACKs (Acknowledgment) y NACKs (Negative Acknowledgment)" label="&lt;font style=&quot;font-size: 16px&quot;&gt;&lt;b&gt;%c4Name%&lt;/b&gt;&lt;/font&gt;&lt;div&gt;[%c4Type%: %c4Technology%]&lt;/div&gt;&lt;br&gt;&lt;div&gt;&lt;font style=&quot;font-size: 11px&quot;&gt;%c4Description%&lt;/font&gt;&lt;/div&gt;" id="6pq8jUM0NYXW81sLUnm_-1">
-          <mxCell style="rounded=1;whiteSpace=wrap;html=1;labelBackgroundColor=none;fillColor=#63BEF2;fontColor=#ffffff;align=center;arcSize=6;strokeColor=#2086C9;metaEdit=1;resizable=0;points=[[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0.25,0],[1,0.5,0],[1,0.75,0],[0.75,1,0],[0.5,1,0],[0.25,1,0],[0,0.75,0],[0,0.5,0],[0,0.25,0]];" vertex="1" parent="1">
-            <mxGeometry x="790" y="510" width="240" height="120" as="geometry" />
-          </mxCell>
-        </object>
-        <object placeholders="1" c4Name="Administrador de estados y errores" c4Type="Component" c4Technology="log4j2, Spring Boot + Actuator" c4Description="Monitorear y registrar el estado de la comunicación y errores" label="&lt;font style=&quot;font-size: 16px&quot;&gt;&lt;b&gt;%c4Name%&lt;/b&gt;&lt;/font&gt;&lt;div&gt;[%c4Type%: %c4Technology%]&lt;/div&gt;&lt;br&gt;&lt;div&gt;&lt;font style=&quot;font-size: 11px&quot;&gt;%c4Description%&lt;/font&gt;&lt;/div&gt;" id="lmsOh4UrcauFV8ZvSiUB-1">
-          <mxCell style="rounded=1;whiteSpace=wrap;html=1;labelBackgroundColor=none;fillColor=#63BEF2;fontColor=#ffffff;align=center;arcSize=6;strokeColor=#2086C9;metaEdit=1;resizable=0;points=[[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0.25,0],[1,0.5,0],[1,0.75,0],[0.75,1,0],[0.5,1,0],[0.25,1,0],[0,0.75,0],[0,0.5,0],[0,0.25,0]];" vertex="1" parent="1">
-            <mxGeometry x="790" y="690" width="240" height="120" as="geometry" />
-          </mxCell>
-        </object>
-        <object placeholders="1" c4Name="Enrutador de mensajes" c4Type="Component" c4Technology="Apache Camel, Spring Integration" c4Description="Enrutar los mensajes entre el equipo de laboratorio y el servicio en la nube" label="&lt;font style=&quot;font-size: 16px&quot;&gt;&lt;b&gt;%c4Name%&lt;/b&gt;&lt;/font&gt;&lt;div&gt;[%c4Type%: %c4Technology%]&lt;/div&gt;&lt;br&gt;&lt;div&gt;&lt;font style=&quot;font-size: 11px&quot;&gt;%c4Description%&lt;/font&gt;&lt;/div&gt;" id="c6D5N9zxiSYvxdYR4eVy-1">
-          <mxCell style="rounded=1;whiteSpace=wrap;html=1;labelBackgroundColor=none;fillColor=#63BEF2;fontColor=#ffffff;align=center;arcSize=6;strokeColor=#2086C9;metaEdit=1;resizable=0;points=[[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0.25,0],[1,0.5,0],[1,0.75,0],[0.75,1,0],[0.5,1,0],[0.25,1,0],[0,0.75,0],[0,0.5,0],[0,0.25,0]];" vertex="1" parent="1">
-            <mxGeometry x="1080" y="510" width="240" height="120" as="geometry" />
-          </mxCell>
-        </object>
-        <mxCell id="c6D5N9zxiSYvxdYR4eVy-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;dashed=1;dashPattern=12 12;startArrow=classic;startFill=1;" edge="1" parent="1" source="dlr7MGta9VEdRYM8hy64-3" target="FcEAXHNrOeXYZejaEh83-1">
+        <mxCell id="94DMdb25Eg1aPOzE03it-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;dashPattern=12 12;" parent="1" source="FcEAXHNrOeXYZejaEh83-1" target="dlr7MGta9VEdRYM8hy64-9" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <object placeholders="1" c4Name="Repositorio de datos" c4Type="Component" c4Technology="" c4Description="Gestiona el envío y recepción de ACKs (Acknowledgment) y NACKs (Negative Acknowledgment)" label="&lt;font style=&quot;font-size: 16px&quot;&gt;&lt;b&gt;%c4Name%&lt;/b&gt;&lt;/font&gt;&lt;div&gt;[%c4Type%: %c4Technology%]&lt;/div&gt;&lt;br&gt;&lt;div&gt;&lt;font style=&quot;font-size: 11px&quot;&gt;%c4Description%&lt;/font&gt;&lt;/div&gt;" id="z-061eOUbUSJ5Nwb0NS--1">
-          <mxCell style="rounded=1;whiteSpace=wrap;html=1;labelBackgroundColor=none;fillColor=#63BEF2;fontColor=#ffffff;align=center;arcSize=6;strokeColor=#2086C9;metaEdit=1;resizable=0;points=[[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0.25,0],[1,0.5,0],[1,0.75,0],[0.75,1,0],[0.5,1,0],[0.25,1,0],[0,0.75,0],[0,0.5,0],[0,0.25,0]];" vertex="1" parent="1">
-            <mxGeometry x="1140" y="330" width="240" height="120" as="geometry" />
-          </mxCell>
-        </object>
-        <mxCell id="KOIHyAOgEIbG-PwqTmHk-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;entryPerimeter=0;dashed=1;dashPattern=12 12;" edge="1" parent="1" source="z-061eOUbUSJ5Nwb0NS--1" target="lmsOh4UrcauFV8ZvSiUB-1">
-          <mxGeometry relative="1" as="geometry">
-            <Array as="points">
-              <mxPoint x="1360" y="890" />
-              <mxPoint x="910" y="890" />
-            </Array>
+        <mxCell id="0CPfNJZ9Q1qKrunkDDqe-5" value="5. Enviar resultados en&lt;div&gt;formato JSON&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="94DMdb25Eg1aPOzE03it-4" vertex="1" connectable="0">
+          <mxGeometry x="-0.1138" y="-2" relative="1" as="geometry">
+            <mxPoint as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="KOIHyAOgEIbG-PwqTmHk-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;dashed=1;dashPattern=12 12;" edge="1" parent="1" source="z-061eOUbUSJ5Nwb0NS--1" target="dlr7MGta9VEdRYM8hy64-9">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="KOIHyAOgEIbG-PwqTmHk-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0;exitY=0.75;exitDx=0;exitDy=0;exitPerimeter=0;dashed=1;dashPattern=12 12;" edge="1" parent="1" source="FcEAXHNrOeXYZejaEh83-1" target="lmsOh4UrcauFV8ZvSiUB-1">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="780" y="425" as="sourcePoint" />
-            <mxPoint x="780" y="745" as="targetPoint" />
-            <Array as="points">
-              <mxPoint x="760" y="420" />
-              <mxPoint x="760" y="750" />
-            </Array>
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="KOIHyAOgEIbG-PwqTmHk-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.75;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0;exitY=0.75;exitDx=0;exitDy=0;exitPerimeter=0;dashed=1;dashPattern=12 12;" edge="1" parent="1" source="FcEAXHNrOeXYZejaEh83-2" target="lmsOh4UrcauFV8ZvSiUB-1">
-          <mxGeometry relative="1" as="geometry">
-            <Array as="points" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="KOIHyAOgEIbG-PwqTmHk-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;dashed=1;dashPattern=12 12;" edge="1" parent="1" source="6pq8jUM0NYXW81sLUnm_-1" target="lmsOh4UrcauFV8ZvSiUB-1">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="KOIHyAOgEIbG-PwqTmHk-6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.139;entryY=0.024;entryDx=0;entryDy=0;entryPerimeter=0;dashed=1;dashPattern=12 12;startArrow=classic;startFill=1;" edge="1" parent="1" source="FcEAXHNrOeXYZejaEh83-1" target="c6D5N9zxiSYvxdYR4eVy-1">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="KOIHyAOgEIbG-PwqTmHk-7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;dashed=1;dashPattern=12 12;startArrow=classic;startFill=1;" edge="1" parent="1" source="6pq8jUM0NYXW81sLUnm_-1" target="c6D5N9zxiSYvxdYR4eVy-1">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="KOIHyAOgEIbG-PwqTmHk-8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;entryPerimeter=0;dashed=1;dashPattern=12 12;startArrow=classic;startFill=1;" edge="1" parent="1" source="FcEAXHNrOeXYZejaEh83-2" target="c6D5N9zxiSYvxdYR4eVy-1">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="KOIHyAOgEIbG-PwqTmHk-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.462;entryY=1.003;entryDx=0;entryDy=0;entryPerimeter=0;dashed=1;dashPattern=12 12;startArrow=classic;startFill=1;" edge="1" parent="1" source="c6D5N9zxiSYvxdYR4eVy-1" target="z-061eOUbUSJ5Nwb0NS--1">
+        <object placeholders="1" c4Name="Controlador de comunicación de resultados clínicos" c4Type="Component" c4Technology="Java Sockets" c4Description="Gestionar la conexión TCP/IP bidireccional con la interfaz middleware" label="&lt;font style=&quot;font-size: 16px&quot;&gt;&lt;b&gt;%c4Name%&lt;/b&gt;&lt;/font&gt;&lt;div&gt;[%c4Type%: %c4Technology%]&lt;/div&gt;&lt;br&gt;&lt;div&gt;&lt;font style=&quot;font-size: 11px&quot;&gt;%c4Description%&lt;/font&gt;&lt;/div&gt;" id="FcEAXHNrOeXYZejaEh83-1">
+          <mxCell style="rounded=1;whiteSpace=wrap;html=1;labelBackgroundColor=none;fillColor=#63BEF2;fontColor=#ffffff;align=center;arcSize=6;strokeColor=#2086C9;metaEdit=1;resizable=0;points=[[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0.25,0],[1,0.5,0],[1,0.75,0],[0.75,1,0],[0.5,1,0],[0.25,1,0],[0,0.75,0],[0,0.5,0],[0,0.25,0]];" parent="1" vertex="1">
+            <mxGeometry x="720" y="630" width="240" height="120" as="geometry" />
+          </mxCell>
+        </object>
+        <object placeholders="1" c4Name="Controlador de conversión de mensajes HL7 a JSON" c4Type="Component" c4Technology="HAPI HL7" c4Description="Transforma los mensajes HL7 enviados por el equipo de laboratorio a formato JSON" label="&lt;font style=&quot;font-size: 16px&quot;&gt;&lt;b&gt;%c4Name%&lt;/b&gt;&lt;/font&gt;&lt;div&gt;[%c4Type%: %c4Technology%]&lt;/div&gt;&lt;br&gt;&lt;div&gt;&lt;font style=&quot;font-size: 11px&quot;&gt;%c4Description%&lt;/font&gt;&lt;/div&gt;" id="FcEAXHNrOeXYZejaEh83-2">
+          <mxCell style="rounded=1;whiteSpace=wrap;html=1;labelBackgroundColor=none;fillColor=#63BEF2;fontColor=#ffffff;align=center;arcSize=6;strokeColor=#2086C9;metaEdit=1;resizable=0;points=[[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0.25,0],[1,0.5,0],[1,0.75,0],[0.75,1,0],[0.5,1,0],[0.25,1,0],[0,0.75,0],[0,0.5,0],[0,0.25,0]];" parent="1" vertex="1">
+            <mxGeometry x="720" y="850" width="240" height="120" as="geometry" />
+          </mxCell>
+        </object>
+        <object placeholders="1" c4Name="Controlador de auditoría de estados y errores" c4Type="Component" c4Technology="log4j2, Spring Boot + Actuator" c4Description="Monitorear y registrar el estado de la comunicación y errores" label="&lt;font style=&quot;font-size: 16px&quot;&gt;&lt;b&gt;%c4Name%&lt;/b&gt;&lt;/font&gt;&lt;div&gt;[%c4Type%: %c4Technology%]&lt;/div&gt;&lt;br&gt;&lt;div&gt;&lt;font style=&quot;font-size: 11px&quot;&gt;%c4Description%&lt;/font&gt;&lt;/div&gt;" id="lmsOh4UrcauFV8ZvSiUB-1">
+          <mxCell style="rounded=1;whiteSpace=wrap;html=1;labelBackgroundColor=none;fillColor=#63BEF2;fontColor=#ffffff;align=center;arcSize=6;strokeColor=#2086C9;metaEdit=1;resizable=0;points=[[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0.25,0],[1,0.5,0],[1,0.75,0],[0.75,1,0],[0.5,1,0],[0.25,1,0],[0,0.75,0],[0,0.5,0],[0,0.25,0]];" parent="1" vertex="1">
+            <mxGeometry x="720" y="430" width="240" height="120" as="geometry" />
+          </mxCell>
+        </object>
+        <mxCell id="94DMdb25Eg1aPOzE03it-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;dashPattern=12 12;startArrow=none;startFill=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" source="dlr7MGta9VEdRYM8hy64-3" edge="1">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
-              <mxPoint x="1250" y="480" />
-              <mxPoint x="1251" y="480" />
+              <mxPoint x="520" y="660" />
+              <mxPoint x="720" y="660" />
             </Array>
+            <mxPoint x="720" y="660" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="0CPfNJZ9Q1qKrunkDDqe-1" value="1. Enviar cadena&amp;nbsp;&lt;div&gt;de datos y estado por&amp;nbsp;&lt;/div&gt;&lt;div&gt;sockets TCP&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="94DMdb25Eg1aPOzE03it-1" vertex="1" connectable="0">
+          <mxGeometry x="0.0658" y="-1" relative="1" as="geometry">
+            <mxPoint x="-3" y="-21" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="94DMdb25Eg1aPOzE03it-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.333;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;startArrow=none;startFill=0;dashed=1;dashPattern=12 12;exitX=0.329;exitY=1.042;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" source="FcEAXHNrOeXYZejaEh83-1" target="FcEAXHNrOeXYZejaEh83-2" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="0CPfNJZ9Q1qKrunkDDqe-4" value="2. Enviar&lt;div&gt;&amp;nbsp;cadenas de datos&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="94DMdb25Eg1aPOzE03it-2" vertex="1" connectable="0">
+          <mxGeometry x="-0.2161" y="-1" relative="1" as="geometry">
+            <mxPoint x="-8" y="7" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <object placeholders="1" c4Name="Diagrama de componente para un sistema de laboratorios clínicos - Procesador de Datos Clínicos" c4Type="ContainerDiagramTitle" c4Description="Diagrama de componente del sistema para el sistema de intercambio de resultados médicos entre equipos de laboratorio y el sistema de software en la nube (Orión)" label="&lt;font style=&quot;font-size: 16px&quot;&gt;&lt;b&gt;&lt;div style=&quot;text-align: left&quot;&gt;%c4Name%&lt;/div&gt;&lt;/b&gt;&lt;/font&gt;&lt;div style=&quot;text-align: left&quot;&gt;%c4Description%&lt;/div&gt;" id="Jx4TfcBlaklQ-OO7ydUS-1">
+          <mxCell style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;metaEdit=1;allowArrows=0;resizable=1;rotatable=0;connectable=0;recursiveResize=0;expand=0;pointerEvents=0;points=[[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0.25,0],[1,0.5,0],[1,0.75,0],[0.75,1,0],[0.5,1,0],[0.25,1,0],[0,0.75,0],[0,0.5,0],[0,0.25,0]];" parent="1" vertex="1">
+            <mxGeometry x="300" y="1040" width="780" height="40" as="geometry" />
+          </mxCell>
+        </object>
+        <mxCell id="36xsx93wW1mHYih0z0AU-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;entryPerimeter=0;dashed=1;dashPattern=12 12;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="839" y="630" as="sourcePoint" />
+            <mxPoint x="839" y="550" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="36xsx93wW1mHYih0z0AU-7" value="6. Enviar estado o errores&lt;div&gt;&amp;nbsp;de comunicación&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="36xsx93wW1mHYih0z0AU-1" vertex="1" connectable="0">
+          <mxGeometry x="-0.075" y="-3" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="36xsx93wW1mHYih0z0AU-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.75;entryDx=0;entryDy=0;entryPerimeter=0;dashed=1;dashPattern=12 12;exitX=0;exitY=0.75;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" source="FcEAXHNrOeXYZejaEh83-1" target="dlr7MGta9VEdRYM8hy64-3" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="36xsx93wW1mHYih0z0AU-4" value="4. Obtener cadena&amp;nbsp;&lt;div&gt;de datos y estado por&lt;/div&gt;&lt;div&gt;&amp;nbsp;sockets TCP&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="36xsx93wW1mHYih0z0AU-3" vertex="1" connectable="0">
+          <mxGeometry x="0.12" y="1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="36xsx93wW1mHYih0z0AU-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.625;entryY=1;entryDx=0;entryDy=0;entryPerimeter=0;dashed=1;dashPattern=12 12;" parent="1" target="FcEAXHNrOeXYZejaEh83-1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="870" y="850" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="36xsx93wW1mHYih0z0AU-6" value="3. Obtener&lt;div&gt;&amp;nbsp;cadenas de datos&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="36xsx93wW1mHYih0z0AU-5" vertex="1" connectable="0">
+          <mxGeometry x="-0.3431" y="-1" relative="1" as="geometry">
+            <mxPoint x="19" y="-17" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Wbw4-5R-Qd-O5Sh4xUDV-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.75;exitY=0;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.75;entryY=1;entryDx=0;entryDy=0;entryPerimeter=0;dashed=1;dashPattern=12 12;" edge="1" parent="1" source="dlr7MGta9VEdRYM8hy64-3" target="dlr7MGta9VEdRYM8hy64-7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Wbw4-5R-Qd-O5Sh4xUDV-2" value="Obtener cadena de&amp;nbsp;&lt;div&gt;datos y estado por&amp;nbsp;&lt;/div&gt;&lt;div&gt;TCP/IP&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="Wbw4-5R-Qd-O5Sh4xUDV-1">
+          <mxGeometry x="-0.04" relative="1" as="geometry">
+            <mxPoint y="-12" as="offset" />
           </mxGeometry>
         </mxCell>
       </root>

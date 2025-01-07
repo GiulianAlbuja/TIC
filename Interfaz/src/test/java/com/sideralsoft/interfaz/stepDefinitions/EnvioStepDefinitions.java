@@ -1,30 +1,38 @@
 package com.sideralsoft.interfaz.stepDefinitions;
 
-import com.sideralsoft.interfaz.ServicioConexion;
-import io.cucumber.java.eo.Se;
+import com.sideralsoft.interfaz.ClientSession;
+import com.sideralsoft.interfaz.TCPServer;
 import io.cucumber.java.es.Cuando;
 import io.cucumber.java.es.Dado;
 import io.cucumber.java.es.Entonces;
 import io.cucumber.java.es.Y;
+import java.io.IOException;
+import java.net.Socket;
 
 import static org.junit.Assert.assertTrue;
 
-public class EnvioStepDefinitions {
-    private ServicioConexion servicioConexion;
+public class EnvioStepDefinitions{
+    private TCPServer server;
+    private ClientSession clientSession;
 
     public EnvioStepDefinitions(){
-        this.servicioConexion = new ServicioConexion();
+        this.server = new TCPServer();
     }
 
-    @Dado("que la interfaz de comunicación ha iniciado una sesión con el equipo de laboratorio {string}")
-    public void queLaInterfazDeComunicaciónHaIniciadoUnaSesiónConElEquipoDeLaboratorio(String arg0) {
-        servicioConexion.iniciarSesionConEquipo(arg0);
-        assertTrue("La sesión debería estar activa después de iniciar sesión.", servicioConexion.estaLaSesionActiva());
+    @Dado("que la interfaz de comunicación ha iniciado una sesión con el equipo de laboratorio")
+    public void queLaInterfazDeComunicaciónHaIniciadoUnaSesiónConElEquipoDeLaboratorio() throws IOException, InterruptedException {
+            server.start();
+            Socket clientSocket = new Socket("localhost", 3001);
+            clientSession = new ClientSession(clientSocket, server);
+            Thread.sleep(2000);
+            System.out.println("Sesión activa: " + clientSession.estaSesionActiva());
+            assertTrue("La sesión debería estar activa después de iniciar sesión.", clientSession.estaSesionActiva());
+            clientSession.closeSession();
+            System.out.println("Sesión activa: " + clientSession.estaSesionActiva());
     }
 
-    @Cuando("la interfaz de comunicación reciba un mensaje {string}")
-    public void laInterfazDeComunicaciónRecibaUnMensaje(String arg0) {
-
+    @Cuando("la interfaz de comunicación reciba un mensaje ORU")
+    public void laInterfazDeComunicaciónRecibaUnMensajeORU(String mensaje) throws IOException, InterruptedException {
     }
 
     @Entonces("la interfaz de comunicación procesa el mensaje {string}")

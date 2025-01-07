@@ -1,60 +1,98 @@
 package com.sideralsoft.interfaz;
 
-import javafx.scene.control.TextArea;
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.io.OutputStream;
-import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 public class TCPServer extends Thread {
     private ServerSocket serverSocket;
-    private Socket clientSocket;
-    private PrintWriter out;
-    private BufferedReader in;
-    private TextArea messageArea;
+    private ExecutorService executorService;
+    private Map<String, ClientSession> sessions;  // Mapa para almacenar sesiones por dirección de cliente
+    private List<ServerListener> listeners;  // Lista de listeners para notificar eventos
+    private List<String> mensajesRecibidos = new ArrayList<>();
 
-    public TCPServer(TextArea messageArea) {
-        this.messageArea = messageArea;
+
+
+    public List<String> getMensajesRecibidos() {
+        return mensajesRecibidos;
+    }
+
+    public TCPServer() {
+        this.executorService = Executors.newCachedThreadPool();
+        this.sessions = new HashMap<>();
+        this.listeners = new ArrayList<>();
+    }
+
+    // Agregar un listener al servidor
+    public void addServerListener(ServerListener listener) {
+        listeners.add(listener);
     }
 
     @Override
     public void run() {
         try {
-            serverSocket = new ServerSocket(3001); // Puerto del servidor
-            messageArea.appendText("Servidor iniciado en el puerto 3001\n");
+            serverSocket = new ServerSocket(3001);
+            notifyClientConnected("Servidor iniciado en el puerto 3001");
 
-            clientSocket = serverSocket.accept();
-            messageArea.appendText("Cliente conectado: " + clientSocket.getInetAddress() + "\n");
+            while (!serverSocket.isClosed()) {
+                Socket clientSocket = serverSocket.accept();
+                String clientAddress = clientSocket.getInetAddress().toString();
+                notifyClientConnected("Cliente conectado desde: " + clientAddress);
 
-            out = new PrintWriter(clientSocket.getOutputStream(), true);
-            in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
-
-            String inputLine;
-            while ((inputLine = in.readLine()) != null) {
-                messageArea.appendText("Cliente: " + inputLine + "\n");
+                // Crear una nueva sesión y agregarla al mapa
+                ClientSession clientSession = new ClientSession(clientSocket, this);
+                sessions.put(clientAddress, clientSession);
+                executorService.execute(clientSession);
             }
         } catch (Exception e) {
-            messageArea.appendText("Error en el servidor: " + e.getMessage() + "\n");
+            notifyError("Error en el servidor: " + e.getMessage());
         }
     }
 
-    public void sendMessageToClient(String message) {
-        if (out != null) {
-            out.println(message);
+    // Notificar que se recibió un mensaje
+    public void notifyMessageReceived(String message) {
+        mensajesRecibidos.add(message);  // Guardar el mensaje recibido
+        for (ServerListener listener : listeners) {
+            listener.onMessageReceived(message);
+        }
+    }
+
+    // Notificar que un cliente se conectó
+    public void notifyClientConnected(String clientInfo) {
+        for (ServerListener listener : listeners) {
+            listener.onClientConnected(clientInfo);
+        }
+    }
+
+    // Notificar un error
+    public void notifyError(String error) {
+        for (ServerListener listener : listeners) {
+            listener.onError(error);
+        }
+    }
+
+    // Enviar mensaje a un cliente específico
+    public void sendMessageToClient(String clientAddress, String message) {
+        ClientSession clientSession = sessions.get(clientAddress);
+        if (clientSession != null) {
+            clientSession.sendMessage(message);
+        } else {
+            notifyError("No se encontró al cliente con dirección: " + clientAddress);
         }
     }
 
     public void stopServer() {
         try {
-            if (in != null) in.close();
-            if (out != null) out.close();
-            if (clientSocket != null) clientSocket.close();
+            executorService.shutdownNow();
             if (serverSocket != null) serverSocket.close();
-            messageArea.appendText("Servidor detenido\n");
+            notifyClientConnected("Servidor detenido.");
         } catch (Exception e) {
-            messageArea.appendText("Error al detener el servidor: " + e.getMessage() + "\n");
+            notifyError("Error al detener el servidor: " + e.getMessage());
         }
     }
 }

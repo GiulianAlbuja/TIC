@@ -1,5 +1,7 @@
 package com.sideralsoft.interfaz;
 
+import com.sideralsoft.interfaz.comunicadores.ServerListener;
+import com.sideralsoft.interfaz.comunicadores.TCPServer;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.scene.Scene;
@@ -32,7 +34,8 @@ public class Javafx extends Application implements ServerListener {
         stage.setTitle("Servidor TCP con JavaFX");
         stage.show();
 
-        server = new TCPServer();
+
+        server = TCPServer.getInstance();
         server.addServerListener(this);
         server.start();
     }

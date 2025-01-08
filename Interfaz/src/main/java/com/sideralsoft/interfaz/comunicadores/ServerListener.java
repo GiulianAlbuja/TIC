@@ -1,4 +1,4 @@
-package com.sideralsoft.interfaz;
+package com.sideralsoft.interfaz.comunicadores;
 
 public interface ServerListener {
     void onMessageReceived(String message);  // Cuando se recibe un mensaje de cliente

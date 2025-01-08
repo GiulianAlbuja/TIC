@@ -1,4 +1,6 @@
-package com.sideralsoft.interfaz;
+package com.sideralsoft.interfaz.comunicadores;
+
+import com.sideralsoft.interfaz.interpretadores.EnrutadorMensaje;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -9,14 +11,16 @@ public class ClientSession extends Thread {
     private Socket clientSocket;
     private PrintWriter out;
     private BufferedReader in;
-    private TCPServer server;  // Referencia al servidor para notificar mensajes
+    private TCPServer server;
     private Boolean sesionActiva;
+    private EnrutadorMensaje enrutadorMensaje;
 
 
     public ClientSession(Socket clientSocket, TCPServer server) {
         this.clientSocket = clientSocket;
         this.server = server;
         this.sesionActiva = true;
+        this.enrutadorMensaje = new EnrutadorMensaje(server);
     }
 
     @Override
@@ -29,6 +33,8 @@ public class ClientSession extends Thread {
             String inputLine;
             while ((inputLine = in.readLine()) != null) {
                 System.out.println("Mensaje recibido: " + inputLine);
+                System.out.println("IP: " + clientSocket.getInetAddress().toString());
+                enrutadorMensaje.enrutar(clientSocket.getInetAddress().toString(), inputLine);
                 server.notifyMessageReceived("Cliente [" + clientSocket.getInetAddress() + "]: " + inputLine);
             }
         } catch (Exception e) {

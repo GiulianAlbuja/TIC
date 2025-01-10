@@ -16,6 +16,7 @@ public final class TCPServer extends Thread {
     private Map<String, ClientSession> sessions;
     private List<ServerListener> listeners;
     private List<String> mensajesRecibidos = new ArrayList<>();
+    private List<String> mensajesEnviados = new ArrayList<>();
 
     private TCPServer() {
         this.executorService = Executors.newCachedThreadPool();
@@ -65,13 +66,15 @@ public final class TCPServer extends Thread {
     public List<String> getMensajesRecibidos() {
         return mensajesRecibidos;
     }
+    public List<String> getMensajesEnviados() {
+        return mensajesEnviados;
+    }
 
     public void notifyClientConnected(String clientInfo) {
         for (ServerListener listener : listeners) {
             listener.onClientConnected(clientInfo);
         }
     }
-
 
     public void notifyError(String error) {
         for (ServerListener listener : listeners) {
@@ -85,6 +88,7 @@ public final class TCPServer extends Thread {
         System.out.println("CLIENTE: " + clientSession + ":" + clientAddress);
         if (clientSession != null) {
             clientSession.sendMessage(message);
+            mensajesEnviados.add(message);
             System.out.println("MENSAJE ACK: " + message);
         } else {
             notifyError("No se encontró al cliente con dirección: " + clientAddress);
@@ -96,11 +100,9 @@ public final class TCPServer extends Thread {
             executorService.shutdownNow();
             if (serverSocket != null) serverSocket.close();
             notifyClientConnected("Servidor detenido.");
-            System.out.println("DETENIDOOOO");
+            System.out.println("Servidor detenido");
         } catch (Exception e) {
             notifyError("Error al detener el servidor: " + e.getMessage());
         }
     }
-
-
 }

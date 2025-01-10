@@ -1,6 +1,6 @@
-package com.sideralsoft.interfaz.interpretadores;
+package com.sideralsoft.interfaz.analizadores;
 
-import com.sideralsoft.interfaz.interpretadores.estrategias.EstrategiaProcesamiento;
+import com.sideralsoft.interfaz.analizadores.estrategias.EstrategiaProcesamiento;
 
 public class Procesador {
     private EstrategiaProcesamiento estrategia;

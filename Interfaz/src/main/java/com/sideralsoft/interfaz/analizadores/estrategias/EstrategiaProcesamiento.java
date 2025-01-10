@@ -1,4 +1,4 @@
-package com.sideralsoft.interfaz.interpretadores.estrategias;
+package com.sideralsoft.interfaz.analizadores.estrategias;
 
 public interface EstrategiaProcesamiento {
     String procesarMensaje(String mensaje);
@@ -6,6 +6,4 @@ public interface EstrategiaProcesamiento {
     String analizarTipoMensaje(String mensaje);
 
     void validarMensaje(String clientAddress, String mensaje);
-
-    void generarRespuestaConfirmacion(String clientAddress, String mensaje);
 }

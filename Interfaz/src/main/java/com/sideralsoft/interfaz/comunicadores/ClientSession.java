@@ -1,6 +1,6 @@
 package com.sideralsoft.interfaz.comunicadores;
 
-import com.sideralsoft.interfaz.interpretadores.EnrutadorMensaje;
+import com.sideralsoft.interfaz.analizadores.EnrutadorMensaje;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -20,7 +20,7 @@ public class ClientSession extends Thread {
         this.clientSocket = clientSocket;
         this.server = server;
         this.sesionActiva = true;
-        this.enrutadorMensaje = new EnrutadorMensaje(server);
+        this.enrutadorMensaje = new EnrutadorMensaje();
     }
 
     @Override

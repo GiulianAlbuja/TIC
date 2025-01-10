@@ -1,8 +1,8 @@
-package com.sideralsoft.interfaz.interpretadores;
+package com.sideralsoft.interfaz.analizadores;
 
-import com.sideralsoft.interfaz.interpretadores.estrategias.EstrategiaProcesamiento;
-import com.sideralsoft.interfaz.interpretadores.estrategias.SlaytherStrategy;
-import com.sideralsoft.interfaz.interpretadores.estrategias.TICStrategy;
+import com.sideralsoft.interfaz.analizadores.estrategias.EstrategiaProcesamiento;
+import com.sideralsoft.interfaz.analizadores.estrategias.SlaytherStrategy;
+import com.sideralsoft.interfaz.analizadores.estrategias.TICStrategy;
 
 public class AsignadorEstrategia {
     private EstrategiaProcesamiento estrategia;
@@ -13,7 +13,7 @@ public class AsignadorEstrategia {
                 estrategia = new TICStrategy();
                 System.out.println("Estrategia ASIGNADA TIC");
                 return estrategia;
-            case "/172.29.81.230":
+            case "/192.168.100.50":
                 estrategia = new SlaytherStrategy();
                 System.out.println("Estrategia ASIGNADA SLAYTHER");
                 return estrategia;

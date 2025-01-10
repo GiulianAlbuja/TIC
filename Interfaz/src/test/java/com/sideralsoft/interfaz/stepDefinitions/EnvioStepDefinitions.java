@@ -2,10 +2,13 @@ package com.sideralsoft.interfaz.stepDefinitions;
 
 import com.sideralsoft.interfaz.comunicadores.ClientSession;
 import com.sideralsoft.interfaz.comunicadores.TCPServer;
+import io.cucumber.java.Before;
 import io.cucumber.java.es.Cuando;
 import io.cucumber.java.es.Dado;
 import io.cucumber.java.es.Entonces;
 import io.cucumber.java.es.Y;
+
+
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.Socket;
@@ -19,9 +22,14 @@ public class EnvioStepDefinitions{
     private Socket clientSocket;
 
     public EnvioStepDefinitions() throws IOException {
+    }
+
+    @Before
+    public void setup() throws IOException, InterruptedException {
         this.server = TCPServer.getInstance();
-        server.start();
-        this.clientSocket = new Socket("localhost", 3001);
+        Thread.sleep(5000);
+        server.start();  // Iniciar el servidor antes de cada escenario
+        this.clientSocket = new Socket("localhost", 3001);  // Crear un nuevo cliente
     }
 
     @Dado("que la interfaz de comunicación ha iniciado una sesión con el equipo de laboratorio")
@@ -35,20 +43,25 @@ public class EnvioStepDefinitions{
     public void laInterfazDeComunicaciónRecibaUnMensajeORU(String mensaje) throws IOException, InterruptedException {
         PrintWriter out = new PrintWriter(clientSocket.getOutputStream(), true);
         out.println(mensaje);
-        Thread.sleep(2000);
+        Thread.sleep(5000);
         List<String> mensajesRecibidos = server.getMensajesRecibidos();
         System.out.println("Mensaje:"+ mensajesRecibidos);
         assertTrue("El mensaje no fue recibido correctamente por el servidor.", mensajesRecibidos.contains("Cliente" + " [" + clientSocket.getLocalAddress() + "]: " + mensaje));
     }
 
-    @Entonces("la interfaz de comunicación genera una respuesta de confirmación ACK")
-    public void laInterfazDeComunicaciónGeneraUnaRespuestaDeConfirmaciónACK(String mensaje) {
+    @Entonces("la interfaz de comunicación envía al equipo de laboratorio una respuesta de confirmación ACK")
+    public void laInterfazDeComunicaciónEnvíaAlEquipoDeLaboratorioUnaRespuestaDeConfirmaciónACK(String mensaje) throws InterruptedException, IOException {
+        List<String> mensajesEnviados = server.getMensajesEnviados();
+        System.out.println("Mensajes enviados:"+ mensajesEnviados);
+        assertTrue("El mensaje enviado no es el esperado.", mensajesEnviados.contains(mensaje));
         clientSession.closeSession();
         server.stopServer();
+        Thread.sleep(5000);
+
     }
 
-    @Y("el estado de envío de resultados clínicos está en {string}")
-    public void elEstadoDeEnvíoDeResultadosClínicosEstáEn(String arg0) {
+    @Y("envía los resultados clínicos a Orion")
+    public void envíaLosResultadosClínicosAOrion(String resultados) {
 
     }
 }

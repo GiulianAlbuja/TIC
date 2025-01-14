@@ -3,6 +3,8 @@ package com.sideralsoft.interfaz.analizadores;
 import com.sideralsoft.interfaz.comunicadores.TCPServer;
 import com.sideralsoft.interfaz.analizadores.estrategias.EstrategiaProcesamiento;
 
+import java.io.IOException;
+
 public class EnrutadorMensaje {
     private TCPServer server;
     private String tipoMensaje;
@@ -12,7 +14,7 @@ public class EnrutadorMensaje {
         this.server = TCPServer.getInstance();
     }
 
-    public void enrutar(String clientAddress, String mensaje) {
+    public void enrutar(String clientAddress, String mensaje) throws IOException {
         AsignadorEstrategia asignadorEstrategia = new AsignadorEstrategia();
         estrategiaProcesamiento = asignadorEstrategia.asignarEstrategia(clientAddress);
         tipoMensaje = estrategiaProcesamiento.analizarTipoMensaje(mensaje);

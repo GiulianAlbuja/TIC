@@ -105,4 +105,29 @@ public final class TCPServer extends Thread {
             notifyError("Error al detener el servidor: " + e.getMessage());
         }
     }
+
+    public void killServer() {
+        try {
+            // Detener el ExecutorService
+            executorService.shutdownNow();
+
+            // Cerrar todas las sesiones activas
+            for (ClientSession session : sessions.values()) {
+                session.closeSession();
+            }
+            sessions.clear();
+
+            // Cerrar el ServerSocket
+            if (serverSocket != null && !serverSocket.isClosed()) {
+                serverSocket.close();
+            }
+
+            // Resetear la instancia del Singleton a null
+            instance = null;
+
+            System.out.println("Servidor detenido completamente.");
+        } catch (Exception e) {
+            System.err.println("Error al detener completamente el servidor: " + e.getMessage());
+        }
+    }
 }

@@ -7,5 +7,5 @@ public interface EstrategiaProcesamiento {
 
     String analizarTipoMensaje(String mensaje);
 
-    void validarMensaje(String clientAddress, String mensaje) throws IOException;
+    String validarMensaje(String clientAddress, String mensaje) throws IOException;
 }

@@ -17,7 +17,6 @@ public class SlaytherStrategy implements  EstrategiaProcesamiento{
     private ControladorHTTP controladorHTTP;
 
     public SlaytherStrategy(){
-        this.enrutadorMensaje = new EnrutadorMensaje();
         this.controladorHTTP = new ControladorHTTP();
     }
 
@@ -41,7 +40,7 @@ public class SlaytherStrategy implements  EstrategiaProcesamiento{
     }
 
     @Override
-    public void validarMensaje(String clientAddress, String mensaje) throws IOException {
+    public String validarMensaje(String clientAddress, String mensaje) throws IOException {
         String status;
         String[] lines = mensaje.split("(?=MSH|PID|OBR|OBX)");
 
@@ -64,11 +63,12 @@ public class SlaytherStrategy implements  EstrategiaProcesamiento{
         if(hasMSH && hasPID && hasOBR && hasOBX){
             status = "AA";
             estructurarJSON(clientAddress, mensaje);
+            return "FINALIZADO";
         }else {
             status = "AE";
         }
         mensaje = generarRespuestaConfirmacion(mensaje, status);
-        enviarRespuestaConfirmacion(clientAddress, mensaje);
+        return mensaje;
     }
 
     private void estructurarJSON(String clientAddress, String mensaje) throws IOException {

@@ -16,7 +16,6 @@ public class TICStrategy implements EstrategiaProcesamiento {
     private ControladorHTTP controladorHTTP;
 
     public TICStrategy(){
-        this.enrutadorMensaje = new EnrutadorMensaje();
         this.controladorHTTP = new ControladorHTTP();
     }
 
@@ -40,7 +39,7 @@ public class TICStrategy implements EstrategiaProcesamiento {
     }
 
     @Override
-    public void validarMensaje(String clientAddress, String mensaje) throws IOException {
+    public String validarMensaje(String clientAddress, String mensaje) throws IOException {
         String status;
         String[] lines = mensaje.split("(?=MSH|PID|OBR|OBX)");
 
@@ -67,8 +66,7 @@ public class TICStrategy implements EstrategiaProcesamiento {
             status = "AE";
         }
         mensaje = generarRespuestaConfirmacion(mensaje, status);
-        enviarRespuestaConfirmacion(clientAddress, mensaje);
-
+        return mensaje;
     }
 
     private void estructurarJSON(String clientAddress, String mensaje) throws IOException {

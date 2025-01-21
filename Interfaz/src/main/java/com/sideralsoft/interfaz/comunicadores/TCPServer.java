@@ -13,10 +13,8 @@ public final class TCPServer extends Thread {
     private static TCPServer instance;
     private ServerSocket serverSocket;
     private ExecutorService executorService;
-    private Map<String, ClientSession> sessions;
+    private Map<String, Session> sessions;
     private List<ServerListener> listeners;
-    private List<String> mensajesRecibidos = new ArrayList<>();
-    private List<String> mensajesEnviados = new ArrayList<>();
 
     private TCPServer() {
         this.executorService = Executors.newCachedThreadPool();
@@ -41,15 +39,14 @@ public final class TCPServer extends Thread {
         try {
             serverSocket = new ServerSocket(3001);
             notifyClientConnected("Servidor iniciado en el puerto 3001");
-
             while (!serverSocket.isClosed()) {
                 Socket clientSocket = serverSocket.accept();
                 String clientAddress = clientSocket.getInetAddress().toString();
                 notifyClientConnected("Cliente conectado desde: " + clientAddress);
 
-                ClientSession clientSession = new ClientSession(clientSocket, this);
-                sessions.put(clientAddress, clientSession);
-                executorService.execute(clientSession);
+                Session session = new Session(clientSocket, "cliente");
+                sessions.put(clientAddress, session);
+                executorService.execute(session);
             }
         } catch (Exception e) {
             notifyError("Error en el servidor: " + e.getMessage());
@@ -57,17 +54,9 @@ public final class TCPServer extends Thread {
     }
 
     public void notifyMessageReceived(String message) {
-        mensajesRecibidos.add(message);
         for (ServerListener listener : listeners) {
             listener.onMessageReceived(message);
         }
-    }
-
-    public List<String> getMensajesRecibidos() {
-        return mensajesRecibidos;
-    }
-    public List<String> getMensajesEnviados() {
-        return mensajesEnviados;
     }
 
     public void notifyClientConnected(String clientInfo) {
@@ -84,11 +73,10 @@ public final class TCPServer extends Thread {
 
 
     public void sendMessageToClient(String clientAddress, String message) {
-        ClientSession clientSession = sessions.get(clientAddress);
-        System.out.println("CLIENTE: " + clientSession + ":" + clientAddress);
-        if (clientSession != null) {
-            clientSession.sendMessage(message);
-            mensajesEnviados.add(message);
+        Session session = sessions.get(clientAddress);
+        System.out.println("CLIENTE: " + session + ":" + clientAddress);
+        if (session != null) {
+            session.sendMessage(message);
             System.out.println("MENSAJE ACK: " + message);
         } else {
             notifyError("No se encontró al cliente con dirección: " + clientAddress);
@@ -98,36 +86,13 @@ public final class TCPServer extends Thread {
     public void stopServer() {
         try {
             executorService.shutdownNow();
+
             if (serverSocket != null) serverSocket.close();
+            this.join();
             notifyClientConnected("Servidor detenido.");
             System.out.println("Servidor detenido");
         } catch (Exception e) {
             notifyError("Error al detener el servidor: " + e.getMessage());
-        }
-    }
-
-    public void killServer() {
-        try {
-            // Detener el ExecutorService
-            executorService.shutdownNow();
-
-            // Cerrar todas las sesiones activas
-            for (ClientSession session : sessions.values()) {
-                session.closeSession();
-            }
-            sessions.clear();
-
-            // Cerrar el ServerSocket
-            if (serverSocket != null && !serverSocket.isClosed()) {
-                serverSocket.close();
-            }
-
-            // Resetear la instancia del Singleton a null
-            instance = null;
-
-            System.out.println("Servidor detenido completamente.");
-        } catch (Exception e) {
-            System.err.println("Error al detener completamente el servidor: " + e.getMessage());
         }
     }
 }

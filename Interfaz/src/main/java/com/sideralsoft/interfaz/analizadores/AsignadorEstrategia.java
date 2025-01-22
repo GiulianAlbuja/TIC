@@ -17,6 +17,7 @@ public class AsignadorEstrategia {
         String codigoEquipo = equipo.getCodigoEquipo();
         switch (codigoEquipo){
             case "TIC":
+                //Metodo libreria para cargar la estrategia
                 estrategia = new TICStrategy();
                 System.out.println("Estrategia ASIGNADA TIC");
                 return estrategia;

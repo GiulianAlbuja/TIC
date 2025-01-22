@@ -25,8 +25,8 @@ public class Session extends Thread {
         this.clientSocket = clientSocket;
         this.sesionActiva = true;
         this.enrutadorMensaje = new EnrutadorMensaje(this);
-        this.mensajesEnviados = new ArrayList<>();
-        this.mensajesRecibidos = new ArrayList<>();
+        mensajesEnviados = new ArrayList<>();
+        mensajesRecibidos = new ArrayList<>();
         this.tipoSession = tipoSession;
     }
 
@@ -69,27 +69,21 @@ public class Session extends Thread {
             //enrutadorMensaje.enrutar(clientSocket.getInetAddress().toString(), inputLine);
             enrutadorMensaje.enrutar(prueba, inputLine);
             System.out.println("Cliente [" + clientSocket.getInetAddress() + "]: " + inputLine);
-            this.mensajesRecibidos.add(inputLine);
+            mensajesRecibidos.add(inputLine);
         }
     }
 
     private void actuarComoCliente() throws IOException {
         String inputLine;
-        while ((inputLine = in.readLine()) != null ) {
-            if (inputLine.trim().isEmpty()) {
-                System.out.println("Línea vacía recibida. Ignorando...");
-                continue;
-            }
-            System.out.println("Mensaje recibido: " + inputLine);
-            String prueba = "/";
-            prueba = prueba + clientSocket.getInetAddress().getHostAddress().toString();
-            System.out.println("PRUEBA: " + prueba);
-            System.out.println("IP: " + clientSocket.getInetAddress().toString());
-            //enrutadorMensaje.enrutar(clientSocket.getInetAddress().toString(), inputLine);
-            enrutadorMensaje.enrutar(prueba, inputLine);
-            System.out.println("Cliente [" + clientSocket.getInetAddress() + "]: " + inputLine);
-            this.mensajesRecibidos.add(inputLine);
-        }
+        inputLine = in.readLine();
+        System.out.println("Mensaje recibido: " + inputLine);
+        String prueba = "/";
+        prueba = prueba + clientSocket.getInetAddress().getHostAddress().toString();
+        System.out.println("PRUEBA: " + prueba);
+        System.out.println("IP: " + clientSocket.getInetAddress().toString());
+        enrutadorMensaje.enrutar(prueba, inputLine);
+        System.out.println("Cliente [" + clientSocket.getInetAddress() + "]: " + inputLine);
+        mensajesRecibidos.add(inputLine);
     }
 
     public void sendMessage(String message) {
@@ -112,7 +106,7 @@ public class Session extends Thread {
             if (out != null) out.close();
             if (clientSocket != null) clientSocket.close();
             sesionActiva = false;
-            System.out.println("Sesión cerrada para jeje: " + clientSocket.getInetAddress());
+            System.out.println("Sesión cerrada para: " + clientSocket.getInetAddress());
         } catch (Exception e) {
             System.out.println("Error al cerrar la sesión: " + e.getMessage());
         }

@@ -1,12 +1,14 @@
 package com.sideralsoft.interfaz.stepDefinitions;
 
 import com.sideralsoft.interfaz.comunicadores.Session;
-import com.sideralsoft.interfaz.comunicadores.TCPClient;
 import com.sideralsoft.interfaz.comunicadores.TCPServer;
+import io.cucumber.java.After;
 import io.cucumber.java.es.Cuando;
 import io.cucumber.java.es.Dado;
 import io.cucumber.java.es.Entonces;
 import io.cucumber.java.es.Y;
+
+import org.junit.Before;
 
 
 import java.io.IOException;
@@ -20,7 +22,6 @@ import static org.junit.Assert.assertTrue;
 
 public class EnvioStepDefinitions{
     private TCPServer server;
-    private TCPClient client;
     private Session session;
     private Socket socket;
     private String tipoSession;
@@ -30,25 +31,28 @@ public class EnvioStepDefinitions{
         this.executorService = Executors.newCachedThreadPool();
     }
 
+    @Before
+    public void setUp() throws IOException, InterruptedException {
+        Thread.sleep(5000);
+    }
+
     @Dado("que el equipo de laboratorio actúa como cliente")
     public void queElEquipoDeLaboratorioActúaComoCliente() throws InterruptedException, IOException {
         this.server = TCPServer.getInstance();
         Thread.sleep(5000);
         server.start();
+        Thread.sleep(5000);
         this.socket = new Socket("localhost", 3001);
     }
 
     @Dado("que el equipo de laboratorio actúa como servidor")
     public void queElEquipoDeLaboratorioActúaComoServidor() throws IOException, InterruptedException {
+        Thread.sleep(10000);
         this.socket = new Socket("localhost", 3002);
     }
 
     @Dado("que la interfaz de comunicación ha iniciado una sesión de tipo {string} con el equipo de laboratorio")
     public void queLaInterfazDeComunicaciónHaIniciadoUnaSesiónDeTipoConElEquipoDeLaboratorio(String tipoSession) throws InterruptedException, IOException {
-        this.server = TCPServer.getInstance();
-        Thread.sleep(5000);
-        server.start();
-        this.socket = new Socket("localhost", 3001);
         this.tipoSession = tipoSession;
         session = new Session(socket, tipoSession);
         if(tipoSession.equals("cliente")){
@@ -82,16 +86,21 @@ public class EnvioStepDefinitions{
 
     @Y("envía los resultados clínicos a Orion")
     public void envíaLosResultadosClínicosAOrion(String resultados) throws IOException, InterruptedException {
-        //Thread.sleep(5000);
-        //session.closeSession();
-        if (tipoSession.equals("servidor")){
+    }
+
+    @After
+    public void tearDown() throws IOException, InterruptedException {
+        if (session != null) {
             session.closeSession();
-        }else if(tipoSession.equals("cliente")){
-            session.closeSession();
+        }
+        if (server != null) {
             server.stopServer();
         }
-        //socket.close();
-        //executorService.shutdown();
-        //Thread.sleep(5000);
+        if (socket != null) {
+            socket.close();
+        }
+        executorService.shutdown();
     }
 }
+
+

@@ -36,29 +36,14 @@ public class Session extends Thread {
             out = new PrintWriter(clientSocket.getOutputStream(), true);
             in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
             System.out.println("Nueva sesión iniciada: " + clientSocket.getInetAddress().getHostAddress());
-            String inputLine;
-            while ((inputLine = in.readLine()) != null ) {
-                if (inputLine.trim().isEmpty()) {
-                    System.out.println("Línea vacía recibida. Ignorando...");
-                    continue;
-                }
-                System.out.println("Mensaje recibido: " + inputLine);
-                String prueba = "/";
-                prueba = prueba + clientSocket.getInetAddress().getHostAddress().toString();
-                System.out.println("PRUEBA: " + prueba);
-                System.out.println("IP: " + clientSocket.getInetAddress().toString());
-                //enrutadorMensaje.enrutar(clientSocket.getInetAddress().toString(), inputLine);
-                enrutadorMensaje.enrutar(prueba, inputLine);
-                System.out.println("Cliente [" + clientSocket.getInetAddress() + "]: " + inputLine);
-                this.mensajesRecibidos.add(inputLine);
+
+            if(tipoSession.equals("servidor")){
+                System.out.println("ACTUANDO COMO CLIENTE");
+                actuarComoCliente();
+            }else{
+                System.out.println("ACTUANDO COMO SERVIDOR");
+                actuarComoServidor();
             }
-            //if(tipoSession.equals("servidor")){
-            //    System.out.println("ACTUANDO COMO CLIENTE");
-            //    actuarComoCliente();
-            //}else{
-            //    System.out.println("ACTUANDO COMO SERVIDOR");
-            //    actuarComoServidor();
-            //}
 
         } catch (Exception e) {
             sesionActiva = false;
@@ -91,10 +76,10 @@ public class Session extends Thread {
     private void actuarComoCliente() throws IOException {
         String inputLine;
         while ((inputLine = in.readLine()) != null ) {
-            //if (inputLine.trim().isEmpty()) {
-            //    System.out.println("Línea vacía recibida. Ignorando...");
-            //    continue;
-            //}
+            if (inputLine.trim().isEmpty()) {
+                System.out.println("Línea vacía recibida. Ignorando...");
+                continue;
+            }
             System.out.println("Mensaje recibido: " + inputLine);
             String prueba = "/";
             prueba = prueba + clientSocket.getInetAddress().getHostAddress().toString();

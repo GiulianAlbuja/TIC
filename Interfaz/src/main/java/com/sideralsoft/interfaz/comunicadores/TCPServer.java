@@ -88,7 +88,7 @@ public final class TCPServer extends Thread {
             executorService.shutdownNow();
 
             if (serverSocket != null) serverSocket.close();
-            this.join();
+            //this.join();
             notifyClientConnected("Servidor detenido.");
             System.out.println("Servidor detenido");
         } catch (Exception e) {

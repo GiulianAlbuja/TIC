@@ -7,15 +7,29 @@ import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.stream.Collectors;
 
 public class ControladorHTTP {
+    private static List<String> mensajesEnviados;
+    private static ControladorHTTP instance;
+
+    private ControladorHTTP() {
+        mensajesEnviados = new ArrayList<>();
+    }
+
+    public static synchronized ControladorHTTP getInstance() {
+        if (instance == null) {
+            instance = new ControladorHTTP();
+        }
+        return instance;
+    }
 
     public void enviarMensajeNube(String json){
         int responseCode = 0;
         StringBuilder responseContent = new StringBuilder();
         try {
-            //PREGUNTAR
             URL url = new URL("http://localhost:8000/api/resultados");
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
             connection.setRequestMethod("POST");
@@ -25,6 +39,7 @@ public class ControladorHTTP {
             try (OutputStream os = connection.getOutputStream()) {
                 byte[] input = json.getBytes(StandardCharsets.UTF_8);
                 os.write(input, 0, input.length);
+                mensajesEnviados.add(json);
             }
 
             responseCode = connection.getResponseCode();
@@ -49,4 +64,7 @@ public class ControladorHTTP {
         System.out.println(responseCode);
     }
 
+    public List<String> getMensajesEnviados() {
+        return mensajesEnviados;
+    }
 }

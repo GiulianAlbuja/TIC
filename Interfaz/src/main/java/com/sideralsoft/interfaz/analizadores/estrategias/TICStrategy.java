@@ -16,7 +16,7 @@ public class TICStrategy implements EstrategiaProcesamiento {
     private ControladorHTTP controladorHTTP;
 
     public TICStrategy(){
-        this.controladorHTTP = new ControladorHTTP();
+        this.controladorHTTP = ControladorHTTP.getInstance();
     }
 
     @Override

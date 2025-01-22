@@ -1,5 +1,6 @@
 package com.sideralsoft.interfaz.stepDefinitions;
 
+import com.sideralsoft.interfaz.comunicadores.ControladorHTTP;
 import com.sideralsoft.interfaz.comunicadores.Session;
 import com.sideralsoft.interfaz.comunicadores.TCPServer;
 import io.cucumber.java.After;
@@ -7,8 +8,6 @@ import io.cucumber.java.es.Cuando;
 import io.cucumber.java.es.Dado;
 import io.cucumber.java.es.Entonces;
 import io.cucumber.java.es.Y;
-
-import org.junit.Before;
 
 
 import java.io.IOException;
@@ -26,14 +25,10 @@ public class EnvioStepDefinitions{
     private Socket socket;
     private String tipoSession;
     private ExecutorService executorService;
+    private ControladorHTTP controladorHTTP;
 
     public EnvioStepDefinitions() throws IOException {
         this.executorService = Executors.newCachedThreadPool();
-    }
-
-    @Before
-    public void setUp() throws IOException, InterruptedException {
-        Thread.sleep(5000);
     }
 
     @Dado("que el equipo de laboratorio actúa como cliente")
@@ -85,13 +80,19 @@ public class EnvioStepDefinitions{
     }
 
     @Y("envía los resultados clínicos a Orion")
-    public void envíaLosResultadosClínicosAOrion(String resultados) throws IOException, InterruptedException {
+    public void envíaLosResultadosClínicosAOrion(String resultados) throws InterruptedException {
+        Thread.sleep(5000);
+        controladorHTTP = ControladorHTTP.getInstance();
+        List<String> mensajesEnviados = controladorHTTP.getMensajesEnviados();
+        System.out.println("Mensajes enviados a Orion:"+ mensajesEnviados);
+        assertTrue("El mensaje enviado a Orion no es el esperado.", mensajesEnviados.contains(resultados));
     }
 
     @After
     public void tearDown() throws IOException, InterruptedException {
         if (session != null) {
-            session.closeSession();
+            //no es necesario colocar el closeSession() ya que se cierra en la clase Session al terminar la conexión
+            //session.closeSession();
         }
         if (server != null) {
             server.stopServer();

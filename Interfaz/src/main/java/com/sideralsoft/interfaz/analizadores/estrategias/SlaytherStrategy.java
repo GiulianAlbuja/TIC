@@ -17,7 +17,7 @@ public class SlaytherStrategy implements  EstrategiaProcesamiento{
     private ControladorHTTP controladorHTTP;
 
     public SlaytherStrategy(){
-        this.controladorHTTP = new ControladorHTTP();
+        this.controladorHTTP = ControladorHTTP.getInstance();
     }
 
     @Override

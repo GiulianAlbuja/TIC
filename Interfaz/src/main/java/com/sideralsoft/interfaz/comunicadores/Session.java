@@ -112,7 +112,6 @@ public class Session extends Thread {
         }
     }
 
-
     public Boolean estaSesionActiva() {
         return sesionActiva;
     }

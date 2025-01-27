@@ -1,4 +1,4 @@
-package com.sideralsoft.interfaz.comunicadores;
+package com.sideralsoft.shared.comunicadores;
 
 import java.io.BufferedReader;
 import java.io.InputStream;

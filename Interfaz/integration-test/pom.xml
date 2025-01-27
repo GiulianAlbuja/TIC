@@ -18,6 +18,11 @@
             <artifactId>core</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
+        <dependency>
+            <groupId>com.example</groupId>
+            <artifactId>shared</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
         <!-- Dependencia a las estrategias -->
         <dependency>
             <groupId>com.example</groupId>

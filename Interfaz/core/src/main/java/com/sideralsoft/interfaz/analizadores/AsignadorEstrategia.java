@@ -1,15 +1,12 @@
 package com.sideralsoft.interfaz.analizadores;
 
-import com.sideralsoft.interfaz.Entidades.Equipo;
+import com.sideralsoft.shared.entidades.Equipo;
 import com.sideralsoft.interfaz.analizadores.estrategias.EstrategiaProcesamiento;
 import com.sideralsoft.interfaz.analizadores.estrategias.SlaytherStrategy;
 import com.sideralsoft.interfaz.analizadores.estrategias.TICStrategy;
-import com.sideralsoft.interfaz.readers.JsonReader;
+import com.sideralsoft.shared.readers.JsonReader;
 
-import java.io.File;
 import java.io.IOException;
-import java.net.URL;
-import java.net.URLClassLoader;
 
 public class AsignadorEstrategia {
     private EstrategiaProcesamiento estrategia;

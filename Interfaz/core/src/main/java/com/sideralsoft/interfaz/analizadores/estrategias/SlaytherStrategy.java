@@ -2,10 +2,10 @@ package com.sideralsoft.interfaz.analizadores.estrategias;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.sideralsoft.interfaz.Entidades.Equipo;
+import com.sideralsoft.shared.entidades.Equipo;
 import com.sideralsoft.interfaz.analizadores.EnrutadorMensaje;
-import com.sideralsoft.interfaz.comunicadores.ControladorHTTP;
-import com.sideralsoft.interfaz.readers.JsonReader;
+import com.sideralsoft.shared.comunicadores.ControladorHTTP;
+import com.sideralsoft.shared.readers.JsonReader;
 
 import java.io.IOException;
 import java.util.LinkedHashMap;

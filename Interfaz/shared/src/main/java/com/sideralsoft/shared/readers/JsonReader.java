@@ -1,8 +1,8 @@
-package com.sideralsoft.interfaz.readers;
+package com.sideralsoft.shared.readers;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-import com.sideralsoft.interfaz.Entidades.Equipo;
+import com.sideralsoft.shared.entidades.Equipo;
 
 import java.io.FileReader;
 import java.io.IOException;

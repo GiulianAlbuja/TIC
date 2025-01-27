@@ -1,4 +1,4 @@
-package com.sideralsoft.interfaz.Entidades;
+package com.sideralsoft.shared.entidades;
 
 public class Equipo {
     private String ip;

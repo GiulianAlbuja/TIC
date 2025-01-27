@@ -26,6 +26,7 @@ public class EnrutadorMensaje {
                 case "ORU^R01":
                     //ongo variable o enumeracion en un modo
                     mensaje = estrategiaProcesamiento.validarMensaje(clientAddress, mensaje);
+
                     //estrategiaProcesamiento.validarMensaje(clientAddress, mensaje);
                     break;
                 case "ACK":

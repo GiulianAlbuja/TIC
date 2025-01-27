@@ -1,6 +1,6 @@
 package com.sideralsoft.test.stepDefinitions;
 
-import com.sideralsoft.interfaz.comunicadores.ControladorHTTP;
+import com.sideralsoft.shared.comunicadores.ControladorHTTP;
 import com.sideralsoft.interfaz.comunicadores.Session;
 import com.sideralsoft.interfaz.comunicadores.TCPServer;
 import io.cucumber.java.After;

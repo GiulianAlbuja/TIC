@@ -1,28 +1,26 @@
-package com.sideralsoft.interfaz.analizadores.estrategias;
+package com.sideralsoft.estrategias;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.sideralsoft.shared.entidades.Equipo;
-import com.sideralsoft.interfaz.analizadores.EnrutadorMensaje;
 import com.sideralsoft.shared.comunicadores.ControladorHTTP;
+import com.sideralsoft.shared.estrategias.EstrategiaProcesamiento;
 import com.sideralsoft.shared.readers.JsonReader;
 
 import java.io.IOException;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-
-public class SlaytherStrategy implements  EstrategiaProcesamiento{
-    private EnrutadorMensaje enrutadorMensaje;
+public class TICStrategy implements EstrategiaProcesamiento {
     private ControladorHTTP controladorHTTP;
 
-    public SlaytherStrategy(){
+    public TICStrategy(){
         this.controladorHTTP = ControladorHTTP.getInstance();
     }
 
     @Override
     public String procesarMensaje(String mensaje) {
-        return "ACK-SLAYTHER";
+        return "ACKTIC";
     }
 
     @Override
@@ -63,7 +61,6 @@ public class SlaytherStrategy implements  EstrategiaProcesamiento{
         if(hasMSH && hasPID && hasOBR && hasOBX){
             status = "AA";
             estructurarJSON(clientAddress, mensaje);
-            return "FINALIZADO";
         }else {
             status = "AE";
         }
@@ -88,9 +85,6 @@ public class SlaytherStrategy implements  EstrategiaProcesamiento{
         controladorHTTP.enviarMensajeNube(json);
     }
 
-    public void enviarRespuestaConfirmacion(String clientAddress, String mensaje) throws IOException {
-        enrutadorMensaje.enrutar(clientAddress, mensaje);
-    }
 
     public String generarRespuestaConfirmacion(String mensaje, String status) {
         String[] segments = mensaje.split("\r");

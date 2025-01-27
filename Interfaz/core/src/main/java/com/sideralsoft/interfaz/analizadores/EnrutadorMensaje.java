@@ -1,7 +1,7 @@
 package com.sideralsoft.interfaz.analizadores;
 
 import com.sideralsoft.interfaz.comunicadores.Session;
-import com.sideralsoft.interfaz.analizadores.estrategias.EstrategiaProcesamiento;
+import com.sideralsoft.shared.estrategias.EstrategiaProcesamiento;
 
 import java.io.IOException;
 

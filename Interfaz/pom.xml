@@ -9,12 +9,18 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>core</module>
-        <module>strategy</module>
-        <module>integration-test</module>
-        <module>shared</module>
+        <module>modulo-controladorConexiones</module>
+        <module>modulo-analizadorMensajes</module>
+        <module>modulo-pruebas</module>
+        <module>modulo-distribuidorMensajes</module>
     </modules>
-
+    <dependencies>
+        <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+            <version>2.10.1</version>
+        </dependency>
+    </dependencies>
     <properties>
         <maven.compiler.source>21</maven.compiler.source>
         <maven.compiler.target>21</maven.compiler.target>

@@ -81,7 +81,7 @@ public class TICStrategy implements EstrategiaProcesamiento {
         String json = gson.toJson(data);
 
 
-        System.out.println("JSON serializado: " + json);
+        System.out.println("JSON serializado: - ACTUALIZACION 2 PRUEBA " + json);
         controladorHTTP.enviarMensajeNube(json);
     }
 

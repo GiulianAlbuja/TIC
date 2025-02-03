@@ -1,40 +1,45 @@
 package com.sideralsoft.shared.entidades;
 
+import java.util.List;
+
 public class Equipo {
-    private String ip;
+    private String nombre;
     private String id;
+    private String ip;
+    private int puerto;
+    private String configuracionHl7;
     private String token;
-    private String codigoEquipo;
+    private List<String> camposIdentificadores;
 
-    public String getIp() {
-        return ip;
-    }
-
-    public void setIp(String ip) {
-        this.ip = ip;
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
+    public Equipo(String nombre, String id, String ip, int puerto, String configuracionHl7, String token, List<String> camposIdentificadores) {
+        this.nombre = nombre;
         this.id = id;
-    }
-
-    public String getToken() {
-        return token;
-    }
-
-    public void setToken(String token) {
+        this.ip = ip;
+        this.puerto = puerto;
+        this.configuracionHl7 = configuracionHl7;
         this.token = token;
+        this.camposIdentificadores = camposIdentificadores;
     }
 
-    public String getCodigoEquipo() {
-        return codigoEquipo;
-    }
+    // Getters y Setters
+    public String getNombre() { return nombre; }
+    public String getId() { return id; }
+    public String getIp() { return ip; }
+    public int getPuerto() { return puerto; }
+    public String getConfiguracionHl7() { return configuracionHl7; }
+    public String getToken() { return token; }
+    public List<String> getCamposIdentificadores() { return camposIdentificadores; }
 
-    public void setCodigoEquipo(String codigoEquipo) {
-        this.codigoEquipo = codigoEquipo;
+    @Override
+    public String toString() {
+        return "Equipo{" +
+                "nombre='" + nombre + '\'' +
+                ", id=" + id +
+                ", ip='" + ip + '\'' +
+                ", puerto=" + puerto +
+                ", configuracionHl7='" + configuracionHl7 + '\'' +
+                ", token='" + token + '\'' +
+                ", camposIdentificadores=" + camposIdentificadores +
+                '}';
     }
 }

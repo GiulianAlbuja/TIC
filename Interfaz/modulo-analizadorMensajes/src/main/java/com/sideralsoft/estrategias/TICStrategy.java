@@ -6,6 +6,7 @@ import com.sideralsoft.shared.entidades.Equipo;
 import com.sideralsoft.shared.comunicadores.ControladorHTTP;
 import com.sideralsoft.shared.estrategias.EstrategiaProcesamiento;
 import com.sideralsoft.shared.readers.JsonReader;
+import com.sideralsoft.shared.readers.YamlReader;
 
 import java.io.IOException;
 import java.util.LinkedHashMap;
@@ -69,13 +70,17 @@ public class TICStrategy implements EstrategiaProcesamiento {
     }
 
     private void estructurarJSON(String clientAddress, String mensaje) throws IOException {
-        JsonReader jsonReader = JsonReader.getInstance();
-        Equipo equipo = jsonReader.getEquipoByIp(clientAddress);
+        //JsonReader jsonReader = JsonReader.getInstance();
+        //Equipo equipo = jsonReader.getEquipoByIp(clientAddress);
+        YamlReader yamlReader = YamlReader.getInstance();
+        Equipo equipo = yamlReader.getEquipoByIp(clientAddress);
         Map<String, String> data = new LinkedHashMap<>();
         data.put("ip", clientAddress);
+        //data.put("id", equipo.getId());
         data.put("id", equipo.getId());
         data.put("token", equipo.getToken());
-        data.put("codigoEquipo", equipo.getCodigoEquipo());
+        //data.put("codigoEquipo", equipo.getCodigoEquipo());
+        data.put("configuracionHL7", equipo.getConfiguracionHl7());
         data.put("hl7Trama", mensaje);
         Gson gson = new GsonBuilder().disableHtmlEscaping().create();
         String json = gson.toJson(data);

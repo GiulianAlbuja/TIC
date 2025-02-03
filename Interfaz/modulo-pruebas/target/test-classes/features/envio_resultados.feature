@@ -14,7 +14,7 @@ Característica: Envío de resultados clínicos desde el equipo de laboratorio a
     """
     Y envía los resultados clínicos a Orion
     """
-    {"ip":"/127.0.0.1","id":"1","token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3Mzc5OTM3MzAsImV4cCI6MTczNzk5NTUzMCwiY2xpZW50SWQiOiIxIn0.uPp-Hg_R1KXvwWT5vJXo--5BOO5OmDN8d31EUyG9Bvk","codigoEquipo":"TIC","hl7Trama":"MSH|^~\\&|LabSystem|LabFacility|LIS|Hospital|202412241200||ORU^R01|98765|P|2.3|\\rPID|1||123456^^^Hospital^MR||Doe^Jane||19900101|F|||456 Elm St^^Metropolis^NY^12345||555-555-1234|\\rOBR|1|54321|98765|BMP^Basic Metabolic Panel^L|||202412241100|202412241200|\\rOBX|1|NM|2951-2^Sodium^LN||140|mmol/L|135-145|N|||\\rOBX|2|NM|2823-3^Potassium^LN||4.2|mmol/L|3.5-5.0|N|||\\r"}
+    {"ip":"/127.0.0.1","id":"1","token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3Mzg2MDgwNjksImV4cCI6MTczODYwOTg2OSwiY2xpZW50SWQiOiIxIn0.WB2dhDHbN_IIAFaFVee_u_TiuyjXo5BwTFvW7sxXnDs","configuracionHL7":"TIC","hl7Trama":"MSH|^~\\&|LabSystem|LabFacility|LIS|Hospital|202412241200||ORU^R01|98765|P|2.3|\\rPID|1||123456^^^Hospital^MR||Doe^Jane||19900101|F|||456 Elm St^^Metropolis^NY^12345||555-555-1234|\\rOBR|1|54321|98765|BMP^Basic Metabolic Panel^L|||202412241100|202412241200|\\rOBX|1|NM|2951-2^Sodium^LN||140|mmol/L|135-145|N|||\\rOBX|2|NM|2823-3^Potassium^LN||4.2|mmol/L|3.5-5.0|N|||\\r"}
     """
 
 
@@ -31,5 +31,5 @@ Característica: Envío de resultados clínicos desde el equipo de laboratorio a
     """
     Y envía los resultados clínicos a Orion
     """
-    {"ip":"/127.0.0.1","id":"1","token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3Mzc5OTM3MzAsImV4cCI6MTczNzk5NTUzMCwiY2xpZW50SWQiOiIxIn0.uPp-Hg_R1KXvwWT5vJXo--5BOO5OmDN8d31EUyG9Bvk","codigoEquipo":"TIC","hl7Trama":"MSH|^~\\&|LabSystem|LabFacility|LIS|Hospital|202412241200||ORU^R01|98766|P|2.3|\\rPID|1||123456^^^Hospital^MR||Doe^Jane||19900101|F|||456 Elm St^^Metropolis^NY^12345||555-555-1234|\\rOBR|1|54321|98765|BMP^Basic Metabolic Panel^L|||202412241100|202412241200|\\rOBX|1|NM|2951-2^Sodium^LN||140|mmol/L|135-145|N|||\\rOBX|2|NM|2823-3^Potassium^LN||4.2|mmol/L|3.5-5.0|N|||\\r"}
+    {"ip":"/127.0.0.1","id":"1","token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3Mzg2MDgwNjksImV4cCI6MTczODYwOTg2OSwiY2xpZW50SWQiOiIxIn0.WB2dhDHbN_IIAFaFVee_u_TiuyjXo5BwTFvW7sxXnDs","configuracionHL7":"TIC","hl7Trama":"MSH|^~\\&|LabSystem|LabFacility|LIS|Hospital|202412241200||ORU^R01|98766|P|2.3|\\rPID|1||123456^^^Hospital^MR||Doe^Jane||19900101|F|||456 Elm St^^Metropolis^NY^12345||555-555-1234|\\rOBR|1|54321|98765|BMP^Basic Metabolic Panel^L|||202412241100|202412241200|\\rOBX|1|NM|2951-2^Sodium^LN||140|mmol/L|135-145|N|||\\rOBX|2|NM|2823-3^Potassium^LN||4.2|mmol/L|3.5-5.0|N|||\\r"}
     """

@@ -3,6 +3,7 @@ package com.sideralsoft.interfaz.analizadores;
 import com.sideralsoft.shared.entidades.Equipo;
 import com.sideralsoft.shared.estrategias.EstrategiaProcesamiento;
 import com.sideralsoft.shared.readers.JsonReader;
+import com.sideralsoft.shared.readers.YamlReader;
 
 import java.io.File;
 import java.io.IOException;
@@ -14,9 +15,13 @@ public class AsignadorEstrategia {
 
       public EstrategiaProcesamiento asignarEstrategia(String clientAddress) throws IOException {
           JsonReader jsonReader = JsonReader.getInstance();
-          Equipo equipo = jsonReader.getEquipoByIp(clientAddress);
-          String codigoEquipo = equipo.getCodigoEquipo();
+          YamlReader yamlReader = YamlReader.getInstance();
+          //Equipo equipo = jsonReader.getEquipoByIp(clientAddress);
+          Equipo equipo = yamlReader.getEquipoByIp(clientAddress);
+          //String codigoEquipo = equipo.getCodigoEquipo();
+          String codigoEquipo = equipo.getConfiguracionHl7();
           String jarDirectoryPath = "C:\\instalaciones\\interfaz-hl7\\lib";
+          System.out.println("ConfiguracionHL7: " + codigoEquipo);
           switch (codigoEquipo) {
               case "TIC":
                   estrategia = cargarEstrategiaDesdeJar(jarDirectoryPath, "TICStrategy.jar" ,"com.sideralsoft.estrategias.TICStrategy");

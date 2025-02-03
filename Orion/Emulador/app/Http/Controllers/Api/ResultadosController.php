@@ -26,7 +26,7 @@ class ResultadosController extends Controller
 
         try {
             $asignadorEstrategia = new AsignadorEstrategia();
-            $strategy = $asignadorEstrategia->obtenerEstrategia($request->get('codigoEquipo'));
+            $strategy = $asignadorEstrategia->obtenerEstrategia($request->get('configuracionHL7'));
             $resultado = $strategy->procesarTramaHL7aJSON($request->get('hl7Trama'));
             
 
@@ -42,7 +42,7 @@ class ResultadosController extends Controller
             'ip' => 'required',
             'id' => 'required',
             'token' => 'required',
-            'codigoEquipo' => 'required',
+            'configuracionHL7' => 'required',
             'hl7Trama' => 'required'
         ]);
 

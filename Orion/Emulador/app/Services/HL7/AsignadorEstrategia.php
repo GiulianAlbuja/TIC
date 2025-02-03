@@ -5,9 +5,9 @@ use App\Services\HL7\TICStrategy;
 
 class AsignadorEstrategia
 {
-    public function obtenerEstrategia(string $codigoEquipo): EstrategiaProcesamiento
+    public function obtenerEstrategia(string $configuracionHL7): EstrategiaProcesamiento
     {
-        switch ($codigoEquipo) {
+        switch ($configuracionHL7) {
             case 'TIC':
                 return new TICStrategy();
             case 'TC-220':

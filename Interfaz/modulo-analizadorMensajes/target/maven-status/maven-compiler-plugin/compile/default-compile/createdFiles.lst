@@ -1,4 +1,4 @@
 com\sideralsoft\estrategias\BioAnalyzerStrategy.class
+com\sideralsoft\estrategias\DefaultStrategy.class
+com\sideralsoft\estrategias\AnalyzerStrategy.class
 com\sideralsoft\estrategias\HematologyStrategy.class
-com\sideralsoft\estrategias\AnalizerStrategy.class
-com\sideralsoft\estrategias\TICStrategy.class

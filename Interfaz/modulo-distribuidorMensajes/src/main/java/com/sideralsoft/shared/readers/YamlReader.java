@@ -41,6 +41,11 @@ public class YamlReader {
         return equipo.orElse(null);
     }
 
+    public Equipo getEquipoByConfiguracionHl7(String configuracionHl7) {
+        Optional<Equipo> equipo = equipos.values().stream().filter(e -> e.getConfiguracionHl7().equals(configuracionHl7)).findFirst();
+        return equipo.orElse(null);
+    }
+
     public Equipo getEquipoByNombre(String nombre) {
         return equipos.getOrDefault(nombre, equipos.get("Default"));
     }
@@ -55,5 +60,9 @@ public class YamlReader {
                 (String) data.get("token"),
                 (java.util.List<String>) data.get("campos_identificadores")
         );
+    }
+
+    public Map<String, Equipo> getEquipos() {
+        return equipos;
     }
 }

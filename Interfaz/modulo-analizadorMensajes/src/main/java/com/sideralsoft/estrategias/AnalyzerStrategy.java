@@ -12,10 +12,10 @@ import java.io.IOException;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-public class BioAnalyzerStrategy implements EstrategiaProcesamiento{
+public class AnalyzerStrategy implements EstrategiaProcesamiento{
     private ControladorHTTP controladorHTTP;
 
-    public BioAnalyzerStrategy(){
+    public AnalyzerStrategy(){
         this.controladorHTTP = ControladorHTTP.getInstance();
     }
 
@@ -61,7 +61,7 @@ public class BioAnalyzerStrategy implements EstrategiaProcesamiento{
         }
         if(hasMSH && hasPID && hasOBR && hasOBX){
             status = "AA";
-            estructurarJSON(clientAddress, mensaje);
+            estructurarJSON(mensaje);
         }else {
             status = "AE";
         }
@@ -69,9 +69,9 @@ public class BioAnalyzerStrategy implements EstrategiaProcesamiento{
         return mensaje;
     }
 
-    private void estructurarJSON(String clientAddress, String mensaje) throws IOException {
+    private void estructurarJSON(String mensaje) throws IOException {
         YamlReader yamlReader = YamlReader.getInstance();
-        Equipo equipo = yamlReader.getEquipoByConfiguracionHl7("BioAnalyzerStrategy");
+        Equipo equipo = yamlReader.getEquipoByConfiguracionHl7("AnalyzerStrategy");
         Map<String, String> data = new LinkedHashMap<>();
         data.put("ip", equipo.getIp());
         //data.put("id", equipo.getId());

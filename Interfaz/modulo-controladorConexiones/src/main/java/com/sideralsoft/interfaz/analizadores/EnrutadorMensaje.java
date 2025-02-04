@@ -17,14 +17,14 @@ public class EnrutadorMensaje {
     public void enrutar(String clientAddress, String mensaje) throws IOException {
         //ENUMERACION
         //VARIABLE COMPORTAMIENTO
+        AsignadorEstrategia asignadorEstrategia = new AsignadorEstrategia();
+        estrategiaProcesamiento = asignadorEstrategia.obtenerEstrategia(mensaje);
         do{
-            AsignadorEstrategia asignadorEstrategia = new AsignadorEstrategia();
-            estrategiaProcesamiento = asignadorEstrategia.asignarEstrategia(clientAddress);
             tipoMensaje = estrategiaProcesamiento.analizarTipoMensaje(mensaje);
             System.out.println("Tipo mensaje" + tipoMensaje);
             switch (tipoMensaje) {
                 case "ORU^R01":
-                    //ongo variable o enumeracion en un modo
+                    //pongo variable o enumeracion en un modo
                     mensaje = estrategiaProcesamiento.validarMensaje(clientAddress, mensaje);
 
                     //estrategiaProcesamiento.validarMensaje(clientAddress, mensaje);

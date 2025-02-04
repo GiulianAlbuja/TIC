@@ -32,7 +32,7 @@ class JWTService
     {
         $now = Carbon::now();
         $issuedAt = new \DateTimeImmutable($now->toDateTimeString());
-        $expiresAt = new \DateTimeImmutable($now->addMinutes(30)->toDateTimeString());
+        $expiresAt = new \DateTimeImmutable($now->addMinutes(480)->toDateTimeString());
 
         $token = $this->config->builder()
             ->issuedAt($issuedAt)

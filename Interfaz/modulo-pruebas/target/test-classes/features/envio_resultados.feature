@@ -6,15 +6,15 @@ Característica: Envío de resultados clínicos desde el equipo de laboratorio a
     Dado que la interfaz de comunicación ha iniciado una sesión de tipo "cliente" con el equipo de laboratorio
     Cuando la interfaz de comunicación reciba un mensaje ORU
     """
-    MSH|^~\&|LabSystem|LabFacility|LIS|Hospital|202412241200||ORU^R01|98765|P|2.3|\rPID|1||123456^^^Hospital^MR||Doe^Jane||19900101|F|||456 Elm St^^Metropolis^NY^12345||555-555-1234|\rOBR|1|54321|98765|BMP^Basic Metabolic Panel^L|||202412241100|202412241200|\rOBX|1|NM|2951-2^Sodium^LN||140|mmol/L|135-145|N|||\rOBX|2|NM|2823-3^Potassium^LN||4.2|mmol/L|3.5-5.0|N|||\r
+    MSH|^~\&|xxxxxxxxxxx|LabFacility|LIS|Hospital|202412241200||ORU^R01|98765|P|2.3|\rPID|1|HematologyPro|Prueba|HematologyPro|123456^^^Hospital^MR||Doe^Jane||19900101|F|||456 Elm St^^Metropolis^NY^12345||555-555-1234|\rOBR|1|54321|98765|BMP^Basic Metabolic Panel^L|||202412241100|202412241200|\rOBX|1|NM|2951-2^Sodium^LN||140|mmol/L|135-145|N|||\rOBX|2|NM|2823-3^Potassium^LN||4.2|mmol/L|3.5-5.0|N|||\r
     """
     Entonces la interfaz de comunicación envía al equipo de laboratorio una respuesta de confirmación ACK
     """
-    MSH|^~\&|LIS|Hospital|LabSystem|LabFacility|202412241300||ACK|ACK-54321|P|2.3|MSA|AA|98765|
+    MSH|^~\&|LIS|Hospital|HematologyPro|LabFacility|202412241300||ACK|ACK-54321|P|2.3|MSA|AA|98765|
     """
     Y envía los resultados clínicos a Orion
     """
-    {"ip":"/127.0.0.1","id":"A1","token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3Mzg2MTY4NzgsImV4cCI6MTczODYxODY3OCwiY2xpZW50SWQiOiJBMSJ9.lJcmmqy5mxcRw44V4OifBr-JzN5Sa8aKNsx8H34mOGw","configuracionHL7":"TIC","hl7Trama":"MSH|^~\\&|LabSystem|LabFacility|LIS|Hospital|202412241200||ORU^R01|98765|P|2.3|\\rPID|1||123456^^^Hospital^MR||Doe^Jane||19900101|F|||456 Elm St^^Metropolis^NY^12345||555-555-1234|\\rOBR|1|54321|98765|BMP^Basic Metabolic Panel^L|||202412241100|202412241200|\\rOBX|1|NM|2951-2^Sodium^LN||140|mmol/L|135-145|N|||\\rOBX|2|NM|2823-3^Potassium^LN||4.2|mmol/L|3.5-5.0|N|||\\r"}
+    {"ip":"/127.0.0.12","id":"H1","token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3Mzg2OTY4MTQsImV4cCI6MTczODcyNTYxNCwiY2xpZW50SWQiOiJIMSJ9.-G27BDl-EAldEP6BIP1EqpQ8SWwXHE6FpclKPSnfHYg","configuracionHL7":"HematologyStrategy","hl7Trama":"MSH|^~\\&|HematologyPro|LabFacility|LIS|Hospital|202412241200||ORU^R01|98765|P|2.3|\\rPID|1||123456^^^Hospital^MR||Doe^Jane||19900101|F|||456 Elm St^^Metropolis^NY^12345||555-555-1234|\\rOBR|1|54321|98765|BMP^Basic Metabolic Panel^L|||202412241100|202412241200|\\rOBX|1|NM|2951-2^Sodium^LN||140|mmol/L|135-145|N|||\\rOBX|2|NM|2823-3^Potassium^LN||4.2|mmol/L|3.5-5.0|N|||\\r"}
     """
 
 
@@ -31,5 +31,5 @@ Característica: Envío de resultados clínicos desde el equipo de laboratorio a
     """
     Y envía los resultados clínicos a Orion
     """
-    {"ip":"/127.0.0.1","id":"A1","token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3Mzg2MTY4NzgsImV4cCI6MTczODYxODY3OCwiY2xpZW50SWQiOiJBMSJ9.lJcmmqy5mxcRw44V4OifBr-JzN5Sa8aKNsx8H34mOGw","configuracionHL7":"TIC","hl7Trama":"MSH|^~\\&|LabSystem|LabFacility|LIS|Hospital|202412241200||ORU^R01|98766|P|2.3|\\rPID|1||123456^^^Hospital^MR||Doe^Jane||19900101|F|||456 Elm St^^Metropolis^NY^12345||555-555-1234|\\rOBR|1|54321|98765|BMP^Basic Metabolic Panel^L|||202412241100|202412241200|\\rOBX|1|NM|2951-2^Sodium^LN||140|mmol/L|135-145|N|||\\rOBX|2|NM|2823-3^Potassium^LN||4.2|mmol/L|3.5-5.0|N|||\\r"}
+    {"ip":"/127.0.0.1","id":"A1","token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3Mzg2ODQ3NjcsImV4cCI6MTczODcxMzU2NywiY2xpZW50SWQiOiJBMSJ9.rgn5zrVgJFCKDr04k4fcAtpLc5Pmh3t3SoAFIufjCQo","configuracionHL7":"TIC","hl7Trama":"MSH|^~\\&|LabSystem|LabFacility|LIS|Hospital|202412241200||ORU^R01|98766|P|2.3|\\rPID|1||123456^^^Hospital^MR||Doe^Jane||19900101|F|||456 Elm St^^Metropolis^NY^12345||555-555-1234|\\rOBR|1|54321|98765|BMP^Basic Metabolic Panel^L|||202412241100|202412241200|\\rOBX|1|NM|2951-2^Sodium^LN||140|mmol/L|135-145|N|||\\rOBX|2|NM|2823-3^Potassium^LN||4.2|mmol/L|3.5-5.0|N|||\\r"}
     """

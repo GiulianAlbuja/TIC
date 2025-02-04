@@ -9,66 +9,97 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.net.URLClassLoader;
+import java.util.Map;
 
 public class AsignadorEstrategia {
     private EstrategiaProcesamiento estrategia;
+    private String nombreEstrategia;
 
-      public EstrategiaProcesamiento asignarEstrategia(String clientAddress) throws IOException {
-          JsonReader jsonReader = JsonReader.getInstance();
-          YamlReader yamlReader = YamlReader.getInstance();
-          //Equipo equipo = jsonReader.getEquipoByIp(clientAddress);
-          Equipo equipo = yamlReader.getEquipoByIp(clientAddress);
-          //String codigoEquipo = equipo.getCodigoEquipo();
-          String codigoEquipo = equipo.getConfiguracionHl7();
-          String jarDirectoryPath = "C:\\instalaciones\\interfaz-hl7\\lib";
-          System.out.println("ConfiguracionHL7: " + codigoEquipo);
-          switch (codigoEquipo) {
-              case "TIC":
-                  estrategia = cargarEstrategiaDesdeJar(jarDirectoryPath, "TICStrategy.jar" ,"com.sideralsoft.estrategias.TICStrategy");
-                  System.out.println("Estrategia ASIGNADA TIC- actualizacion");
-                  return estrategia;
-              case "TC-220":
-                  estrategia = cargarEstrategiaDesdeJar(jarDirectoryPath, "TICStrategy.jar" ,"com.sideralsoft.estrategias.TICStrategy");
-                  System.out.println("Estrategia ASIGNADA SLAYTHER");
-                  return estrategia;
-              default:
-                  System.out.println("No se encontró estrategia para el equipo con código: " + codigoEquipo);
-                  return null;
-          }
-      }
+    public EstrategiaProcesamiento obtenerEstrategia(String mensaje) throws IOException {
+        nombreEstrategia = identificarEstrategia(mensaje);
+        String jarDirectoryPath = "C:\\instalaciones\\interfaz-hl7\\lib";
+        System.out.println("ConfiguracionHL7: " + nombreEstrategia);
+        estrategia = cargarEstrategiaDesdeJar(jarDirectoryPath, nombreEstrategia + ".jar", "com.sideralsoft.estrategias." + nombreEstrategia);
+        System.out.println("Estrategia ASIGNADA: " + nombreEstrategia );
+        if (estrategia == null) {
+            throw new IllegalArgumentException("No se encontró la estrategia: " + nombreEstrategia);
+        }
+        return estrategia;
+    }
 
-   private EstrategiaProcesamiento cargarEstrategiaDesdeJar(String jarDirectory, String jarName,String className) {
-       try {
-           // Verificar que el directorio existe
-           File jarDir = new File(jarDirectory);
-           if (!jarDir.exists() || !jarDir.isDirectory()) {
-               throw new IllegalArgumentException("El directorio de JARs no existe: " + jarDirectory);
-           }
+    private String identificarEstrategia(String mensaje) throws IOException {
+        YamlReader yamlReader = YamlReader.getInstance();
+        Map<String, Equipo> equipos = yamlReader.getEquipos();
 
-           File[] jarFiles = jarDir.listFiles((dir, name) -> name.equalsIgnoreCase(jarName));
-           if (jarFiles == null || jarFiles.length == 0) {
-               throw new IllegalArgumentException("No se encontraron JARs en el directorio: " + jarDirectory);
-           }
+        //PREGUNTAR COMO SE SEPARAN LOS SEGMENTOS
+        String[] lineas = mensaje.split("\\\\r?\\\\n|\\\\r");
 
-           URL[] urls = new URL[jarFiles.length];
-           for (int i = 0; i < jarFiles.length; i++) {
-               urls[i] = jarFiles[i].toURI().toURL();
-               System.out.println("Cargando desde URL: " + urls[i]);
-           }
+        for (Equipo equipo : equipos.values()) {
+            for (String campo : equipo.getCamposIdentificadores()) {
+                String valorCampo = extraerCampoHL7(lineas, campo);
+                if (valorCampo != null && valorCampo.equalsIgnoreCase(equipo.getNombre())) {
+                    return equipo.getConfiguracionHl7();
+                }
+            }
+        }
+        return equipos.get("Default").getConfiguracionHl7();
+    }
 
-           URLClassLoader classLoader = new URLClassLoader(urls, this.getClass().getClassLoader());
+    private String extraerCampoHL7(String[] lineas, String campoHL7) {
+        try {
+            String[] partes = campoHL7.split("-");
+            if (partes.length != 2) return null;
 
-           Class<?> strategyClass = classLoader.loadClass(className);
+            String segmentoBuscado = partes[0];
+            int indiceCampo = Integer.parseInt(partes[1]) - 1;
 
-           if (!EstrategiaProcesamiento.class.isAssignableFrom(strategyClass)) {
-               throw new IllegalArgumentException("La clase " + className + " no implementa EstrategiaProcesamiento.");
-           }
+            for (String linea : lineas) {
+                if (linea.startsWith(segmentoBuscado + "|")) {
+                    String[] campos = linea.split("\\|");
+                    if (indiceCampo < campos.length) {
+                        return campos[indiceCampo];
+                    }
+                }
+            }
+        } catch (NumberFormatException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 
-           return (EstrategiaProcesamiento) strategyClass.getDeclaredConstructor().newInstance();
 
-       } catch (Exception e) {
-           e.printStackTrace();
-           throw new RuntimeException("Error al cargar la estrategia desde el JAR: " + className, e);
-       }
-   }
+    private EstrategiaProcesamiento cargarEstrategiaDesdeJar(String jarDirectory, String jarName, String className) {
+        try {
+            // Verificar que el directorio existe
+            File jarDir = new File(jarDirectory);
+            if (!jarDir.exists() || !jarDir.isDirectory()) {
+                throw new IllegalArgumentException("El directorio de JARs no existe: " + jarDirectory);
+            }
+
+            File[] jarFiles = jarDir.listFiles((dir, name) -> name.equalsIgnoreCase(jarName));
+            if (jarFiles == null || jarFiles.length == 0) {
+                throw new IllegalArgumentException("No se encontraron JARs en el directorio: " + jarDirectory);
+            }
+
+            URL[] urls = new URL[jarFiles.length];
+            for (int i = 0; i < jarFiles.length; i++) {
+                urls[i] = jarFiles[i].toURI().toURL();
+                System.out.println("Cargando desde URL: " + urls[i]);
+            }
+
+            URLClassLoader classLoader = new URLClassLoader(urls, this.getClass().getClassLoader());
+
+            Class<?> strategyClass = classLoader.loadClass(className);
+
+            if (!EstrategiaProcesamiento.class.isAssignableFrom(strategyClass)) {
+                throw new IllegalArgumentException("La clase " + className + " no implementa EstrategiaProcesamiento.");
+            }
+
+            return (EstrategiaProcesamiento) strategyClass.getDeclaredConstructor().newInstance();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new RuntimeException("Error al cargar la estrategia desde el JAR: " + className, e);
+        }
+    }
 }

@@ -12,10 +12,10 @@ import java.io.IOException;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-public class TICStrategy implements EstrategiaProcesamiento {
+public class DefaultStrategy implements EstrategiaProcesamiento {
     private ControladorHTTP controladorHTTP;
 
-    public TICStrategy(){
+    public DefaultStrategy(){
         this.controladorHTTP = ControladorHTTP.getInstance();
     }
 
@@ -70,12 +70,10 @@ public class TICStrategy implements EstrategiaProcesamiento {
     }
 
     private void estructurarJSON(String clientAddress, String mensaje) throws IOException {
-        //JsonReader jsonReader = JsonReader.getInstance();
-        //Equipo equipo = jsonReader.getEquipoByIp(clientAddress);
         YamlReader yamlReader = YamlReader.getInstance();
-        Equipo equipo = yamlReader.getEquipoByIp(clientAddress);
+        Equipo equipo = yamlReader.getEquipoByConfiguracionHl7("DefaultStrategy");
         Map<String, String> data = new LinkedHashMap<>();
-        data.put("ip", clientAddress);
+        data.put("ip", equipo.getIp());
         //data.put("id", equipo.getId());
         data.put("id", equipo.getId());
         data.put("token", equipo.getToken());

@@ -8,9 +8,13 @@ class AsignadorEstrategia
     public function obtenerEstrategia(string $configuracionHL7): EstrategiaProcesamiento
     {
         switch ($configuracionHL7) {
-            case 'TIC':
+            case 'AnalyzerStrategy':
                 return new TICStrategy();
-            case 'TC-220':
+            case 'HematologyStrategy':
+                return new TICStrategy();
+            case 'BioAnalyzerStrategy':
+                return new TICStrategy();
+            case 'DefaultStrategy':
                 return new TICStrategy();
             default:
                 throw null;

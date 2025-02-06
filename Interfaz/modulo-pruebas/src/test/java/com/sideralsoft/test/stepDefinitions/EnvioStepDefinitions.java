@@ -23,7 +23,7 @@ public class EnvioStepDefinitions{
     private TCPServer server;
     private Session session;
     private Socket socket;
-    private String tipoSession;
+    private String tipoEquipo;
     private ExecutorService executorService;
     private ControladorHTTP controladorHTTP;
 
@@ -31,24 +31,35 @@ public class EnvioStepDefinitions{
         this.executorService = Executors.newCachedThreadPool();
     }
 
-    @Dado("que el equipo de laboratorio actúa como cliente")
-    public void queElEquipoDeLaboratorioActúaComoCliente() throws InterruptedException, IOException {
-        this.server = TCPServer.getInstance();
-        Thread.sleep(5000);
-        server.start();
-        Thread.sleep(5000);
-        this.socket = new Socket("localhost", 3001);
+    @Dado("^que el equipo de laboratorio actúa como (.*)$")
+    public void queElEquipoDeLaboratorioActúaComoTIPO_EQUIPO(String tipoEquipo) throws InterruptedException, IOException {
+        if(tipoEquipo.equals("cliente")){
+            this.server = TCPServer.getInstance();
+            Thread.sleep(5000);
+            server.start();
+            Thread.sleep(5000);
+            this.socket = new Socket("localhost", 3001);
+        }else if(tipoEquipo.equals("servidor")){
+            Thread.sleep(10000);
+            this.socket = new Socket("localhost", 3002);
+        }
     }
 
-    @Dado("que el equipo de laboratorio actúa como servidor")
-    public void queElEquipoDeLaboratorioActúaComoServidor() throws IOException, InterruptedException {
-        Thread.sleep(10000);
-        this.socket = new Socket("localhost", 3002);
+    @Y("^que la interfaz de comunicación ha iniciado una sesión con el equipo de laboratorio (.*)$")
+    public void queLaInterfazDeComunicaciónHaIniciadoUnaSesiónConElEquipoDeLaboratorioTIPO_EQUIPO(String tipoEquipo) {
+        this.tipoEquipo = tipoEquipo;
+        session = new Session(socket, tipoEquipo);
+        if(tipoEquipo.equals("cliente")){
+        }else if(tipoEquipo.equals("servidor")){
+            executorService.execute(session);
+        }
+        System.out.println("Sesión activa: " + session.estaSesionActiva());
+        assertTrue("La sesión debería estar activa después de iniciar sesión.", session.estaSesionActiva());
     }
 
     @Dado("que la interfaz de comunicación ha iniciado una sesión de tipo {string} con el equipo de laboratorio")
     public void queLaInterfazDeComunicaciónHaIniciadoUnaSesiónDeTipoConElEquipoDeLaboratorio(String tipoSession) throws InterruptedException, IOException {
-        this.tipoSession = tipoSession;
+        this.tipoEquipo = tipoSession;
         session = new Session(socket, tipoSession);
         if(tipoSession.equals("cliente")){
         }else if(tipoSession.equals("servidor")){
@@ -61,7 +72,7 @@ public class EnvioStepDefinitions{
     @Cuando("la interfaz de comunicación reciba un mensaje ORU")
     public void laInterfazDeComunicaciónRecibaUnMensajeORU(String mensaje) throws IOException, InterruptedException {
         Thread.sleep(5000);
-        if (tipoSession.equals("cliente")){
+        if (tipoEquipo.equals("cliente")){
             PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
             out.println(mensaje);
             Thread.sleep(5000);
@@ -76,6 +87,7 @@ public class EnvioStepDefinitions{
     public void laInterfazDeComunicaciónEnvíaAlEquipoDeLaboratorioUnaRespuestaDeConfirmaciónACK(String mensaje) throws InterruptedException, IOException {
         List<String> mensajesEnviados = session.getMensajesEnviados();
         System.out.println("Mensajes enviados:"+ mensajesEnviados);
+        System.out.println("Mensajes enviados GHERKIN:"+ mensaje);
         assertTrue("El mensaje enviado no es el esperado.", mensajesEnviados.contains(mensaje));
     }
 
@@ -101,6 +113,8 @@ public class EnvioStepDefinitions{
         }
         executorService.shutdown();
     }
+
+
 }
 
 

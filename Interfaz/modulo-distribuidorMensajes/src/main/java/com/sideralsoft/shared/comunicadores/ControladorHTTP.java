@@ -1,5 +1,7 @@
 package com.sideralsoft.shared.comunicadores;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -9,6 +11,7 @@ import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 public class ControladorHTTP {
@@ -39,7 +42,11 @@ public class ControladorHTTP {
             try (OutputStream os = connection.getOutputStream()) {
                 byte[] input = json.getBytes(StandardCharsets.UTF_8);
                 os.write(input, 0, input.length);
-                mensajesEnviados.add(json);
+                ObjectMapper objectMapper = new ObjectMapper();
+                Map<String, Object> jsonMap = objectMapper.readValue(json, Map.class);
+                jsonMap.put("hl7Trama", "ORU");
+                String jsonModificado = objectMapper.writeValueAsString(jsonMap);
+                mensajesEnviados.add(jsonModificado);
             }
 
             responseCode = connection.getResponseCode();

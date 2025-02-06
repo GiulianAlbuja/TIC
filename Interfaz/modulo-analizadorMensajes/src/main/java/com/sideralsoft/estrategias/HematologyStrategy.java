@@ -20,11 +20,6 @@ public class HematologyStrategy implements EstrategiaProcesamiento {
     }
 
     @Override
-    public String procesarMensaje(String mensaje) {
-        return "ACKTIC";
-    }
-
-    @Override
     public String analizarTipoMensaje(String mensaje) {
         String[] segments = mensaje.split("\r");
         for (String segment : segments) {

@@ -21,12 +21,12 @@ class ResultadosController extends Controller
     {
         $validacion = $this->validarSolicitud($request);
         if ($validacion !== true) {
-            return $validacion;  // Si no es true, se devuelve el response JSON con el error
+            return $validacion;
         }
 
         try {
             $asignadorEstrategia = new AsignadorEstrategia();
-            $strategy = $asignadorEstrategia->obtenerEstrategia($request->get('configuracionHL7'));
+            $strategy = $asignadorEstrategia->obtenerEstrategia($request->get('estrategiaHL7'));
             $resultado = $strategy->procesarTramaHL7aJSON($request->get('hl7Trama'));
             
 
@@ -42,7 +42,7 @@ class ResultadosController extends Controller
             'ip' => 'required',
             'id' => 'required',
             'token' => 'required',
-            'configuracionHL7' => 'required',
+            'estrategiaHL7' => 'required',
             'hl7Trama' => 'required'
         ]);
 

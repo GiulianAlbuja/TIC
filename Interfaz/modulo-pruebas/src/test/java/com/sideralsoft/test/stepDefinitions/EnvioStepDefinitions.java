@@ -34,20 +34,21 @@ public class EnvioStepDefinitions{
     @Dado("^que el equipo de laboratorio actúa como (.*)$")
     public void queElEquipoDeLaboratorioActúaComoTIPO_EQUIPO(String tipoEquipo) throws InterruptedException, IOException {
         if(tipoEquipo.equals("cliente")){
+            this.tipoEquipo = tipoEquipo;
             this.server = TCPServer.getInstance();
             Thread.sleep(5000);
             server.start();
             Thread.sleep(5000);
             this.socket = new Socket("localhost", 3001);
         }else if(tipoEquipo.equals("servidor")){
+            this.tipoEquipo = tipoEquipo;
             Thread.sleep(10000);
             this.socket = new Socket("localhost", 3002);
         }
     }
 
-    @Y("^que la interfaz de comunicación ha iniciado una sesión con el equipo de laboratorio (.*)$")
-    public void queLaInterfazDeComunicaciónHaIniciadoUnaSesiónConElEquipoDeLaboratorioTIPO_EQUIPO(String tipoEquipo) {
-        this.tipoEquipo = tipoEquipo;
+    @Y("que la interfaz de comunicación ha iniciado una sesión con el equipo de laboratorio")
+    public void queLaInterfazDeComunicaciónHaIniciadoUnaSesiónConElEquipoDeLaboratorio() {
         session = new Session(socket, tipoEquipo);
         if(tipoEquipo.equals("cliente")){
         }else if(tipoEquipo.equals("servidor")){

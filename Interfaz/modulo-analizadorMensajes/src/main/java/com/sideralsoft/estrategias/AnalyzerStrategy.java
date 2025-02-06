@@ -20,11 +20,6 @@ public class AnalyzerStrategy implements EstrategiaProcesamiento{
     }
 
     @Override
-    public String procesarMensaje(String mensaje) {
-        return "ACKTIC";
-    }
-
-    @Override
     public String analizarTipoMensaje(String mensaje) {
         String[] segments = mensaje.split("\r");
         for (String segment : segments) {
@@ -74,25 +69,21 @@ public class AnalyzerStrategy implements EstrategiaProcesamiento{
         Equipo equipo = yamlReader.getEquipoByConfiguracionHl7("AnalyzerStrategy");
         Map<String, String> data = new LinkedHashMap<>();
         data.put("ip", equipo.getIp());
-        //data.put("id", equipo.getId());
         data.put("id", equipo.getId());
         data.put("token", equipo.getToken());
-        //data.put("codigoEquipo", equipo.getCodigoEquipo());
-        data.put("configuracionHL7", equipo.getConfiguracionHl7());
+        data.put("estrategiaHL7", equipo.getConfiguracionHl7());
         data.put("hl7Trama", mensaje);
         Gson gson = new GsonBuilder().disableHtmlEscaping().create();
         String json = gson.toJson(data);
 
 
-        System.out.println("JSON serializado: - ACTUALIZACION 2 PRUEBA " + json);
+        System.out.println("JSON serializado:" + json);
         controladorHTTP.enviarMensajeNube(json);
     }
 
 
     public String generarRespuestaConfirmacion(String mensaje, String status) {
         String[] segments = mensaje.split("\r");
-
-        // Variables para extraer los datos necesarios del mensaje ORU
         String sendingApplication = "";
         String sendingFacility = "";
         String receivingApplication = "";

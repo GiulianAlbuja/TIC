@@ -104,7 +104,7 @@ public class Session extends Thread {
         try {
             if (in != null) in.close();
             if (out != null) out.close();
-            if (clientSocket != null) clientSocket.close();
+            if (clientSocket != null && !clientSocket.isClosed()) clientSocket.close();
             sesionActiva = false;
             System.out.println("Sesión cerrada para: " + clientSocket.getInetAddress());
         } catch (Exception e) {

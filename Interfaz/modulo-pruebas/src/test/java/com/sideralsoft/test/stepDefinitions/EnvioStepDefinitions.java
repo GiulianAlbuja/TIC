@@ -107,11 +107,13 @@ public class EnvioStepDefinitions{
         }
         if (server != null) {
             server.stopServer();
+            Thread.sleep(2000);
         }
         if (socket != null) {
             socket.close();
         }
         executorService.shutdown();
+        Thread.sleep(5000);
     }
 
 

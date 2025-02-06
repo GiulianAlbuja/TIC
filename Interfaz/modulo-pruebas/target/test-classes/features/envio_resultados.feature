@@ -18,13 +18,14 @@ Característica: Envío de resultados clínicos desde el equipo de laboratorio a
     """
     Ejemplos:
       | CONFIGURACION_HL7  | TIPO_EQUIPO | ORU-MSH-3 | ORU-PID-3     | ORU-OBR-4 | ACK-MSH-3 | ACK-MSH-4 | ACK-MSH-5 | IP         | ID | TOKEN                                                                                                                                                 |
-      | AnalyzerStrategy   | cliente     | AnalyzerA | Ejemplo       | Ejemplo   | LIS       | Hospital  | AnalyzerA | /127.0.0.1 | A1 | eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3Mzg3ODA1OTYsImV4cCI6MTczODgwOTM5NiwiY2xpZW50SWQiOiJBMSJ9.gqSVrz2SkykBkHbnmw0aNGObW9t0ijUAd9cML5vTDm4 |
-      | HematologyStrategy | servidor    | Ejemplo   | HematologyPro | Ejemplo   | LIS       | Hospital  | Ejemplo   | /127.0.0.2 | H1 | eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3Mzg3ODA2MjQsImV4cCI6MTczODgwOTQyNCwiY2xpZW50SWQiOiJIMSJ9.GI6aaO0MDDWeCOAZyStEB6YpOGuHogZFVrVYU3Y5Xv4 |
-      | AnalyzerStrategy   | cliente     | AnalyzerA | Ejemplo       | Ejemplo   | LIS       | Hospital  | AnalyzerA | /127.0.0.1 | A1 | eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3Mzg3ODA1OTYsImV4cCI6MTczODgwOTM5NiwiY2xpZW50SWQiOiJBMSJ9.gqSVrz2SkykBkHbnmw0aNGObW9t0ijUAd9cML5vTDm4 |
-      | HematologyStrategy | servidor    | Ejemplo   | HematologyPro | Ejemplo   | LIS       | Hospital  | Ejemplo   | /127.0.0.2 | H1 | eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3Mzg3ODA2MjQsImV4cCI6MTczODgwOTQyNCwiY2xpZW50SWQiOiJIMSJ9.GI6aaO0MDDWeCOAZyStEB6YpOGuHogZFVrVYU3Y5Xv4 |
+      | AnalyzerStrategy   | cliente    | AnalyzerA | Ejemplo       | Ejemplo   | LIS       | Hospital  | AnalyzerA | /127.0.0.1 | A1 | eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3Mzg4NTcyMzAsImV4cCI6MTczODg4NjAzMCwiY2xpZW50SWQiOiJBMSJ9.4MrZobBd1OVa-089gOAVWQyJfNYkpeO8jPqDl4jtlyw |
+      | HematologyStrategy | servidor    | Ejemplo   | HematologyPro | Ejemplo   | LIS       | Hospital  | Ejemplo   | /127.0.0.2 | H1 | eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3Mzg4NTcyNTMsImV4cCI6MTczODg4NjA1MywiY2xpZW50SWQiOiJIMSJ9.r7actgHIxUNl-sBRoQXBTEvH2HAmxxf1yeZb2xqX8E0 |
+      | AnalyzerStrategy   | cliente     | AnalyzerA | Ejemplo       | Ejemplo   | LIS       | Hospital  | AnalyzerA | /127.0.0.1 | A1 | eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3Mzg4NTcyMzAsImV4cCI6MTczODg4NjAzMCwiY2xpZW50SWQiOiJBMSJ9.4MrZobBd1OVa-089gOAVWQyJfNYkpeO8jPqDl4jtlyw |
+      | HematologyStrategy | servidor    | Ejemplo   | HematologyPro | Ejemplo   | LIS       | Hospital  | Ejemplo   | /127.0.0.2 | H1 | eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3Mzg4NTcyNTMsImV4cCI6MTczODg4NjA1MywiY2xpZW50SWQiOiJIMSJ9.r7actgHIxUNl-sBRoQXBTEvH2HAmxxf1yeZb2xqX8E0 |
 
 
 
-#CORREGIR
+#CORREGIR NOMBRE TIPOCONEXION
+  #Comprobar jsonsin trama en bruto
       #| BioAnalyzerStrategy | cliente     | Ejemplo   | Ejemplo            | BioAnalyzerX | LIS       | Hospital  | BioAnalyzerX       | /127.0.0.3 | B1 | eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3Mzg3ODA2NDIsImV4cCI6MTczODgwOTQ0MiwiY2xpZW50SWQiOiJCMSJ9.Y_cHHxZTsbODy9ZziIdm-1v64d_ALanHvCUCY8ZiHzQ |
       #| DefaultStrategy     | servidor    | Ejemplo   | EquipoNoRegistrado | Ejemplo      | LIS       | Hospital  | EquipoNoRegistrado | /127.0.0.4 | D  | eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3Mzg3ODA2NjEsImV4cCI6MTczODgwOTQ2MSwiY2xpZW50SWQiOiJEIn0.kv3fH-36k8QFh8qUKa0doXiqmZWNuo7uBraZj3QmajQ  |

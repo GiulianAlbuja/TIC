@@ -5,7 +5,6 @@ import com.google.gson.GsonBuilder;
 import com.sideralsoft.shared.entidades.Equipo;
 import com.sideralsoft.shared.comunicadores.ControladorHTTP;
 import com.sideralsoft.shared.estrategias.EstrategiaProcesamiento;
-import com.sideralsoft.shared.readers.JsonReader;
 import com.sideralsoft.shared.readers.YamlReader;
 
 import java.io.IOException;
@@ -21,7 +20,7 @@ public class BioAnalyzerStrategy implements EstrategiaProcesamiento{
 
     @Override
     public String analizarTipoMensaje(String mensaje) {
-        String[] segments = mensaje.split("\r");
+        String[] segments = mensaje.split("\\\\r");
         for (String segment : segments) {
             if (segment.startsWith("MSH")) {
                 String[] fields = segment.split("\\|");
@@ -56,7 +55,7 @@ public class BioAnalyzerStrategy implements EstrategiaProcesamiento{
         }
         if(hasMSH && hasPID && hasOBR && hasOBX){
             status = "AA";
-            estructurarJSON(clientAddress, mensaje);
+            estructurarJSON(mensaje);
         }else {
             status = "AE";
         }
@@ -64,16 +63,14 @@ public class BioAnalyzerStrategy implements EstrategiaProcesamiento{
         return mensaje;
     }
 
-    private void estructurarJSON(String clientAddress, String mensaje) throws IOException {
+    private void estructurarJSON(String mensaje) throws IOException {
         YamlReader yamlReader = YamlReader.getInstance();
         Equipo equipo = yamlReader.getEquipoByConfiguracionHl7("BioAnalyzerStrategy");
         Map<String, String> data = new LinkedHashMap<>();
         data.put("ip", equipo.getIp());
-        //data.put("id", equipo.getId());
         data.put("id", equipo.getId());
         data.put("token", equipo.getToken());
-        //data.put("codigoEquipo", equipo.getCodigoEquipo());
-        data.put("configuracionHL7", equipo.getConfiguracionHl7());
+        data.put("estrategiaHL7", equipo.getConfiguracionHl7());
         data.put("hl7Trama", mensaje);
         Gson gson = new GsonBuilder().disableHtmlEscaping().create();
         String json = gson.toJson(data);
@@ -85,9 +82,7 @@ public class BioAnalyzerStrategy implements EstrategiaProcesamiento{
 
 
     public String generarRespuestaConfirmacion(String mensaje, String status) {
-        String[] segments = mensaje.split("\r");
-
-        // Variables para extraer los datos necesarios del mensaje ORU
+        String[] segments = mensaje.split("\\\\r");
         String sendingApplication = "";
         String sendingFacility = "";
         String receivingApplication = "";
@@ -107,6 +102,9 @@ public class BioAnalyzerStrategy implements EstrategiaProcesamiento{
                 messageControlId = fields[9];
                 processingId = fields[10];
                 version = fields[11];
+            }else if (segment.startsWith("OBR")) {
+                String[] fields = segment.split("\\|");
+                sendingApplication = fields[3];
                 break;
             }
         }

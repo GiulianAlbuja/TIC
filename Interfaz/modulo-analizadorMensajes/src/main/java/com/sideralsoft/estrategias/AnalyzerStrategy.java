@@ -5,7 +5,6 @@ import com.google.gson.GsonBuilder;
 import com.sideralsoft.shared.entidades.Equipo;
 import com.sideralsoft.shared.comunicadores.ControladorHTTP;
 import com.sideralsoft.shared.estrategias.EstrategiaProcesamiento;
-import com.sideralsoft.shared.readers.JsonReader;
 import com.sideralsoft.shared.readers.YamlReader;
 
 import java.io.IOException;
@@ -21,7 +20,7 @@ public class AnalyzerStrategy implements EstrategiaProcesamiento{
 
     @Override
     public String analizarTipoMensaje(String mensaje) {
-        String[] segments = mensaje.split("\r");
+        String[] segments = mensaje.split("\\\\r");
         for (String segment : segments) {
             if (segment.startsWith("MSH")) {
                 String[] fields = segment.split("\\|");
@@ -83,7 +82,7 @@ public class AnalyzerStrategy implements EstrategiaProcesamiento{
 
 
     public String generarRespuestaConfirmacion(String mensaje, String status) {
-        String[] segments = mensaje.split("\r");
+        String[] segments = mensaje.split("\\\\r");
         String sendingApplication = "";
         String sendingFacility = "";
         String receivingApplication = "";

@@ -10,19 +10,15 @@ Característica: Envío de resultados clínicos desde el equipo de laboratorio a
     """
     Entonces la interfaz de comunicación envía al equipo de laboratorio una respuesta de confirmación ACK
     """
-    MSH|^~\&|<ACK-MSH-3>|<ACK-MSH-4>|<ACK-MSH-5>|LabFacility|202412241300||ACK|ACK-54321|P|2.3|MSA|AA|98765|
+    MSH|^~\&|LIS|Hospital|<ACK-MSH-5>|LabFacility|202412241300||ACK|ACK-54321|P|2.3|MSA|AA|98765|
     """
     Y envía los resultados clínicos a Orion
     """
-    {"ip":"<IP>","id":"<ID>","token":"<TOKEN>","estrategiaHL7":"<ESTRATEGIA_HL7>","hl7Trama":"ORU"}
+    {"ip":"<IP>","id":"<ID>","token":"token","estrategiaHL7":"<ESTRATEGIA_HL7>","hl7Trama":"ORU"}
     """
     Ejemplos:
-      | TIPO_CONEXION | ORU-MSH-3 | ORU-PID-3     | ORU-OBR-4 | ACK-MSH-3 | ACK-MSH-4 | ACK-MSH-5 | IP         | ID | TOKEN                                                                                                                                                 | ESTRATEGIA_HL7     |
-      | cliente       | AnalyzerA | Ejemplo       | Ejemplo   | LIS       | Hospital  | AnalyzerA | /127.0.0.1 | A1 | eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3Mzg4NTcyMzAsImV4cCI6MTczODg4NjAzMCwiY2xpZW50SWQiOiJBMSJ9.4MrZobBd1OVa-089gOAVWQyJfNYkpeO8jPqDl4jtlyw | AnalyzerStrategy   |
-      | servidor      | Ejemplo   | HematologyPro | Ejemplo   | LIS       | Hospital  | Ejemplo   | /127.0.0.2 | H1 | eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3Mzg4NTcyNTMsImV4cCI6MTczODg4NjA1MywiY2xpZW50SWQiOiJIMSJ9.r7actgHIxUNl-sBRoQXBTEvH2HAmxxf1yeZb2xqX8E0 | HematologyStrategy |
-      | cliente       | AnalyzerA | Ejemplo       | Ejemplo   | LIS       | Hospital  | AnalyzerA | /127.0.0.1 | A1 | eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3Mzg4NTcyMzAsImV4cCI6MTczODg4NjAzMCwiY2xpZW50SWQiOiJBMSJ9.4MrZobBd1OVa-089gOAVWQyJfNYkpeO8jPqDl4jtlyw | AnalyzerStrategy   |
-      | servidor      | Ejemplo   | HematologyPro | Ejemplo   | LIS       | Hospital  | Ejemplo   | /127.0.0.2 | H1 | eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3Mzg4NTcyNTMsImV4cCI6MTczODg4NjA1MywiY2xpZW50SWQiOiJIMSJ9.r7actgHIxUNl-sBRoQXBTEvH2HAmxxf1yeZb2xqX8E0 | HematologyStrategy |
-
-
-      #| BioAnalyzerStrategy | cliente     | Ejemplo   | Ejemplo            | BioAnalyzerX | LIS       | Hospital  | BioAnalyzerX       | /127.0.0.3 | B1 | eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3Mzg3ODA2NDIsImV4cCI6MTczODgwOTQ0MiwiY2xpZW50SWQiOiJCMSJ9.Y_cHHxZTsbODy9ZziIdm-1v64d_ALanHvCUCY8ZiHzQ |
-      #| DefaultStrategy     | servidor    | Ejemplo   | EquipoNoRegistrado | Ejemplo      | LIS       | Hospital  | EquipoNoRegistrado | /127.0.0.4 | D  | eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3Mzg3ODA2NjEsImV4cCI6MTczODgwOTQ2MSwiY2xpZW50SWQiOiJEIn0.kv3fH-36k8QFh8qUKa0doXiqmZWNuo7uBraZj3QmajQ  |
+      | TIPO_CONEXION | ORU-MSH-3          | ORU-PID-3     | ORU-OBR-4    | ACK-MSH-5          | IP         | ID | ESTRATEGIA_HL7      |
+      | cliente       | AnalyzerA          | Ejemplo       | Ejemplo      | AnalyzerA          | /127.0.0.1 | A1 | AnalyzerStrategy    |
+      | servidor      | Ejemplo            | HematologyPro | Ejemplo      | HematologyPro      | /127.0.0.2 | H1 | HematologyStrategy  |
+      | cliente       | Ejemplo            | Ejemplo       | BioAnalyzerX | BioAnalyzerX       | /127.0.0.3 | B1 | BioAnalyzerStrategy |
+      | servidor      | EquipoNoRegistrado | Ejemplo       | Ejemplo      | EquipoNoRegistrado | /127.0.0.4 | D  | DefaultStrategy     |

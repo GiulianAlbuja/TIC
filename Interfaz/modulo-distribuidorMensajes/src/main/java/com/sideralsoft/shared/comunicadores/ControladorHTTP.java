@@ -1,5 +1,6 @@
 package com.sideralsoft.shared.comunicadores;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.BufferedReader;
@@ -42,11 +43,7 @@ public class ControladorHTTP {
             try (OutputStream os = connection.getOutputStream()) {
                 byte[] input = json.getBytes(StandardCharsets.UTF_8);
                 os.write(input, 0, input.length);
-                ObjectMapper objectMapper = new ObjectMapper();
-                Map<String, Object> jsonMap = objectMapper.readValue(json, Map.class);
-                jsonMap.put("hl7Trama", "ORU");
-                String jsonModificado = objectMapper.writeValueAsString(jsonMap);
-                mensajesEnviados.add(jsonModificado);
+                registrarMensaje(json);
             }
 
             responseCode = connection.getResponseCode();
@@ -69,6 +66,19 @@ public class ControladorHTTP {
             e.printStackTrace();
         }
         System.out.println(responseCode);
+    }
+
+    private void registrarMensaje(String json) throws JsonProcessingException {
+        ObjectMapper objectMapper = new ObjectMapper();
+        Map<String, Object> jsonMap = objectMapper.readValue(json, Map.class);
+        if (jsonMap.containsKey("hl7Trama") && jsonMap.get("hl7Trama") != null && !jsonMap.get("hl7Trama").toString().trim().isEmpty()) {
+            jsonMap.put("hl7Trama", "ORU");
+        }
+        if (jsonMap.containsKey("token") && jsonMap.get("token") != null && !jsonMap.get("token").toString().trim().isEmpty()) {
+            jsonMap.put("token", "token");
+        }
+        String jsonModificado = objectMapper.writeValueAsString(jsonMap);
+        mensajesEnviados.add(jsonModificado);
     }
 
     public List<String> getMensajesEnviados() {

@@ -1,7 +1,7 @@
 #language: es
 Característica: Envío de resultados clínicos desde el equipo de laboratorio a Orión
 
-  Esquema del escenario: El equipo de laboratorio actúa como cliente y envía resultados clínicos a Orion
+  Esquema del escenario: El equipo de laboratorio envía resultados clínicos a Orión
     Dado que el equipo de laboratorio actúa como <TIPO_CONEXION>
     Y que la interfaz de comunicación ha iniciado una sesión con el equipo de laboratorio
     Cuando la interfaz de comunicación reciba un mensaje ORU
@@ -12,7 +12,7 @@ Característica: Envío de resultados clínicos desde el equipo de laboratorio a
     """
     MSH|^~\&|LIS|Hospital|<ACK-MSH-5>|LabFacility|202412241300||ACK|ACK-54321|P|2.3|MSA|AA|98765|
     """
-    Y envía los resultados clínicos a Orion
+    Y envía los resultados clínicos a Orión
     """
     {"ip":"<IP>","id":"<ID>","token":"token","estrategiaHL7":"<ESTRATEGIA_HL7>","hl7Trama":"ORU"}
     """
@@ -22,3 +22,31 @@ Característica: Envío de resultados clínicos desde el equipo de laboratorio a
       | servidor      | Ejemplo            | HematologyPro | Ejemplo      | HematologyPro      | /127.0.0.2 | H1 | HematologyStrategy  |
       | cliente       | Ejemplo            | Ejemplo       | BioAnalyzerX | BioAnalyzerX       | /127.0.0.3 | B1 | BioAnalyzerStrategy |
       | servidor      | EquipoNoRegistrado | Ejemplo       | Ejemplo      | EquipoNoRegistrado | /127.0.0.4 | D  | DefaultStrategy     |
+
+
+
+  #Esquema del escenario: El equipo de laboratorio consulta órdenes pendientes a Orión
+  #  Dado que el equipo de laboratorio actúa como <TIPO_CONEXION>
+  #  Y que la interfaz de comunicación ha iniciado una sesión con el equipo de laboratorio
+  #  Cuando la interfaz de comunicación reciba un mensaje de consulta QRY
+  #  """
+#
+  #  """
+  #  Entonces la interfaz de comunicación envía al equipo de laboratorio una respuesta de confirmación QCK
+  #  """
+#
+  #  """
+  #  Y envía la consulta de órdenes pendientes a Orión
+  #  """
+#
+  #  """
+  #  Y envía la información de muestra al equipo de laboratorio
+  #  """
+#
+  #  """
+  #  Ejemplos:
+  #    | TIPO_CONEXION |
+  #    | cliente       |
+  #    | servidor      |
+  #    | cliente       |
+  #    | servidor      |

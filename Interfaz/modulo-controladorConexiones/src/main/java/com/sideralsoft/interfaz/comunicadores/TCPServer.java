@@ -38,12 +38,11 @@ public final class TCPServer extends Thread {
     public void run() {
         try {
             serverSocket = new ServerSocket(3001);
-            notifyClientConnected("Servidor iniciado en el puerto 3001");
+            //notifyClientConnected("Servidor iniciado en el puerto 3001");
             while (!serverSocket.isClosed()) {
                 Socket clientSocket = serverSocket.accept();
                 String clientAddress = clientSocket.getInetAddress().toString();
-                notifyClientConnected("Cliente conectado desde: " + clientAddress);
-
+                System.out.println("Cliente conectado desde: " + clientAddress);
                 Session session = new Session(clientSocket, "cliente");
                 sessions.put(clientAddress, session);
                 executorService.execute(session);

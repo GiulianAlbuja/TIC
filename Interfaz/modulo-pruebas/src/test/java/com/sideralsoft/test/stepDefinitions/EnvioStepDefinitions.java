@@ -102,8 +102,8 @@ public class EnvioStepDefinitions{
         assertTrue("El mensaje enviado no es el esperado.", mensajesEnviados.contains(mensaje));
     }
 
-    @Y("envía los resultados clínicos a Orion")
-    public void envíaLosResultadosClínicosAOrion(String resultados) throws InterruptedException {
+    @Y("envía los resultados clínicos a Orión")
+    public void envíaLosResultadosClínicosAOrión(String resultados) throws InterruptedException {
         Thread.sleep(5000);
         controladorHTTP = ControladorHTTP.getInstance();
         List<String> mensajesEnviados = controladorHTTP.getMensajesEnviados();

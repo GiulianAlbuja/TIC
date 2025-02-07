@@ -32,8 +32,19 @@ public class EnrutadorMensaje {
                 case "ACK":
                     session.sendMessage(mensaje);
                     break;
-                case "Q":
+                case "QRY":
                     //pongo variable o enumeracion en un modo
+                    //1 mensaje = estrategiaProcesamiento.validarMensaje(clientAddress, mensaje);
+                    break;
+                case "QCK":
+                    //pongo variable o enumeracion en un modo
+                    //String[] secciones = mensaje.split(":");
+                    //2session.sendMessage(secciones [0]);
+                    //mensaje = secciones [1]
+                    break;
+                case "DSR":
+                    //pongo variable o enumeracion en un modo
+                    //session.sendMessage(mensaje);
                     break;
             }
         }while (!tipoMensaje.equals("ACK"));

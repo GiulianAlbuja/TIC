@@ -3,6 +3,7 @@ package com.sideralsoft.test.stepDefinitions;
 import com.sideralsoft.shared.comunicadores.ControladorHTTP;
 import com.sideralsoft.interfaz.comunicadores.Session;
 import com.sideralsoft.interfaz.comunicadores.TCPServer;
+import com.sideralsoft.test.mocks.MockTCPServer;
 import io.cucumber.java.After;
 import io.cucumber.java.es.Cuando;
 import io.cucumber.java.es.Dado;
@@ -26,6 +27,7 @@ public class EnvioStepDefinitions{
     private String tipoEquipo;
     private ExecutorService executorService;
     private ControladorHTTP controladorHTTP;
+    private MockTCPServer mockServer;
 
     public EnvioStepDefinitions() throws IOException {
         this.executorService = Executors.newCachedThreadPool();
@@ -41,6 +43,10 @@ public class EnvioStepDefinitions{
             Thread.sleep(5000);
             this.socket = new Socket("localhost", 3001);
         }else if(tipoEquipo.equals("servidor")){
+            this.mockServer = MockTCPServer.getInstance();
+            Thread.sleep(5000);
+            mockServer.start();
+            Thread.sleep(5000);
             this.tipoEquipo = tipoEquipo;
             Thread.sleep(10000);
             this.socket = new Socket("localhost", 3002);
@@ -77,6 +83,10 @@ public class EnvioStepDefinitions{
             PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
             out.println(mensaje);
             Thread.sleep(5000);
+        }else if(tipoEquipo.equals("servidor")){
+            Socket clientSocket = mockServer.getClientSocket();
+            PrintWriter out = new PrintWriter(clientSocket.getOutputStream(), true);
+            out.println(mensaje);
         }
         Thread.sleep(5000);
         List<String> mensajesRecibidos = session.getMensajesRecibidos();
@@ -108,6 +118,10 @@ public class EnvioStepDefinitions{
         }
         if (server != null) {
             server.stopServer();
+            Thread.sleep(2000);
+        }
+        if (mockServer != null) {
+            mockServer.stopServer();
             Thread.sleep(2000);
         }
         if (socket != null) {

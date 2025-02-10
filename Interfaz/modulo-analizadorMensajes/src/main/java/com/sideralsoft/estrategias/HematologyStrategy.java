@@ -33,7 +33,7 @@ public class HematologyStrategy implements EstrategiaProcesamiento {
     }
 
     @Override
-    public String validarMensaje(String clientAddress, String mensaje) throws IOException {
+    public String validarMensajeORU(String clientAddress, String mensaje) throws IOException {
         String status;
         String[] lines = mensaje.split("(?=MSH|PID|OBR|OBX)");
 
@@ -55,12 +55,17 @@ public class HematologyStrategy implements EstrategiaProcesamiento {
         }
         if(hasMSH && hasPID && hasOBR && hasOBX){
             status = "AA";
-            estructurarJSON(clientAddress, mensaje);
+            estructurarJSON(clientAddress,mensaje);
         }else {
             status = "AE";
         }
         mensaje = generarRespuestaConfirmacion(mensaje, status);
         return mensaje;
+    }
+
+    @Override
+    public String validarMensajeQRY(String clientAddress, String mensaje) {
+        return null;
     }
 
     private void estructurarJSON(String clientAddress, String mensaje) throws IOException {
@@ -76,8 +81,8 @@ public class HematologyStrategy implements EstrategiaProcesamiento {
         String json = gson.toJson(data);
 
 
-        System.out.println("JSON serializado: - ACTUALIZACION 2 PRUEBA " + json);
-        controladorHTTP.enviarMensajeNube(json);
+        System.out.println("JSON serializado:" + json);
+        controladorHTTP.enviarResultadosClinicosANube(json);
     }
 
 

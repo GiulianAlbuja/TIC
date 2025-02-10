@@ -33,8 +33,9 @@ public class DefaultStrategy implements EstrategiaProcesamiento {
     }
 
     @Override
-    public String validarMensaje(String clientAddress, String mensaje) throws IOException {
+    public String validarMensajeORU(String clientAddress, String mensaje) throws IOException {
         String status;
+        String json = "";
         String[] lines = mensaje.split("(?=MSH|PID|OBR|OBX)");
 
         boolean hasMSH = false;
@@ -55,15 +56,103 @@ public class DefaultStrategy implements EstrategiaProcesamiento {
         }
         if(hasMSH && hasPID && hasOBR && hasOBX){
             status = "AA";
-            estructurarJSON(mensaje);
+            json = estructurarJSON(mensaje);
+            controladorHTTP.enviarResultadosClinicosANube(json);
         }else {
             status = "AE";
         }
-        mensaje = generarRespuestaConfirmacion(mensaje, status);
+        mensaje = generarRespuestaACK(mensaje, status);
         return mensaje;
     }
+    @Override
+    public String validarMensajeQRY(String clientAddress, String mensaje) throws IOException {
+        String status;
+        String json = "";
+        StringBuilder jsonResponse = new StringBuilder();
+        String orden = "";
+        String[] lines = mensaje.split("(?=MSH|QRD|RES)");
 
-    private void estructurarJSON(String mensaje) throws IOException {
+        boolean hasMSH = false;
+        boolean hasQRD = false;
+        boolean hasRES = false;
+
+        for (String line : lines) {
+            if (line.startsWith("MSH")) {
+                hasMSH = true;
+            } else if (line.startsWith("QRD")) {
+                hasQRD = true;
+            } else if (line.startsWith("RES")) {
+                hasRES = true;
+            }
+        }
+        if(hasMSH && hasQRD && hasRES){
+            status = "AA";
+            json = estructurarJSON(mensaje);
+            jsonResponse = controladorHTTP.enviarConsultaDeOrdenANube(json);
+            orden = obtenerOrden(jsonResponse);
+        }else {
+            status = "AE";
+        }
+        mensaje = generarRespuestaQCK(mensaje, status);
+        return mensaje + ":::" + orden;
+    }
+
+    private String obtenerOrden(StringBuilder jsonResponse) {
+        String orden = "";
+        Gson gson = new GsonBuilder().create();
+        Map<String, String> map = gson.fromJson(jsonResponse.toString(), Map.class);
+        orden = map.get("orden");
+        System.out.println("orden" + orden);
+        return orden;
+    }
+
+    private String generarRespuestaQCK(String mensaje, String status) {
+        String[] segments = mensaje.split("\\\\r");
+
+        String sendingApplication = "";
+        String sendingFacility = "";
+        String receivingApplication = "";
+        String receivingFacility = "";
+        String messageControlId = "";
+        String processingId = "";
+        String version = "";
+
+        for (String segment : segments) {
+            if (segment.startsWith("MSH")) {
+                String[] fields = segment.split("\\|");
+
+                sendingApplication = fields[2];
+                sendingFacility = fields[3];
+                receivingApplication = fields[4];
+                receivingFacility = fields[5];
+                messageControlId = fields[9];
+                processingId = fields[10];
+                version = fields[11];
+                break;
+            }
+        }
+
+
+
+        String fixedDateTime = "202402061201";
+
+        String ackControlId = "QCK-654321";
+
+        StringBuilder ackBuilder = new StringBuilder();
+        ackBuilder.append("MSH|^~\\&|")
+                .append(receivingApplication).append("|")
+                .append(receivingFacility).append("|")
+                .append(sendingApplication).append("|")
+                .append(sendingFacility).append("|")
+                .append(fixedDateTime).append("||QCK|")
+                .append(ackControlId).append("|")
+                .append(processingId).append("|")
+                .append(version).append("|")
+                .append("MSA|"+status+"|").append(messageControlId).append("|");
+        return ackBuilder.toString();
+    }
+
+    private String estructurarJSON(String mensaje) throws IOException {
         YamlReader yamlReader = YamlReader.getInstance();
         Equipo equipo = yamlReader.getEquipoByConfiguracionHl7("DefaultStrategy");
         Map<String, String> data = new LinkedHashMap<>();
@@ -75,14 +164,12 @@ public class DefaultStrategy implements EstrategiaProcesamiento {
         data.put("hl7Trama", mensaje);
         Gson gson = new GsonBuilder().disableHtmlEscaping().create();
         String json = gson.toJson(data);
-
-
         System.out.println("JSON serializado: - ACTUALIZACION 2 PRUEBA " + json);
-        controladorHTTP.enviarMensajeNube(json);
+        return json;
     }
 
 
-    public String generarRespuestaConfirmacion(String mensaje, String status) {
+    public String generarRespuestaACK(String mensaje, String status) {
         String[] segments = mensaje.split("\\\\r");
 
         String sendingApplication = "";

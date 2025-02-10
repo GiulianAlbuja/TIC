@@ -33,7 +33,7 @@ public class AnalyzerStrategy implements EstrategiaProcesamiento{
     }
 
     @Override
-    public String validarMensaje(String clientAddress, String mensaje) throws IOException {
+    public String validarMensajeORU(String clientAddress, String mensaje) throws IOException {
         String status;
         String[] lines = mensaje.split("(?=MSH|PID|OBR|OBX)");
 
@@ -63,6 +63,11 @@ public class AnalyzerStrategy implements EstrategiaProcesamiento{
         return mensaje;
     }
 
+    @Override
+    public String validarMensajeQRY(String clientAddress, String mensaje) {
+        return null;
+    }
+
     private void estructurarJSON(String mensaje) throws IOException {
         YamlReader yamlReader = YamlReader.getInstance();
         Equipo equipo = yamlReader.getEquipoByConfiguracionHl7("AnalyzerStrategy");
@@ -77,7 +82,7 @@ public class AnalyzerStrategy implements EstrategiaProcesamiento{
 
 
         System.out.println("JSON serializado:" + json);
-        controladorHTTP.enviarMensajeNube(json);
+        controladorHTTP.enviarResultadosClinicosANube(json);
     }
 
 

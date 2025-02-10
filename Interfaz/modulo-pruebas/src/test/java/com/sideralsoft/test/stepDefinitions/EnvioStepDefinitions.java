@@ -132,6 +132,49 @@ public class EnvioStepDefinitions{
     }
 
 
+    @Cuando("la interfaz de comunicación reciba un mensaje de consulta QRY")
+    public void laInterfazDeComunicaciónRecibaUnMensajeDeConsultaQRY(String mensaje) throws InterruptedException, IOException {
+        Thread.sleep(5000);
+        if (tipoEquipo.equals("cliente")){
+            PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
+            out.println(mensaje);
+            Thread.sleep(5000);
+        }else if(tipoEquipo.equals("servidor")){
+            Socket clientSocket = mockServer.getClientSocket();
+            PrintWriter out = new PrintWriter(clientSocket.getOutputStream(), true);
+            out.println(mensaje);
+        }
+        Thread.sleep(5000);
+        List<String> mensajesRecibidos = session.getMensajesRecibidos();
+        System.out.println("Mensaje:"+ mensajesRecibidos);
+        assertTrue("El mensaje no fue recibido correctamente por el servidor.", mensajesRecibidos.contains(mensaje));
+    }
+
+
+    @Entonces("la interfaz de comunicación envía al equipo de laboratorio una respuesta de confirmación QCK")
+    public void laInterfazDeComunicaciónEnvíaAlEquipoDeLaboratorioUnaRespuestaDeConfirmaciónQCK(String mensaje) {
+        List<String> mensajesEnviados = session.getMensajesEnviados();
+        System.out.println("Mensajes enviados:"+ mensajesEnviados);
+        System.out.println("Mensajes enviados GHERKIN:"+ mensaje);
+        assertTrue("El mensaje enviado no es el esperado.", mensajesEnviados.contains(mensaje));
+    }
+
+    @Y("envía la consulta de órdenes pendientes a Orión")
+    public void envíaLaConsultaDeÓrdenesPendientesAOrión(String consultaOrden) throws InterruptedException {
+        Thread.sleep(5000);
+        controladorHTTP = ControladorHTTP.getInstance();
+        List<String> mensajesEnviados = controladorHTTP.getMensajesEnviados();
+        System.out.println("Mensajes enviados a Orion:"+ mensajesEnviados);
+        assertTrue("El mensaje enviado a Orion no es el esperado.", mensajesEnviados.contains(consultaOrden));
+    }
+
+    @Y("envía la información de muestra al equipo de laboratorio")
+    public void envíaLaInformaciónDeMuestraAlEquipoDeLaboratorio(String informacionMuestra) {
+        List<String> mensajesEnviados = session.getMensajesEnviados();
+        System.out.println("Mensajes enviados:"+ mensajesEnviados);
+        System.out.println("Mensajes enviados GHERKIN:"+ informacionMuestra);
+        assertTrue("El mensaje enviado no es el esperado.", mensajesEnviados.contains(informacionMuestra));
+    }
 }
 
 

@@ -30,7 +30,7 @@ public class ControladorHTTP {
         return instance;
     }
 
-    public void enviarMensajeNube(String json){
+    public void enviarResultadosClinicosANube(String json){
         int responseCode = 0;
         StringBuilder responseContent = new StringBuilder();
         try {
@@ -68,11 +68,53 @@ public class ControladorHTTP {
         System.out.println(responseCode);
     }
 
+    public StringBuilder enviarConsultaDeOrdenANube(String json) {
+        int responseCode = 0;
+        StringBuilder responseContent = new StringBuilder();
+        try {
+            URL url = new URL("http://localhost:8000/api/ordenes");
+            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+            connection.setRequestMethod("POST");
+            connection.setRequestProperty("Content-Type", "application/json; charset=UTF-8");
+            connection.setDoOutput(true);
+
+            try (OutputStream os = connection.getOutputStream()) {
+                byte[] input = json.getBytes(StandardCharsets.UTF_8);
+                os.write(input, 0, input.length);
+                registrarMensaje(json);
+            }
+
+            responseCode = connection.getResponseCode();
+
+            System.out.println("Response code: " + responseCode);
+            InputStream inputStream;
+            if (responseCode >= 200 && responseCode < 300) {
+                inputStream = connection.getInputStream();
+            } else {
+                inputStream = connection.getErrorStream();
+            }
+
+            try (BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream, StandardCharsets.UTF_8))) {
+                responseContent.append(reader.lines().collect(Collectors.joining("\n")));
+            }
+
+            System.out.println("Response body:" + responseContent.toString());
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        System.out.println(responseCode);
+        return responseContent;
+
+    }
+
+
+
     private void registrarMensaje(String json) throws JsonProcessingException {
         ObjectMapper objectMapper = new ObjectMapper();
         Map<String, Object> jsonMap = objectMapper.readValue(json, Map.class);
         if (jsonMap.containsKey("hl7Trama") && jsonMap.get("hl7Trama") != null && !jsonMap.get("hl7Trama").toString().trim().isEmpty()) {
-            jsonMap.put("hl7Trama", "ORU");
+            jsonMap.put("hl7Trama", "hl7Trama");
         }
         if (jsonMap.containsKey("token") && jsonMap.get("token") != null && !jsonMap.get("token").toString().trim().isEmpty()) {
             jsonMap.put("token", "token");
@@ -84,4 +126,6 @@ public class ControladorHTTP {
     public List<String> getMensajesEnviados() {
         return mensajesEnviados;
     }
+
+
 }

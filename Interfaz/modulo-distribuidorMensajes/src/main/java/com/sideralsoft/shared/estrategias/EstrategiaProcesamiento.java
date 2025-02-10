@@ -5,5 +5,7 @@ import java.io.IOException;
 public interface EstrategiaProcesamiento {
     String analizarTipoMensaje(String mensaje);
 
-    String validarMensaje(String clientAddress, String mensaje) throws IOException;
+    String validarMensajeORU(String clientAddress, String mensaje) throws IOException;
+
+    String validarMensajeQRY(String clientAddress, String mensaje) throws IOException;
 }

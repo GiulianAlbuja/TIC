@@ -14,39 +14,24 @@ Característica: Envío de resultados clínicos desde el equipo de laboratorio a
     """
     Y envía los resultados clínicos a Orión
     """
-    {"ip":"<IP>","id":"<ID>","token":"token","estrategiaHL7":"<ESTRATEGIA_HL7>","hl7Trama":"ORU"}
+    {"ip":"<IP>","id":"<ID>","token":"token","estrategiaHL7":"<ESTRATEGIA_HL7>","hl7Trama":"hl7Trama"}
     """
     Ejemplos:
-      | TIPO_CONEXION | ORU-MSH-3          | ORU-PID-3     | ORU-OBR-4    | ACK-MSH-5          | IP         | ID | ESTRATEGIA_HL7      |
-      | cliente       | AnalyzerA          | Ejemplo       | Ejemplo      | AnalyzerA          | /127.0.0.1 | A1 | AnalyzerStrategy    |
-      | servidor      | Ejemplo            | HematologyPro | Ejemplo      | HematologyPro      | /127.0.0.2 | H1 | HematologyStrategy  |
-      | cliente       | Ejemplo            | Ejemplo       | BioAnalyzerX | BioAnalyzerX       | /127.0.0.3 | B1 | BioAnalyzerStrategy |
-      | servidor      | EquipoNoRegistrado | Ejemplo       | Ejemplo      | EquipoNoRegistrado | /127.0.0.4 | D  | DefaultStrategy     |
+     | TIPO_CONEXION | ORU-MSH-3          | ORU-PID-3     | ORU-OBR-4    | ACK-MSH-5          | IP         | ID | ESTRATEGIA_HL7      |
+     | cliente       | AnalyzerA          | Ejemplo       | Ejemplo      | AnalyzerA          | /127.0.0.1 | A1 | AnalyzerStrategy    |
+     | servidor      | Ejemplo            | HematologyPro | Ejemplo      | HematologyPro      | /127.0.0.2 | H1 | HematologyStrategy  |
+     | cliente       | Ejemplo            | Ejemplo       | BioAnalyzerX | BioAnalyzerX       | /127.0.0.3 | B1 | BioAnalyzerStrategy |
+     | servidor      | EquipoNoRegistrado | Ejemplo       | Ejemplo      | EquipoNoRegistrado | /127.0.0.4 | D  | DefaultStrategy     |
 
 
 
-  #Esquema del escenario: El equipo de laboratorio consulta órdenes pendientes a Orión
-  #  Dado que el equipo de laboratorio actúa como <TIPO_CONEXION>
-  #  Y que la interfaz de comunicación ha iniciado una sesión con el equipo de laboratorio
-  #  Cuando la interfaz de comunicación reciba un mensaje de consulta QRY
-  #  """
-#
-  #  """
-  #  Entonces la interfaz de comunicación envía al equipo de laboratorio una respuesta de confirmación QCK
-  #  """
-#
-  #  """
-  #  Y envía la consulta de órdenes pendientes a Orión
-  #  """
-#
-  #  """
-  #  Y envía la información de muestra al equipo de laboratorio
-  #  """
-#
-  #  """
-  #  Ejemplos:
-  #    | TIPO_CONEXION |
-  #    | cliente       |
-  #    | servidor      |
-  #    | cliente       |
-  #    | servidor      |
+
+
+
+
+
+
+
+     #| cliente       | AnalyzerA          | Ejemplo       | Ejemplo      | AnalyzerA          | /127.0.0.1 | A1 | AnalyzerStrategy    |
+      #| servidor      | Ejemplo            | HematologyPro | Ejemplo      | HematologyPro      | /127.0.0.2 | H1 | HematologyStrategy  |
+      #| cliente       | Ejemplo            | Ejemplo       | BioAnalyzerX | BioAnalyzerX       | /127.0.0.3 | B1 | BioAnalyzerStrategy |

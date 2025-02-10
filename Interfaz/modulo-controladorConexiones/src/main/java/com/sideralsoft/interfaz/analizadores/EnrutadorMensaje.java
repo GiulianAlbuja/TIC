@@ -4,19 +4,21 @@ import com.sideralsoft.interfaz.comunicadores.Session;
 import com.sideralsoft.shared.estrategias.EstrategiaProcesamiento;
 
 import java.io.IOException;
+import java.util.LinkedHashMap;
+import java.util.Map;
 
 public class EnrutadorMensaje {
     private Session session;
     private String tipoMensaje;
     private EstrategiaProcesamiento estrategiaProcesamiento;
+    private EstadoComunicacion estadoComunicacion;
 
     public EnrutadorMensaje(Session session) {
         this.session = session;
     }
 
     public void enrutar(String clientAddress, String mensaje) throws IOException {
-        //ENUMERACION
-        //VARIABLE COMPORTAMIENTO
+        Map<String, String> data = new LinkedHashMap<>();
         AsignadorEstrategia asignadorEstrategia = new AsignadorEstrategia();
         estrategiaProcesamiento = asignadorEstrategia.obtenerEstrategia(mensaje);
         do{
@@ -24,31 +26,28 @@ public class EnrutadorMensaje {
             System.out.println("Tipo mensaje" + tipoMensaje);
             switch (tipoMensaje) {
                 case "ORU^R01":
-                    //pongo variable o enumeracion en un modo
-                    mensaje = estrategiaProcesamiento.validarMensaje(clientAddress, mensaje);
-
-                    //estrategiaProcesamiento.validarMensaje(clientAddress, mensaje);
+                    this.estadoComunicacion = EstadoComunicacion.ENVIO_RESULTADOS;
+                    mensaje = estrategiaProcesamiento.validarMensajeORU(clientAddress, mensaje);
                     break;
                 case "ACK":
-                    session.sendMessage(mensaje);
+                    if(estadoComunicacion.equals(EstadoComunicacion.ENVIO_RESULTADOS)){
+                        session.sendMessage(mensaje);
+                    }
                     break;
                 case "QRY":
-                    //pongo variable o enumeracion en un modo
-                    //1 mensaje = estrategiaProcesamiento.validarMensaje(clientAddress, mensaje);
+                    this.estadoComunicacion = EstadoComunicacion.CONSULTA_ORDEN;
+                    mensaje = estrategiaProcesamiento.validarMensajeQRY(clientAddress, mensaje);
                     break;
                 case "QCK":
-                    //pongo variable o enumeracion en un modo
-                    //String[] secciones = mensaje.split(":");
-                    //2session.sendMessage(secciones [0]);
-                    //mensaje = secciones [1]
+                    String[] fields = mensaje.split(":::");
+                    session.sendMessage(fields [0]);
+                    mensaje = fields[1];
                     break;
                 case "DSR":
-                    //pongo variable o enumeracion en un modo
-                    //session.sendMessage(mensaje);
+                    session.sendMessage(mensaje);
                     break;
             }
-        }while (!tipoMensaje.equals("ACK"));
-        //while (!tipoMensaje.equals("ACK") && variableEnumeracion.equals("envio"));
+        }while (!tipoMensaje.equals("ACK") && !tipoMensaje.equals("DSR"));
     }
 }
 

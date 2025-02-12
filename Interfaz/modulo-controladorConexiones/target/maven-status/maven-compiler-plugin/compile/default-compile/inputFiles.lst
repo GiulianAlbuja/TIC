@@ -1,8 +1,11 @@
 D:\darmy\Documents\NovenoSemestre\TIC\Interfaz\modulo-controladorConexiones\src\main\java\com\sideralsoft\interfaz\analizadores\AsignadorEstrategia.java
 D:\darmy\Documents\NovenoSemestre\TIC\Interfaz\modulo-controladorConexiones\src\main\java\com\sideralsoft\interfaz\analizadores\EnrutadorMensaje.java
 D:\darmy\Documents\NovenoSemestre\TIC\Interfaz\modulo-controladorConexiones\src\main\java\com\sideralsoft\interfaz\analizadores\EstadoComunicacion.java
+D:\darmy\Documents\NovenoSemestre\TIC\Interfaz\modulo-controladorConexiones\src\main\java\com\sideralsoft\interfaz\componentesUI\IndexController.java
 D:\darmy\Documents\NovenoSemestre\TIC\Interfaz\modulo-controladorConexiones\src\main\java\com\sideralsoft\interfaz\comunicadores\ServerListener.java
 D:\darmy\Documents\NovenoSemestre\TIC\Interfaz\modulo-controladorConexiones\src\main\java\com\sideralsoft\interfaz\comunicadores\Session.java
+D:\darmy\Documents\NovenoSemestre\TIC\Interfaz\modulo-controladorConexiones\src\main\java\com\sideralsoft\interfaz\comunicadores\SessionCliente.java
+D:\darmy\Documents\NovenoSemestre\TIC\Interfaz\modulo-controladorConexiones\src\main\java\com\sideralsoft\interfaz\comunicadores\SessionServidor.java
+D:\darmy\Documents\NovenoSemestre\TIC\Interfaz\modulo-controladorConexiones\src\main\java\com\sideralsoft\interfaz\comunicadores\TCPClient.java
 D:\darmy\Documents\NovenoSemestre\TIC\Interfaz\modulo-controladorConexiones\src\main\java\com\sideralsoft\interfaz\comunicadores\TCPServer.java
 D:\darmy\Documents\NovenoSemestre\TIC\Interfaz\modulo-controladorConexiones\src\main\java\com\sideralsoft\interfaz\Javafx.java
-D:\darmy\Documents\NovenoSemestre\TIC\Interfaz\modulo-controladorConexiones\src\main\java\com\sideralsoft\interfaz\SwingServerUI.java

@@ -108,8 +108,6 @@ public class ControladorHTTP {
 
     }
 
-
-
     private void registrarMensaje(String json) throws JsonProcessingException {
         ObjectMapper objectMapper = new ObjectMapper();
         Map<String, Object> jsonMap = objectMapper.readValue(json, Map.class);

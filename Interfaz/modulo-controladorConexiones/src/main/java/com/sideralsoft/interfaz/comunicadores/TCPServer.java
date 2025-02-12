@@ -1,5 +1,8 @@
 package com.sideralsoft.interfaz.comunicadores;
 
+import com.sideralsoft.shared.readers.YamlReader;
+
+import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
@@ -13,20 +16,14 @@ public final class TCPServer extends Thread {
     private static TCPServer instance;
     private ServerSocket serverSocket;
     private ExecutorService executorService;
-    private Map<String, Session> sessions;
+    private Session session;
     private List<ServerListener> listeners;
+    private String puerto;
 
-    private TCPServer() {
+    public TCPServer(String puerto) {
         this.executorService = Executors.newCachedThreadPool();
-        this.sessions = new HashMap<>();
         this.listeners = new ArrayList<>();
-    }
-
-    public static synchronized TCPServer getInstance() {
-        if (instance == null) {
-            instance = new TCPServer();
-        }
-        return instance;
+        this.puerto = puerto;
     }
 
 
@@ -37,14 +34,12 @@ public final class TCPServer extends Thread {
     @Override
     public void run() {
         try {
-            serverSocket = new ServerSocket(3001);
-            //notifyClientConnected("Servidor iniciado en el puerto 3001");
+            serverSocket = new ServerSocket(Integer.parseInt(puerto));
             while (!serverSocket.isClosed()) {
                 Socket clientSocket = serverSocket.accept();
                 String clientAddress = clientSocket.getInetAddress().toString();
                 System.out.println("Cliente conectado desde: " + clientAddress);
-                Session session = new Session(clientSocket, "cliente");
-                sessions.put(clientAddress, session);
+                this.session = new SessionServidor(clientSocket);
                 executorService.execute(session);
             }
         } catch (Exception e) {
@@ -70,18 +65,6 @@ public final class TCPServer extends Thread {
         }
     }
 
-
-    public void sendMessageToClient(String clientAddress, String message) {
-        Session session = sessions.get(clientAddress);
-        System.out.println("CLIENTE: " + session + ":" + clientAddress);
-        if (session != null) {
-            session.sendMessage(message);
-            System.out.println("MENSAJE ACK: " + message);
-        } else {
-            notifyError("No se encontró al cliente con dirección: " + clientAddress);
-        }
-    }
-
     public void stopServer() {
         try {
             executorService.shutdownNow();
@@ -94,5 +77,9 @@ public final class TCPServer extends Thread {
         } catch (Exception e) {
             notifyError("Error al detener el servidor: " + e.getMessage());
         }
+    }
+
+    public Session getSession() {
+        return session;
     }
 }

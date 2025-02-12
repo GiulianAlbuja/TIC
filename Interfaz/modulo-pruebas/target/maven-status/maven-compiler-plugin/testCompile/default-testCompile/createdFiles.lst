@@ -1,0 +1,3 @@
+com\sideralsoft\test\mocks\MockTCPServer.class
+com\sideralsoft\test\runners\CucumberTestRunner.class
+com\sideralsoft\test\stepDefinitions\EnvioStepDefinitions.class

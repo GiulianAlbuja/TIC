@@ -1,9 +1,11 @@
 com\sideralsoft\interfaz\analizadores\AsignadorEstrategia.class
+com\sideralsoft\interfaz\comunicadores\Session.class
+com\sideralsoft\interfaz\componentesUI\IndexController.class
+com\sideralsoft\interfaz\comunicadores\TCPClient.class
+com\sideralsoft\interfaz\comunicadores\SessionServidor.class
+com\sideralsoft\interfaz\comunicadores\SessionCliente.class
 com\sideralsoft\interfaz\comunicadores\TCPServer.class
 com\sideralsoft\interfaz\Javafx.class
 com\sideralsoft\interfaz\analizadores\EnrutadorMensaje.class
-com\sideralsoft\interfaz\comunicadores\Session.class
-com\sideralsoft\interfaz\SwingServerUI$1.class
-com\sideralsoft\interfaz\SwingServerUI.class
 com\sideralsoft\interfaz\comunicadores\ServerListener.class
 com\sideralsoft\interfaz\analizadores\EstadoComunicacion.class

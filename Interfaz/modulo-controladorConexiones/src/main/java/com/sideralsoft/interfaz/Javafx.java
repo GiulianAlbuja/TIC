@@ -1,6 +1,7 @@
 package com.sideralsoft.interfaz;
 
 import com.sideralsoft.interfaz.comunicadores.ServerListener;
+import com.sideralsoft.interfaz.comunicadores.TCPClient;
 import com.sideralsoft.interfaz.comunicadores.TCPServer;
 import javafx.application.Application;
 import javafx.application.Platform;
@@ -16,6 +17,7 @@ public class Javafx extends Application implements ServerListener {
     private TextField inputField;
     private TextField clientAddressField;
     private TCPServer server;
+    private TCPClient client;
 
     @Override
     public void start(Stage stage) {
@@ -33,11 +35,11 @@ public class Javafx extends Application implements ServerListener {
         stage.setScene(scene);
         stage.setTitle("Servidor TCP con JavaFX");
         stage.show();
+        client = new TCPClient("localhost", 3002);
 
-
-        server = TCPServer.getInstance();
-        server.addServerListener(this);
-        server.start();
+        //server = new TCPServer("3001");
+        //server.addServerListener(this);
+        //server.start();
     }
 
     private void sendMessageToClient() {
@@ -45,7 +47,7 @@ public class Javafx extends Application implements ServerListener {
         String clientAddress = clientAddressField.getText();
 
         if (!message.isEmpty() && !clientAddress.isEmpty()) {
-            server.sendMessageToClient(clientAddress, message);  // Enviar solo al cliente indicado
+            //server.sendMessageToClient(clientAddress, message);  // Enviar solo al cliente indicado
             messageArea.appendText("Servidor (a " + clientAddress + "): " + message + "\n");
             inputField.clear();
         }

@@ -65,7 +65,8 @@ public class DefaultStrategy implements EstrategiaProcesamiento {
         return mensaje;
     }
     @Override
-    public String validarMensajeQRY(String clientAddress, String mensaje) throws IOException {
+    public Map<String, String> validarMensajeQRY(String clientAddress, String mensaje) throws IOException {
+        Map<String, String> data = new LinkedHashMap<>();
         String status;
         String json = "";
         StringBuilder jsonResponse = new StringBuilder();
@@ -89,12 +90,12 @@ public class DefaultStrategy implements EstrategiaProcesamiento {
             status = "AA";
             json = estructurarJSON(mensaje);
             jsonResponse = controladorHTTP.enviarConsultaDeOrdenANube(json);
-            orden = obtenerOrden(jsonResponse);
+            data.put("DSR",obtenerOrden(jsonResponse));
         }else {
             status = "AE";
         }
-        mensaje = generarRespuestaQCK(mensaje, status);
-        return mensaje + ":::" + orden;
+        data.put("QCK",generarRespuestaQCK(mensaje, status));
+        return data;
     }
 
     private String obtenerOrden(StringBuilder jsonResponse) {

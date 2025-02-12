@@ -64,7 +64,7 @@ public class HematologyStrategy implements EstrategiaProcesamiento {
     }
 
     @Override
-    public String validarMensajeQRY(String clientAddress, String mensaje) {
+    public Map<String, String> validarMensajeQRY(String clientAddress, String mensaje) {
         return null;
     }
 

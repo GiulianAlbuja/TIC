@@ -36,18 +36,18 @@ public class EnrutadorMensaje {
                     break;
                 case "QRY":
                     this.estadoComunicacion = EstadoComunicacion.CONSULTA_ORDEN;
-                    mensaje = estrategiaProcesamiento.validarMensajeQRY(clientAddress, mensaje);
+                    data = estrategiaProcesamiento.validarMensajeQRY(clientAddress, mensaje);
+                    mensaje = data.get("QCK");
                     break;
                 case "QCK":
-                    String[] fields = mensaje.split(":::");
-                    session.sendMessage(fields [0]);
-                    mensaje = fields[1];
+                    session.sendMessage(mensaje);
+                    mensaje = data.get("DSR");
                     break;
                 case "DSR":
                     session.sendMessage(mensaje);
                     break;
             }
-        }while (!tipoMensaje.equals("ACK") && !tipoMensaje.equals("DSR"));
+        }while (!tipoMensaje.equals("ACK") && !tipoMensaje.equals("DSR") && tipoMensaje != null);
     }
 }
 

@@ -77,6 +77,7 @@ public class EnvioStepDefinitions{
             Socket clientSocket = mockServer.getClientSocket();
             PrintWriter out = new PrintWriter(clientSocket.getOutputStream(), true);
             out.println(mensaje);
+            out.close();
         }
         Thread.sleep(5000);
         List<String> mensajesRecibidos = session.getMensajesRecibidos();
@@ -133,6 +134,8 @@ public class EnvioStepDefinitions{
             Socket clientSocket = mockServer.getClientSocket();
             PrintWriter out = new PrintWriter(clientSocket.getOutputStream(), true);
             out.println(mensaje);
+            out.close();
+
         }
         Thread.sleep(5000);
         List<String> mensajesRecibidos = session.getMensajesRecibidos();

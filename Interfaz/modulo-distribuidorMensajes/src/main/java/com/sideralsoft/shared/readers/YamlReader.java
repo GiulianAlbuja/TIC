@@ -55,6 +55,7 @@ public class YamlReader {
                 nombre,
                 (String) data.get("id"),
                 (String) data.get("ip"),
+                (String) data.get("tipoConexion"),
                 (int) data.get("puerto"),
                 (String) data.get("configuracion_hl7"),
                 (String) data.get("token"),

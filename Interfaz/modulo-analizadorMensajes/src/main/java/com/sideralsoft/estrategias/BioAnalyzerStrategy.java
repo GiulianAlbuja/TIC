@@ -72,7 +72,6 @@ public class BioAnalyzerStrategy implements EstrategiaProcesamiento{
         YamlReader yamlReader = YamlReader.getInstance();
         Equipo equipo = yamlReader.getEquipoByConfiguracionHl7("BioAnalyzerStrategy");
         Map<String, String> data = new LinkedHashMap<>();
-        data.put("ip", equipo.getIp());
         data.put("id", equipo.getId());
         data.put("token", equipo.getToken());
         data.put("estrategiaHL7", equipo.getConfiguracionHl7());

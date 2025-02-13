@@ -40,7 +40,7 @@ public class EnvioStepDefinitions{
     public void queElEquipoDeLaboratorioActúaComoTIPO_EQUIPO(String tipoConexion) throws InterruptedException, IOException {
         if(tipoConexion.equals("cliente")){
             this.tipoConexion = tipoConexion;
-            this.server = new TCPServer("3001");
+            this.server = new TCPServer(3001);
             Thread.sleep(5000);
             server.start();
             Thread.sleep(5000);

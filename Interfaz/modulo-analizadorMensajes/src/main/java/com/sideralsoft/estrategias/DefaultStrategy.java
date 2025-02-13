@@ -157,8 +157,6 @@ public class DefaultStrategy implements EstrategiaProcesamiento {
         YamlReader yamlReader = YamlReader.getInstance();
         Equipo equipo = yamlReader.getEquipoByConfiguracionHl7("DefaultStrategy");
         Map<String, String> data = new LinkedHashMap<>();
-        data.put("ip", equipo.getIp());
-        //data.put("id", equipo.getId());
         data.put("id", equipo.getId());
         data.put("token", equipo.getToken());
         data.put("estrategiaHL7", equipo.getConfiguracionHl7());

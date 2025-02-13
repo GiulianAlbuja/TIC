@@ -22,6 +22,14 @@ public class TCPClient {
         }
     }
 
+    public void close() {
+        try {
+            socket.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     public Session getSession() {
         return session;
     }

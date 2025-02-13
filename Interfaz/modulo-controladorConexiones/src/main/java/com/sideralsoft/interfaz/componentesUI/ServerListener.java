@@ -1,7 +1,7 @@
-package com.sideralsoft.interfaz.comunicadores;
+package com.sideralsoft.interfaz.componentesUI;
 
 public interface ServerListener {
     void onMessageReceived(String message);
-    void onClientConnected(String clientInfo);
+    void onConnectionStatusChanged(String status);
     void onError(String error);
 }

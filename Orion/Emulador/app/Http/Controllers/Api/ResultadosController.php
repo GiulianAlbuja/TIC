@@ -39,7 +39,6 @@ class ResultadosController extends Controller
     private function validarSolicitud(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'ip' => 'required',
             'id' => 'required',
             'token' => 'required',
             'estrategiaHL7' => 'required',

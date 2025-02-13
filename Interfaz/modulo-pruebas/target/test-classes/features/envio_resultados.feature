@@ -14,24 +14,11 @@ Característica: Envío de resultados clínicos desde el equipo de laboratorio a
     """
     Y envía los resultados clínicos a Orión
     """
-    {"ip":"<IP>","id":"<ID>","token":"token","estrategiaHL7":"<ESTRATEGIA_HL7>","hl7Trama":"hl7Trama"}
+    {"id":"<ID>","token":"token","estrategiaHL7":"<ESTRATEGIA_HL7>","hl7Trama":"hl7Trama"}
     """
     Ejemplos:
-     | TIPO_CONEXION | ORU-MSH-3          | ORU-PID-3     | ORU-OBR-4    | ACK-MSH-5          | IP         | ID | ESTRATEGIA_HL7      |
-     | cliente       | AnalyzerA          | Ejemplo       | Ejemplo      | AnalyzerA          | /127.0.0.1 | A1 | AnalyzerStrategy    |
-     | servidor      | Ejemplo            | HematologyPro | Ejemplo      | HematologyPro      | /127.0.0.2 | H1 | HematologyStrategy  |
-     | cliente       | Ejemplo            | Ejemplo       | BioAnalyzerX | BioAnalyzerX       | /127.0.0.3 | B1 | BioAnalyzerStrategy |
-     | servidor      | EquipoNoRegistrado | Ejemplo       | Ejemplo      | EquipoNoRegistrado | /127.0.0.4 | D  | DefaultStrategy     |
-
-
-
-
-
-
-
-
-
-
-     #| cliente       | AnalyzerA          | Ejemplo       | Ejemplo      | AnalyzerA          | /127.0.0.1 | A1 | AnalyzerStrategy    |
-      #| servidor      | Ejemplo            | HematologyPro | Ejemplo      | HematologyPro      | /127.0.0.2 | H1 | HematologyStrategy  |
-      #| cliente       | Ejemplo            | Ejemplo       | BioAnalyzerX | BioAnalyzerX       | /127.0.0.3 | B1 | BioAnalyzerStrategy |
+      | TIPO_CONEXION | ORU-MSH-3 | ORU-PID-3     | ORU-OBR-4    | ACK-MSH-5     | ID | ESTRATEGIA_HL7      |
+      | cliente       | AnalyzerA | Ejemplo       | Ejemplo      | AnalyzerA     | A1 | AnalyzerStrategy    |
+      | servidor      | Ejemplo   | HematologyPro | Ejemplo      | HematologyPro | H1 | HematologyStrategy  |
+      | cliente       | Ejemplo   | Ejemplo       | BioAnalyzerX | BioAnalyzerX  | B1 | BioAnalyzerStrategy |
+      | servidor      | Default   | Ejemplo       | Ejemplo      | Default       | D  | DefaultStrategy     |

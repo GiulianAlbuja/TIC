@@ -31,7 +31,6 @@ public class AsignadorEstrategia {
         YamlReader yamlReader = YamlReader.getInstance();
         Map<String, Equipo> equipos = yamlReader.getEquipos();
 
-        //PREGUNTAR COMO SE SEPARAN LOS SEGMENTOS
         String[] lineas = mensaje.split("\\\\r?\\\\n|\\\\r");
 
         for (Equipo equipo : equipos.values()) {

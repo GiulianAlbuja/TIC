@@ -2,6 +2,7 @@ package com.sideralsoft.interfaz.componentesUI;
 
 import com.sideralsoft.interfaz.comunicadores.TCPClient;
 import com.sideralsoft.interfaz.comunicadores.TCPServer;
+import com.sideralsoft.interfaz.comunicadores.TCPServerController;
 import com.sideralsoft.shared.entidades.Equipo;
 import com.sideralsoft.shared.readers.YamlReader;
 import javafx.fxml.FXML;
@@ -33,7 +34,7 @@ public class MainController implements ServerListener  {
     @FXML
     private TabPane tabPane;// Dirección IP
 
-
+    private TCPServerController serverController = TCPServerController.getInstance();
 
     @FXML
     private void initialize() throws IOException {
@@ -72,7 +73,8 @@ public class MainController implements ServerListener  {
         if (equipo.getTipoConexion().equals("cliente")) {
             TCPServer tcpServer = new TCPServer(equipo.getPuerto());
             btn = new Button("Escuchar");
-            btn.setOnAction(e -> onEscucharButtonClick(textAreaConnection, equipo, tcpServer));
+            Button finalBtn = btn;
+            btn.setOnAction(e -> onEscucharButtonClick(textAreaConnection, equipo, finalBtn));
         } else if (equipo.getTipoConexion().equals("servidor")) {
             TCPClient tcpClient = null;
             btn = new Button("Conectar");
@@ -127,13 +129,15 @@ public class MainController implements ServerListener  {
 
 
 
-    private void onEscucharButtonClick(TextArea textAreaConnection, Equipo equipo, TCPServer tcpServer) {
-        if (tcpServer.isRunning()) {
-            tcpServer.stopServer();
+    private void onEscucharButtonClick(TextArea textAreaConnection, Equipo equipo, Button btn) {
+        if (serverController.isServerRunning(equipo.getNombre())) {
+            serverController.stopServer(equipo.getNombre());
             textAreaConnection.setText("Desconectado...");
+            btn.setText("Escuchar");
         } else {
-            new Thread(tcpServer).start();
-            textAreaConnection.setText("Escuchando...");
+            serverController.startServer(equipo.getNombre(), equipo.getPuerto());
+            textAreaConnection.setText("Escuchando en el puerto " + equipo.getPuerto());
+            btn.setText("Desconectar");
         }
     }
 

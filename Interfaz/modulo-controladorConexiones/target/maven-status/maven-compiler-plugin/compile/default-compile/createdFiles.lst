@@ -3,6 +3,7 @@ com\sideralsoft\interfaz\MainApp.class
 com\sideralsoft\interfaz\componentesUI\ServerListener.class
 com\sideralsoft\interfaz\componentesUI\MainController.class
 com\sideralsoft\interfaz\comunicadores\TCPClient.class
+com\sideralsoft\interfaz\comunicadores\TCPServerController.class
 com\sideralsoft\interfaz\comunicadores\TCPServer.class
 com\sideralsoft\interfaz\analizadores\EnrutadorMensaje.class
 com\sideralsoft\interfaz\comunicadores\TCPActor.class

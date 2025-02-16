@@ -1,11 +1,10 @@
 com\sideralsoft\interfaz\analizadores\AsignadorEstrategia.class
 com\sideralsoft\interfaz\MainApp.class
 com\sideralsoft\interfaz\componentesUI\ServerListener.class
-com\sideralsoft\interfaz\comunicadores\Session.class
 com\sideralsoft\interfaz\componentesUI\MainController.class
 com\sideralsoft\interfaz\comunicadores\TCPClient.class
-com\sideralsoft\interfaz\comunicadores\SessionServidor.class
-com\sideralsoft\interfaz\comunicadores\SessionCliente.class
 com\sideralsoft\interfaz\comunicadores\TCPServer.class
 com\sideralsoft\interfaz\analizadores\EnrutadorMensaje.class
+com\sideralsoft\interfaz\comunicadores\TCPActor.class
+com\sideralsoft\interfaz\Server.class
 com\sideralsoft\interfaz\analizadores\EstadoComunicacion.class

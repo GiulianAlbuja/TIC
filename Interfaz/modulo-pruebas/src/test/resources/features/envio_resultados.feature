@@ -3,7 +3,6 @@ Característica: Envío de resultados clínicos desde el equipo de laboratorio a
 
   Esquema del escenario: El equipo de laboratorio envía resultados clínicos a Orión
     Dado que el equipo de laboratorio actúa como <TIPO_CONEXION>
-    Y que la interfaz de comunicación ha iniciado una sesión con el equipo de laboratorio
     Cuando la interfaz de comunicación reciba un mensaje ORU
     """
     MSH|^~\&|<ORU-MSH-3>|LabFacility|LIS|Hospital|202412241200||ORU^R01|98765|P|2.3|\rPID|1|<ORU-PID-3>|123456^^^Hospital^MR||Doe^Jane||19900101|F|||456 Elm St^^Metropolis^NY^12345||555-555-1234|\rOBR|1|54321|<ORU-OBR-4>|BMP^Basic Metabolic Panel^L|||202412241100|202412241200|\rOBX|1|NM|2951-2^Sodium^LN||140|mmol/L|135-145|N|||\rOBX|2|NM|2823-3^Potassium^LN||4.2|mmol/L|3.5-5.0|N|||\r

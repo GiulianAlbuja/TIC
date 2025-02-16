@@ -33,7 +33,7 @@ public class HematologyStrategy implements EstrategiaProcesamiento {
     }
 
     @Override
-    public String validarMensajeORU(String clientAddress, String mensaje) throws IOException {
+    public String validarMensajeORU(String mensaje) throws IOException {
         String status;
         String[] lines = mensaje.split("(?=MSH|PID|OBR|OBX)");
 
@@ -55,7 +55,7 @@ public class HematologyStrategy implements EstrategiaProcesamiento {
         }
         if(hasMSH && hasPID && hasOBR && hasOBX){
             status = "AA";
-            estructurarJSON(clientAddress,mensaje);
+            estructurarJSON(mensaje);
         }else {
             status = "AE";
         }
@@ -64,11 +64,11 @@ public class HematologyStrategy implements EstrategiaProcesamiento {
     }
 
     @Override
-    public Map<String, String> validarMensajeQRY(String clientAddress, String mensaje) {
+    public Map<String, String> validarMensajeQRY(String mensaje) {
         return null;
     }
 
-    private void estructurarJSON(String clientAddress, String mensaje) throws IOException {
+    private void estructurarJSON(String mensaje) throws IOException {
         YamlReader yamlReader = YamlReader.getInstance();
         Equipo equipo = yamlReader.getEquipoByConfiguracionHl7("HematologyStrategy");
         Map<String, String> data = new LinkedHashMap<>();

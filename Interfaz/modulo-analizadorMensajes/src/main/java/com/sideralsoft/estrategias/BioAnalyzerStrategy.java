@@ -33,7 +33,7 @@ public class BioAnalyzerStrategy implements EstrategiaProcesamiento{
     }
 
     @Override
-    public String validarMensajeORU(String clientAddress, String mensaje) throws IOException {
+    public String validarMensajeORU(String mensaje) throws IOException {
         String status;
         String[] lines = mensaje.split("(?=MSH|PID|OBR|OBX)");
 
@@ -64,7 +64,7 @@ public class BioAnalyzerStrategy implements EstrategiaProcesamiento{
     }
 
     @Override
-    public Map<String, String> validarMensajeQRY(String clientAddress, String mensaje) {
+    public Map<String, String> validarMensajeQRY(String mensaje) {
         return null;
     }
 

@@ -33,7 +33,7 @@ public class DefaultStrategy implements EstrategiaProcesamiento {
     }
 
     @Override
-    public String validarMensajeORU(String clientAddress, String mensaje) throws IOException {
+    public String validarMensajeORU(String mensaje) throws IOException {
         String status;
         String json = "";
         String[] lines = mensaje.split("(?=MSH|PID|OBR|OBX)");
@@ -65,7 +65,7 @@ public class DefaultStrategy implements EstrategiaProcesamiento {
         return mensaje;
     }
     @Override
-    public Map<String, String> validarMensajeQRY(String clientAddress, String mensaje) throws IOException {
+    public Map<String, String> validarMensajeQRY(String mensaje) throws IOException {
         Map<String, String> data = new LinkedHashMap<>();
         String status;
         String json = "";

@@ -39,7 +39,7 @@ public class MockTCPServer extends Thread {
                     System.out.println("Cliente conectado: " + clientSocket.getInetAddress());
                 } catch (SocketException e) {
                     if (!running) {
-                        System.out.println("Servidor detenido.");
+                        System.out.println("Servidor Mock detenido.");
                         break;
                     }
                     e.printStackTrace();
@@ -62,7 +62,7 @@ public class MockTCPServer extends Thread {
             }
             executorService.shutdownNow();
             instance = null;
-            System.out.println("Servidor detenido.");
+            System.out.println("Servidor MOCK detenido.");
         } catch (IOException e) {
             e.printStackTrace();
         }

@@ -1,6 +1,6 @@
 package com.sideralsoft.interfaz.analizadores;
 
-import com.sideralsoft.interfaz.comunicadores.Session;
+import com.sideralsoft.interfaz.comunicadores.TCPActor;
 import com.sideralsoft.shared.estrategias.EstrategiaProcesamiento;
 
 import java.io.IOException;
@@ -8,16 +8,16 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class EnrutadorMensaje {
-    private Session session;
+    private TCPActor tcpActor;
     private String tipoMensaje;
     private EstrategiaProcesamiento estrategiaProcesamiento;
     private EstadoComunicacion estadoComunicacion;
 
-    public EnrutadorMensaje(Session session) {
-        this.session = session;
+    public EnrutadorMensaje(TCPActor tcpActor) {
+        this.tcpActor = tcpActor;
     }
 
-    public void enrutar(String clientAddress, String mensaje) throws IOException {
+    public void enrutar(String mensaje) throws IOException {
         Map<String, String> data = new LinkedHashMap<>();
         AsignadorEstrategia asignadorEstrategia = new AsignadorEstrategia();
         estrategiaProcesamiento = asignadorEstrategia.obtenerEstrategia(mensaje);
@@ -27,24 +27,24 @@ public class EnrutadorMensaje {
             switch (tipoMensaje) {
                 case "ORU^R01":
                     this.estadoComunicacion = EstadoComunicacion.ENVIO_RESULTADOS;
-                    mensaje = estrategiaProcesamiento.validarMensajeORU(clientAddress, mensaje);
+                    mensaje = estrategiaProcesamiento.validarMensajeORU(mensaje);
                     break;
                 case "ACK":
                     if(estadoComunicacion.equals(EstadoComunicacion.ENVIO_RESULTADOS)){
-                        session.sendMessage(mensaje);
+                        tcpActor.sendMessage(mensaje);
                     }
                     break;
                 case "QRY":
                     this.estadoComunicacion = EstadoComunicacion.CONSULTA_ORDEN;
-                    data = estrategiaProcesamiento.validarMensajeQRY(clientAddress, mensaje);
+                    data = estrategiaProcesamiento.validarMensajeQRY(mensaje);
                     mensaje = data.get("QCK");
                     break;
                 case "QCK":
-                    session.sendMessage(mensaje);
+                    tcpActor.sendMessage(mensaje);
                     mensaje = data.get("DSR");
                     break;
                 case "DSR":
-                    session.sendMessage(mensaje);
+                    tcpActor.sendMessage(mensaje);
                     break;
             }
         }while (!tipoMensaje.equals("ACK") && !tipoMensaje.equals("DSR") && tipoMensaje != null);

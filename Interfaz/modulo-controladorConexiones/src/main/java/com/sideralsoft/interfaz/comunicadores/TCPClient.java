@@ -2,37 +2,22 @@ package com.sideralsoft.interfaz.comunicadores;
 
 import java.io.IOException;
 import java.net.Socket;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 
-public class TCPClient {
-    private Socket socket;
-    private Session session;
-    private ExecutorService executorService;
+public class TCPClient extends TCPActor {
 
     public TCPClient(String ip, int port) {
         try {
-            this.executorService = Executors.newCachedThreadPool();
-            socket = new Socket(ip, port);
+            Socket socket = new Socket(ip, port);
             System.out.println("Conectado a: " + socket.getInetAddress().toString() + " en el puerto " + port);
-            this.session = new SessionCliente(socket);
-            executorService.execute(session);
+            setupConnection(socket);
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println("Error al conectar con el servidor: " + e.getMessage());
         }
     }
 
-    public void close() {
-        try {
-            socket.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+    @Override
+    protected void handleMessage(String message) {
+        mensajesRecibidos.add(message);
+        System.out.println("Mensaje recibido del servidor: " + message);
     }
-
-    public Session getSession() {
-        return session;
-    }
-
-
 }

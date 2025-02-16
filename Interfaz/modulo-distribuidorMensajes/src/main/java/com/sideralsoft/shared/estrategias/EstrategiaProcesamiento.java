@@ -6,7 +6,7 @@ import java.util.Map;
 public interface EstrategiaProcesamiento {
     String analizarTipoMensaje(String mensaje);
 
-    String validarMensajeORU(String clientAddress, String mensaje) throws IOException;
+    String validarMensajeORU(String mensaje) throws IOException;
 
-    Map<String, String> validarMensajeQRY(String clientAddress, String mensaje) throws IOException;
+    Map<String, String> validarMensajeQRY(String mensaje) throws IOException;
 }

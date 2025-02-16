@@ -68,17 +68,15 @@ public class MainController implements ServerListener  {
 
 
         Button btn = new Button("-");
-        Button btn2 = new Button("Desconectar");
 
         if (equipo.getTipoConexion().equals("cliente")) {
-            btn = new Button("Escuchar");
-
             TCPServer tcpServer = new TCPServer(equipo.getPuerto());
+            btn = new Button("Escuchar");
             btn.setOnAction(e -> onEscucharButtonClick(textAreaConnection, equipo, tcpServer));
-            btn2.setOnAction(e -> offEscucharButtonClick(tcpServer, textAreaConnection));
         } else if (equipo.getTipoConexion().equals("servidor")) {
+            TCPClient tcpClient = null;
             btn = new Button("Conectar");
-            btn.setOnAction(e -> onConectarButtonClick(textAreaConnection, equipo));
+            btn.setOnAction(e -> onConectarButtonClick(textAreaConnection, equipo, tcpClient));
         }
 
         textAreaReceived.setLayoutX(24.0);
@@ -107,10 +105,6 @@ public class MainController implements ServerListener  {
 
         btn.setLayoutX(521.0);
         btn.setLayoutY(183.0);
-
-        btn2.setLayoutX(521.0);
-        btn2.setLayoutY(230.0);
-
         Label tipoConexionLabel = new Label("Tipo conexión: " + equipo.getTipoConexion());
         tipoConexionLabel.setLayoutX(479.0);
         tipoConexionLabel.setLayoutY(84.0);
@@ -125,7 +119,7 @@ public class MainController implements ServerListener  {
 
         anchorPane.getChildren().addAll(
                 textAreaReceived, textAreaSent, textAreaConnection, labelReceived, labelSent,
-                labelConnection, btn,btn2, tipoConexionLabel,puertoLabel, ipLabel
+                labelConnection, btn, tipoConexionLabel,puertoLabel, ipLabel
         );
 
         return anchorPane;
@@ -133,10 +127,14 @@ public class MainController implements ServerListener  {
 
 
 
-    private void onEscucharButtonClick(TextArea textAreaConnection, Equipo equipo, TCPServer tcpServer){
-        textAreaConnection.setText("Escuchando...");
-        //tcpServer.setListener(this);
-        tcpServer.start();
+    private void onEscucharButtonClick(TextArea textAreaConnection, Equipo equipo, TCPServer tcpServer) {
+        if (tcpServer.isRunning()) {
+            tcpServer.stopServer();
+            textAreaConnection.setText("Desconectado...");
+        } else {
+            new Thread(tcpServer).start();
+            textAreaConnection.setText("Escuchando...");
+        }
     }
 
     private void offEscucharButtonClick( TCPServer tcpServer, TextArea textAreaConnection){
@@ -144,9 +142,15 @@ public class MainController implements ServerListener  {
         tcpServer.stopServer();
     }
 
-    private void onConectarButtonClick(TextArea textAreaConnection, Equipo equipo){
-        TCPClient tcpClient = new TCPClient(equipo.getIp(), equipo.getPuerto());
-        textAreaConnection.setText("Conectando...");
+    private void onConectarButtonClick(TextArea textAreaConnection, Equipo equipo, TCPClient tcpClient){
+        if (tcpClient == null) {
+
+            tcpClient = new TCPClient(equipo.getIp(), equipo.getPuerto());
+            textAreaConnection.setText("Conectando...");
+        } else {
+            tcpClient.closeConnection();
+            textAreaConnection.setText("Desconectado...");
+        }
     }
 
     @Override

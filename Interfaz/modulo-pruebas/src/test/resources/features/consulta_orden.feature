@@ -3,7 +3,6 @@ Característica: Consulta de órdenes pendientes desde el equipo de laboratorio 
 
 Esquema del escenario: El equipo de laboratorio consulta órdenes pendientes a Orión
    Dado que el equipo de laboratorio actúa como <TIPO_CONEXION>
-   Y que la interfaz de comunicación ha iniciado una sesión con el equipo de laboratorio
    Cuando la interfaz de comunicación reciba un mensaje de consulta QRY
    """
    MSH|^~\&|<QRY-MSH-3>|LabFacility|LIS|Hospital|202402061200||QRY|123456|P|2.3|\rQRD|202402061200|R|I|123456|<QRY-QRD-6>|<QRY-QRD-7>|RES|\r

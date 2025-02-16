@@ -1,6 +1,6 @@
 com\sideralsoft\interfaz\analizadores\AsignadorEstrategia.class
+com\sideralsoft\interfaz\componentesUI\TCPListener.class
 com\sideralsoft\interfaz\MainApp.class
-com\sideralsoft\interfaz\componentesUI\ServerListener.class
 com\sideralsoft\interfaz\componentesUI\MainController.class
 com\sideralsoft\interfaz\comunicadores\TCPClient.class
 com\sideralsoft\interfaz\comunicadores\TCPServerController.class

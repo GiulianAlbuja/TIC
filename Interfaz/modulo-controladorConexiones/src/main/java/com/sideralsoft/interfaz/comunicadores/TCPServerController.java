@@ -1,11 +1,19 @@
 package com.sideralsoft.interfaz.comunicadores;
 
+import com.sideralsoft.interfaz.componentesUI.TCPListener;
+
 import java.util.HashMap;
 import java.util.Map;
 
 public class TCPServerController {
     private static TCPServerController instance;
     private final Map<String, TCPServer> servidores;
+    private TCPListener listener;
+
+    public void setListener(TCPListener listener) {
+        this.listener = listener;
+    }
+
 
     private TCPServerController() {
         servidores = new HashMap<>();
@@ -25,6 +33,10 @@ public class TCPServerController {
         }
 
         TCPServer servidor = new TCPServer(puerto);
+        if (listener != null) {
+            servidor.setListener(listener);
+        }
+
         new Thread(servidor).start();
         servidores.put(equipo, servidor);
         System.out.println("Servidor iniciado para " + equipo + " en el puerto " + puerto);

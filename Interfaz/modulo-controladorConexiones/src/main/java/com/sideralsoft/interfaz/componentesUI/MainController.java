@@ -5,6 +5,7 @@ import com.sideralsoft.interfaz.comunicadores.TCPServer;
 import com.sideralsoft.interfaz.comunicadores.TCPServerController;
 import com.sideralsoft.shared.entidades.Equipo;
 import com.sideralsoft.shared.readers.YamlReader;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
@@ -13,10 +14,11 @@ import javafx.scene.layout.AnchorPane;
 import java.io.IOException;
 import java.io.PrintStream;
 import java.net.URL;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.ResourceBundle;
 
-public class MainController implements ServerListener  {
+public class MainController implements TCPListener  {
     @FXML
     private TextArea textAreaReceived;  // Mensajes recibidos
     @FXML
@@ -34,6 +36,10 @@ public class MainController implements ServerListener  {
     @FXML
     private TabPane tabPane;// Dirección IP
 
+    private final Map<String, TextArea> textAreasReceived = new HashMap<>();
+    private final Map<String, TextArea> textAreasSent = new HashMap<>();
+    private final Map<String, TextArea> textAreasConnection = new HashMap<>();
+
     private TCPServerController serverController = TCPServerController.getInstance();
 
     @FXML
@@ -48,19 +54,23 @@ public class MainController implements ServerListener  {
             tab.setContent(anchorPane);
             tabPane.getTabs().add(tab);
         }
+        serverController.setListener(this);
     }
 
     private AnchorPane createTabContent(Equipo equipo) {
-        // Crear un AnchorPane para el contenido de la pestaña
         AnchorPane anchorPane = new AnchorPane();
 
-        // Crear los TextArea y otros componentes
         TextArea textAreaReceived = new TextArea();
         TextArea textAreaSent = new TextArea();
         TextArea textAreaConnection = new TextArea();
+
         textAreaConnection.setEditable(false);
         textAreaReceived.setEditable(false);
         textAreaSent.setEditable(false);
+
+        textAreasReceived.put(equipo.getNombre(), textAreaReceived);
+        textAreasSent.put(equipo.getNombre(), textAreaSent);
+        textAreasConnection.put(equipo.getNombre(), textAreaConnection);
 
         // Crear los Labels
         Label labelReceived = new Label("Información recibida");
@@ -74,7 +84,7 @@ public class MainController implements ServerListener  {
             TCPServer tcpServer = new TCPServer(equipo.getPuerto());
             btn = new Button("Escuchar");
             Button finalBtn = btn;
-            btn.setOnAction(e -> onEscucharButtonClick(textAreaConnection, equipo, finalBtn));
+            btn.setOnAction(e -> onEscucharButtonClick(equipo, finalBtn));
         } else if (equipo.getTipoConexion().equals("servidor")) {
             TCPClient tcpClient = null;
             btn = new Button("Conectar");
@@ -129,27 +139,29 @@ public class MainController implements ServerListener  {
 
 
 
-    private void onEscucharButtonClick(TextArea textAreaConnection, Equipo equipo, Button btn) {
+    private void onEscucharButtonClick(Equipo equipo, Button btn) {
+        TextArea textAreaConnection = textAreasConnection.get(equipo.getNombre());
+
+        if (textAreaConnection == null) {
+            System.out.println("Error: No se encontró el textAreaConnection para " + equipo.getNombre());
+            return;
+        }
+
         if (serverController.isServerRunning(equipo.getNombre())) {
             serverController.stopServer(equipo.getNombre());
-            textAreaConnection.setText("Desconectado...");
+            appendLog(textAreaConnection, "Desconectado...");
             btn.setText("Escuchar");
         } else {
             serverController.startServer(equipo.getNombre(), equipo.getPuerto());
-            textAreaConnection.setText("Escuchando en el puerto " + equipo.getPuerto());
+            appendLog(textAreaConnection, "Escuchando en el puerto " + equipo.getPuerto());
             btn.setText("Desconectar");
         }
     }
 
-    private void offEscucharButtonClick( TCPServer tcpServer, TextArea textAreaConnection){
-        textAreaConnection.setText("Desconectando...");
-        tcpServer.stopServer();
-    }
-
     private void onConectarButtonClick(TextArea textAreaConnection, Equipo equipo, TCPClient tcpClient){
         if (tcpClient == null) {
-
             tcpClient = new TCPClient(equipo.getIp(), equipo.getPuerto());
+            tcpClient.setListener(this);
             textAreaConnection.setText("Conectando...");
         } else {
             tcpClient.closeConnection();
@@ -157,35 +169,33 @@ public class MainController implements ServerListener  {
         }
     }
 
-    @Override
-    public void onMessageReceived(String message) {
-        // Método para mostrar los mensajes recibidos
-        textAreaReceived.appendText(message + "\n");
+    private void appendLog(TextArea textArea, String message) {
+        Platform.runLater(() -> textArea.appendText(message + "\n"));
     }
 
-    @Override
-    public void onConnectionStatusChanged(String status) {
-        // Método para mostrar el estado de la conexión
-        textAreaConnection.setText(status);
-    }
 
     @Override
-    public void onError(String error) {
-
-    }
-
-    // Métodos adicionales para actualizar el `TextArea`
     public void updateReceivedMessage(String message) {
-        textAreaReceived.appendText(message + "\n");
+        Tab selectedTab = tabPane.getSelectionModel().getSelectedItem();
+        if (selectedTab != null) {
+            TextArea textArea = textAreasReceived.get(selectedTab.getText());
+            if (textArea != null) {
+                appendLog(textArea, "Mensaje recibido: " + message);
+            }
+        }
     }
 
+    @Override
     public void updateSentMessage(String message) {
-        textAreaSent.appendText(message + "\n");
+        Tab selectedTab = tabPane.getSelectionModel().getSelectedItem();
+        if (selectedTab != null) {
+            TextArea textArea = textAreasSent.get(selectedTab.getText());
+            if (textArea != null) {
+                appendLog(textArea, "Mensaje enviado: " + message);
+            }
+        }
     }
-
-    public void updateConnectionStatus(String status) {
-        textAreaConnection.setText(status);
-    }
-
-
 }
+
+
+

@@ -15,9 +15,4 @@ public class TCPClient extends TCPActor {
         }
     }
 
-    @Override
-    protected void handleMessage(String message) {
-        mensajesRecibidos.add(message);
-        System.out.println("Mensaje recibido del servidor: " + message);
-    }
 }

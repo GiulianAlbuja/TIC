@@ -1,6 +1,7 @@
 package com.sideralsoft.interfaz.comunicadores;
 
 import com.sideralsoft.interfaz.analizadores.EnrutadorMensaje;
+import com.sideralsoft.interfaz.componentesUI.TCPListener;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -20,6 +21,11 @@ public abstract class TCPActor {
     protected EnrutadorMensaje enrutadorMensaje;
     protected static List<String> mensajesRecibidos;
     protected static List<String> mensajesEnviados;
+    private TCPListener listener;
+
+    public void setListener(TCPListener listener) {
+        this.listener = listener;
+    }
 
     public TCPActor() {
         this.executorService = Executors.newCachedThreadPool();
@@ -49,6 +55,9 @@ public abstract class TCPActor {
         if (out != null) {
             out.println(message);
         }
+        if (listener != null) {
+            listener.updateSentMessage(message);
+        }
     }
 
     protected void listenForMessages() {
@@ -68,7 +77,12 @@ public abstract class TCPActor {
         }
     }
 
-    protected abstract void handleMessage(String message);
+    public void handleMessage(String message){
+        mensajesRecibidos.add(message);
+        if (listener != null) {
+            listener.updateReceivedMessage(message);
+        }
+    };
 
     public void closeConnection() {
 

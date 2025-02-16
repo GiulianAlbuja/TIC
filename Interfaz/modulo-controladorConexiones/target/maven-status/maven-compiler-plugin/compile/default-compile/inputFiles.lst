@@ -2,7 +2,7 @@ D:\darmy\Documents\NovenoSemestre\TIC\Interfaz\modulo-controladorConexiones\src\
 D:\darmy\Documents\NovenoSemestre\TIC\Interfaz\modulo-controladorConexiones\src\main\java\com\sideralsoft\interfaz\analizadores\EnrutadorMensaje.java
 D:\darmy\Documents\NovenoSemestre\TIC\Interfaz\modulo-controladorConexiones\src\main\java\com\sideralsoft\interfaz\analizadores\EstadoComunicacion.java
 D:\darmy\Documents\NovenoSemestre\TIC\Interfaz\modulo-controladorConexiones\src\main\java\com\sideralsoft\interfaz\componentesUI\MainController.java
-D:\darmy\Documents\NovenoSemestre\TIC\Interfaz\modulo-controladorConexiones\src\main\java\com\sideralsoft\interfaz\componentesUI\ServerListener.java
+D:\darmy\Documents\NovenoSemestre\TIC\Interfaz\modulo-controladorConexiones\src\main\java\com\sideralsoft\interfaz\componentesUI\TCPListener.java
 D:\darmy\Documents\NovenoSemestre\TIC\Interfaz\modulo-controladorConexiones\src\main\java\com\sideralsoft\interfaz\comunicadores\TCPActor.java
 D:\darmy\Documents\NovenoSemestre\TIC\Interfaz\modulo-controladorConexiones\src\main\java\com\sideralsoft\interfaz\comunicadores\TCPClient.java
 D:\darmy\Documents\NovenoSemestre\TIC\Interfaz\modulo-controladorConexiones\src\main\java\com\sideralsoft\interfaz\comunicadores\TCPServer.java

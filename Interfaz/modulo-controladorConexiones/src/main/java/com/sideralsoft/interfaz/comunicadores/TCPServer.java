@@ -43,12 +43,6 @@ public class TCPServer extends TCPActor implements Runnable {
         }
     }
 
-    @Override
-    protected void handleMessage(String message) {
-        System.out.println("Mensaje recibido del cliente: " + message);
-        mensajesRecibidos.add(message);
-    }
-
     public void stopServer() {
         this.running = false;
         try {
@@ -62,8 +56,5 @@ public class TCPServer extends TCPActor implements Runnable {
 
     public boolean isRunning() {
         return running;
-    }
-    public void setRunning(Boolean running) {
-        this.running = running;
     }
 }

@@ -1,0 +1,6 @@
+com.sideralsoft.estrategias.DefaultStrategy
+com.sideralsoft.estrategias.DefaultStrategy: DefaultStrategy()
+com.sideralsoft.estrategias.DefaultStrategy: java.lang.String analizarTipoMensaje(java.lang.String)
+com.sideralsoft.estrategias.DefaultStrategy: java.lang.String validarMensajeORU(java.lang.String)
+com.sideralsoft.estrategias.DefaultStrategy: java.util.Map validarMensajeQRY(java.lang.String)
+com.sideralsoft.estrategias.DefaultStrategy: java.lang.String generarRespuestaACK(java.lang.String,java.lang.String)

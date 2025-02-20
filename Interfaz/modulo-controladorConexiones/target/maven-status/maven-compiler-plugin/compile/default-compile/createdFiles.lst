@@ -7,5 +7,4 @@ com\sideralsoft\interfaz\comunicadores\TCPServerController.class
 com\sideralsoft\interfaz\comunicadores\TCPServer.class
 com\sideralsoft\interfaz\analizadores\EnrutadorMensaje.class
 com\sideralsoft\interfaz\comunicadores\TCPActor.class
-com\sideralsoft\interfaz\Server.class
 com\sideralsoft\interfaz\analizadores\EstadoComunicacion.class

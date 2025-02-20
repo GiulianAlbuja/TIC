@@ -11,16 +11,12 @@ public class MainApp extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        // Cargar el archivo FXML
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/index.fxml"));
 
-        // Cargar la interfaz desde FXML
         AnchorPane root = loader.load();
 
-        // Obtener el controlador y pasarle la instancia
         MainController controller = loader.getController();
 
-        // Configurar la escena
         Scene scene = new Scene(root);
         primaryStage.setTitle("Interfaz de comunicación TCP/IP");
         primaryStage.setScene(scene);

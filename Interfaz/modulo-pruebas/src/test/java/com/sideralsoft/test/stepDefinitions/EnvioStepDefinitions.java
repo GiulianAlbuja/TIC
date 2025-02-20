@@ -54,6 +54,8 @@ public class EnvioStepDefinitions{
         }
     }
 
+    //ENVÍO DE RESULTADOS CLÍNICOS
+
     @Cuando("la interfaz de comunicación reciba un mensaje ORU")
     public void laInterfazDeComunicaciónRecibaUnMensajeORU(String mensaje) throws IOException, InterruptedException {
         Thread.sleep(5000);
@@ -76,7 +78,7 @@ public class EnvioStepDefinitions{
     }
 
     @Entonces("la interfaz de comunicación envía al equipo de laboratorio una respuesta de confirmación ACK")
-    public void laInterfazDeComunicaciónEnvíaAlEquipoDeLaboratorioUnaRespuestaDeConfirmaciónACK(String mensaje) throws InterruptedException, IOException {
+    public void laInterfazDeComunicaciónEnvíaAlEquipoDeLaboratorioUnaRespuestaDeConfirmaciónACK(String mensaje) throws InterruptedException {
         Thread.sleep(8000);
         List<String>  mensajesEnviados = null;
         if (tipoConexion.equals("cliente")){
@@ -98,19 +100,7 @@ public class EnvioStepDefinitions{
         assertTrue("El mensaje enviado a Orion no es el esperado.", mensajesEnviados.contains(resultados));
     }
 
-    @After
-    public void tearDown() throws IOException, InterruptedException {
-        if (server != null) {
-            server.stopServer();
-            Thread.sleep(2000);
-        }
-        if (mockServer != null) {
-            mockServer.stopServer();
-            Thread.sleep(2000);
-        }
-        Thread.sleep(5000);
-    }
-
+    //CONSULTA DE ÓRDENES PENDIENTES
 
     @Cuando("la interfaz de comunicación reciba un mensaje de consulta QRY")
     public void laInterfazDeComunicaciónRecibaUnMensajeDeConsultaQRY(String mensaje) throws InterruptedException, IOException {
@@ -132,7 +122,6 @@ public class EnvioStepDefinitions{
         System.out.println("Mensaje:"+ mensajesRecibidos);
         assertTrue("El mensaje no fue recibido correctamente por el servidor.", mensajesRecibidos.contains(mensaje));
     }
-
 
     @Entonces("la interfaz de comunicación envía al equipo de laboratorio una respuesta de confirmación QCK")
     public void laInterfazDeComunicaciónEnvíaAlEquipoDeLaboratorioUnaRespuestaDeConfirmaciónQCK(String mensaje) {
@@ -168,6 +157,20 @@ public class EnvioStepDefinitions{
         System.out.println("Mensajes enviados GHERKIN:"+ informacionMuestra);
         assertTrue("El mensaje enviado no es el esperado.", mensajesEnviados.contains(informacionMuestra));
     }
+
+    @After
+    public void tearDown() throws IOException, InterruptedException {
+        if (server != null) {
+            server.stopServer();
+            Thread.sleep(2000);
+        }
+        if (mockServer != null) {
+            mockServer.stopServer();
+            Thread.sleep(2000);
+        }
+        Thread.sleep(5000);
+    }
+
 }
 
 

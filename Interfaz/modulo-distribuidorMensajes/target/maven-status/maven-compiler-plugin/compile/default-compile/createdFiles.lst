@@ -1,7 +1,6 @@
-com\sideralsoft\shared\entidades\Equipo.class
-com\sideralsoft\shared\readers\JsonReader$1.class
 com\sideralsoft\shared\estrategias\EstrategiaProcesamiento.class
 com\sideralsoft\shared\readers\YamlReader.class
-com\sideralsoft\shared\readers\Main.class
 com\sideralsoft\shared\readers\JsonReader.class
+com\sideralsoft\shared\entidades\Equipo.class
 com\sideralsoft\shared\comunicadores\ControladorHTTP.class
+com\sideralsoft\shared\readers\JsonReader$1.class

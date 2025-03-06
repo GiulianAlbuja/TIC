@@ -2,7 +2,6 @@ package com.sideralsoft.interfaz.analizadores;
 
 import com.sideralsoft.shared.entidades.Equipo;
 import com.sideralsoft.shared.estrategias.EstrategiaProcesamiento;
-import com.sideralsoft.shared.readers.JsonReader;
 import com.sideralsoft.shared.readers.YamlReader;
 
 import java.io.File;

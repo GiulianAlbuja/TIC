@@ -10,3 +10,7 @@ public interface EstrategiaProcesamiento {
 
     Map<String, String> validarMensajeQRY(String mensaje) throws IOException;
 }
+
+
+
+

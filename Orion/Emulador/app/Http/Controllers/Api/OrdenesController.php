@@ -25,7 +25,9 @@ class OrdenesController extends Controller
         }
 
         try {
-            $resultado = 'MSH|^~\&|LIS|Hospital|Default|LabFacility|202402061202||DSR|654321|P|2.3|\rPID|1|12345^^^Hospital^MR||Doe^John||19800101|M|||456 Elm St^^Metropolis^NY^12345||555-555-5555|\rOBR|1|54321|12345|CMP^Comprehensive Metabolic Panel^L|||202402061100|202402061201\r';
+            $asignadorEstrategia = new AsignadorEstrategia();
+            $strategy = $asignadorEstrategia->obtenerEstrategia($request->get('estrategiaHL7'));
+            $resultado = $strategy->procesarJSONaTramaHL7($request->get('hl7Trama'));
             return response()->json(['success' => true, 'orden' => $resultado], 200);
         } catch (\Exception $e) {
             return response()->json(['success' => false, 'error' => $e->getMessage()], 400);

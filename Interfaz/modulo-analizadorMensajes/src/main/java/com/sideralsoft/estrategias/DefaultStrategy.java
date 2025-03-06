@@ -20,6 +20,7 @@ public class DefaultStrategy implements EstrategiaProcesamiento {
 
     @Override
     public String analizarTipoMensaje(String mensaje) {
+        System.out.println("Analizando mensaje - PRUEBA AUTOUPDATE DE DEPENDENCIAS");
         String[] segments = mensaje.split("\\\\r");
         for (String segment : segments) {
             if (segment.startsWith("MSH")) {

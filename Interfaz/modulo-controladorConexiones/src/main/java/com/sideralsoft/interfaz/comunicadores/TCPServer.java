@@ -37,7 +37,7 @@ public class TCPServer extends TCPActor implements Runnable {
             }
             clientSocket.close();
         } catch (IOException e) {
-            System.out.println("Error en el servidor: " + e.getMessage());
+            System.out.println(e.getMessage());
         } finally {
             stopServer();
         }

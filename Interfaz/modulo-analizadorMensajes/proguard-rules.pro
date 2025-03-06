@@ -21,5 +21,5 @@
 # Minimizar el código eliminando clases no utilizadas
 -dontshrink
 
--repackageclasses obfuscated
--flattenpackagehierarchy
+
+

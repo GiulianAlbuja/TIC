@@ -1,10 +1,8 @@
-com.sideralsoft.estrategias.DefaultStrategy -> com.sideralsoft.estrategias.DefaultStrategy:
+com.sideralsoft.estrategias.AnalyzerStrategy -> com.sideralsoft.estrategias.AnalyzerStrategy:
     com.sideralsoft.shared.comunicadores.ControladorHTTP controladorHTTP -> a
     void <init>() -> <init>
     java.lang.String analizarTipoMensaje(java.lang.String) -> analizarTipoMensaje
     java.lang.String validarMensajeORU(java.lang.String) -> validarMensajeORU
     java.util.Map validarMensajeQRY(java.lang.String) -> validarMensajeQRY
-    java.lang.String obtenerOrden(java.lang.StringBuilder) -> a
-    java.lang.String generarRespuestaQCK(java.lang.String,java.lang.String) -> a
-    java.lang.String estructurarJSON(java.lang.String) -> a
-    java.lang.String generarRespuestaACK(java.lang.String,java.lang.String) -> generarRespuestaACK
+    void estructurarJSON(java.lang.String) -> a
+    java.lang.String generarRespuestaConfirmacion(java.lang.String,java.lang.String) -> generarRespuestaConfirmacion

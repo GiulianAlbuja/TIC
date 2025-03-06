@@ -21,7 +21,7 @@ import java.util.concurrent.Executors;
 
 import static org.junit.Assert.assertTrue;
 
-public class EnvioStepDefinitions{
+public class StepDefinitions {
     private TCPServer server;
     private TCPClient client;
     private Socket socket;
@@ -30,7 +30,7 @@ public class EnvioStepDefinitions{
     private ControladorHTTP controladorHTTP;
     private MockTCPServer mockServer;
 
-    public EnvioStepDefinitions() throws IOException {
+    public StepDefinitions() throws IOException {
         this.executorService = Executors.newCachedThreadPool();
     }
 

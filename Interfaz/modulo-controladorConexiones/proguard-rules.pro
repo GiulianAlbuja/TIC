@@ -3,7 +3,7 @@
 # ============================
 
 # ==============
-# 📌 JAVA & JDK
+#  JAVA & JDK
 # ==============
 
 # Evitar que ProGuard elimine clases del JDK necesarias
@@ -11,15 +11,14 @@
 -libraryjars C:/Users/darmy/.jdks/corretto-21.0.4/jmods/java.base.jmod
 
 # =======================
-# 🔷 JAVA FX Y DEPENDENCIAS
+#  JAVA FX Y DEPENDENCIAS
 # =======================
 
 # Mantener todas las clases de JavaFX para evitar problemas de reflexión
 -keep class javafx.** { *; }
--keep class com.sun.javafx.** { *; }
--keep class com.sun.glass.** { *; }
--keep class com.sun.scenario.** { *; }
--keep class com.sun.prism.** { *; }
+-keep class com.sun.** { *; }
+-keep class com.google.** { *; }
+-keep class com.fasterxml.** { *; }
 
 # Evitar optimización y eliminación de clases JavaFX
 -dontshrink
@@ -49,6 +48,9 @@
 
 # Mantener clases y estructura del paquete UI (interfaz gráfica)
 -keep class com.sideralsoft.interfaz.componentesUI.** { *; }
+-keep class com.sideralsoft.shared.** { *; }
+
+
 
 # Mantener la clase principal y su método main
 -keep class com.sideralsoft.interfaz.MainApp {
@@ -57,17 +59,26 @@
 
 # Mantener clases usadas en reflexión o inyección
 -keep class com.sideralsoft.shared.estrategias.EstrategiaProcesamiento
+-keep class com.sideralsoft.shared.comunicadores.ControladorHTTP
+-keep class com.sideralsoft.shared.entidades.Equipo
 -keep class * implements com.sideralsoft.shared.estrategias.EstrategiaProcesamiento {
+    public *;
+}
+-keep class * implements com.sideralsoft.shared.comunicadores.ControladorHTTP {
+    public *;
+}
+-keep class * implements com.sideralsoft.shared.entidades.Equipo {
     public *;
 }
 
 # Mantener clases de entidades, comunicadores y readers
--keep class com.sideralsoft.shared.entidades.** { *; }
--keep class com.sideralsoft.shared.comunicadores.** { *; }
+#-keep class com.sideralsoft.shared.entidades.** { *; }
+#keep class com.sideralsoft.shared.comunicadores.** { *; }
 -keep class com.sideralsoft.shared.readers.** { *; }
 
+
 # Mantener clases de analizadores
--keep class com.sideralsoft.interfaz.analizadores.** { *; }
+#-keep class com.sideralsoft.interfaz.analizadores.** { *; }
 
 # =======================
 # 📝 YAML (SnakeYAML)
@@ -111,19 +122,19 @@
 }
 
 # =======================
-# 🚫 PREVENCIÓN DE ADVERTENCIAS
+# PREVENCIÓN DE ADVERTENCIAS
 # =======================
 
 # Evitar advertencias de clases faltantes si no afectan la ejecución
 -dontwarn com.sideralsoft.**
--dontwarn javax.**
 -dontwarn com.fasterxml.jackson.**
 -dontwarn org.yaml.snakeyaml.**
 -dontwarn com.sun.**
 -dontwarn javafx.**
+-dontwarn com.google.**
 
 # =======================
-# 🚀 AJUSTES DE PROGUARD
+# AJUSTES DE PROGUARD
 # =======================
 
 # Evitar eliminación de clases utilizadas en la serialización
@@ -138,13 +149,43 @@
     private void readObjectNoData();
 }
 
+-keepclassmembers class * {
+    public <init>(...);  # Mantiene constructores
+    public void *(...);  # Cambia nombres de métodos, pero conserva firmas
+    public *;            # Permite cambiar nombres de variables y atributos
+}
+
 # Mantener atributos críticos de reflexión y anotaciones
 -keepattributes Exceptions, InnerClasses, Signature, Deprecated, SourceFile, LineNumberTable, *Annotation*
-
-# =======================
-# ⏳ EVITAR ERRORES DE RUNTIME
-# =======================
 
 # Deshabilitar optimización y eliminación de código para evitar problemas de compatibilidad con JavaFX
 -dontshrink
 -dontoptimize
+
+
+# Evitar que ProGuard modifique la estructura de YamlReader
+-keep class com.sideralsoft.shared.readers.YamlReader { *; }
+# Evitar cambios en el uso de Map y Streams
+-keep class java.util.Map { *; }
+-keep class java.util.stream.Collectors { *; }
+-keep class java.util.stream.Stream { *; }
+
+# Mantener métodos con genéricos en las clases del proyecto
+-keepclassmembers class * {
+    public *;
+}
+
+# Evitar optimización y eliminación de genéricos en Gson y YAML
+-keepattributes Signature
+-keep class org.yaml.snakeyaml.** { *; }
+-keep class com.google.gson.** { *; }
+
+# Evitar eliminación o cambios en métodos que usan Map y Stream API
+-keepclassmembers class java.util.Map {
+    public *;
+}
+# No optimizar estructuras de conversión de YAML
+-dontshrink
+-dontoptimize
+
+

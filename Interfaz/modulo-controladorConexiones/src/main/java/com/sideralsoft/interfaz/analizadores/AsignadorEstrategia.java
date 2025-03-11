@@ -27,8 +27,8 @@ public class AsignadorEstrategia {
     }
 
     private String identificarEstrategia(String mensaje) throws IOException {
-        YamlReader yamlReader = YamlReader.getInstance();
-        Map<String, Equipo> equipos = yamlReader.getEquipos();
+        YamlReader yamlReader = YamlReader.getInstance(); //c.c.a()
+        Map<String, Equipo> equipos = yamlReader.getEquipos(); //b()
 
         String[] lineas = mensaje.split("\\\\r?\\\\n|\\\\r");
 

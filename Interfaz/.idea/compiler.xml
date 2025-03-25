@@ -8,8 +8,8 @@
         <outputRelativeToContentRoot value="true" />
         <module name="modulo-controladorConexiones" />
         <module name="modulo-analizadorMensajes" />
-        <module name="modulo-distribuidorMensajes" />
         <module name="modulo-pruebas" />
+        <module name="modulo-distribuidorMensajes" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
